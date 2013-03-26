@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MCampusKit' target in the 'MCampusKit' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
