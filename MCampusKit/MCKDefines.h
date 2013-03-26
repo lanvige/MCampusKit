@@ -8,6 +8,4 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MCKDefines : NSObject
-
-@end
+extern NSString *const kAPIBaseURLString;
