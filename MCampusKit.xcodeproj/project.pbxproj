@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383CC20F1701960700328A7D /* MCKDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2081701960700328A7D /* MCKDataWrapper.m */; };
+		383CC2101701960700328A7D /* MCKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC20A1701960700328A7D /* MCKError.m */; };
+		383CC2111701960700328A7D /* MCKModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC20C1701960700328A7D /* MCKModelBase.m */; };
+		383CC2121701960700328A7D /* MCKModelBaseIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC20E1701960700328A7D /* MCKModelBaseIdentifier.m */; };
+		383CC218170196A700328A7D /* CityData.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC215170196A700328A7D /* CityData.m */; };
+		383CC219170196A700328A7D /* ProvinceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC217170196A700328A7D /* ProvinceData.m */; };
+		383CC21D1701972500328A7D /* MCKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC21C1701972500328A7D /* MCKConfiguration.m */; };
+		383CC2231701975900328A7D /* MCKStudyPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2201701975900328A7D /* MCKStudyPlan.m */; };
+		383CC2241701975900328A7D /* MCKStudyPlans.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2221701975900328A7D /* MCKStudyPlans.m */; };
+		383CC2361701982C00328A7D /* MCKFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2271701982C00328A7D /* MCKFriend.m */; };
+		383CC2371701982C00328A7D /* MCKProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2291701982C00328A7D /* MCKProfile.m */; };
+		383CC2381701982C00328A7D /* MCKProfileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC22B1701982C00328A7D /* MCKProfileInfo.m */; };
+		383CC2391701982C00328A7D /* MCKProfilePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC22D1701982C00328A7D /* MCKProfilePhoto.m */; };
+		383CC23A1701982C00328A7D /* MCKProfileStudyDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC22F1701982C00328A7D /* MCKProfileStudyDetail.m */; };
+		383CC23B1701982C00328A7D /* MCKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2311701982C00328A7D /* MCKUser.m */; };
+		383CC23C1701982C00328A7D /* MCKUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2331701982C00328A7D /* MCKUserContext.m */; };
+		383CC23D1701982C00328A7D /* MCKUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2351701982C00328A7D /* MCKUserSettings.m */; };
+		383CC2541701986000328A7D /* MCKCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2401701986000328A7D /* MCKCourse.m */; };
+		383CC2551701986000328A7D /* MCKCourseware.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2421701986000328A7D /* MCKCourseware.m */; };
+		383CC2571701986000328A7D /* MCKCoursewareSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2461701986000328A7D /* MCKCoursewareSet.m */; };
+		383CC2581701986000328A7D /* MCKExerciseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2491701986000328A7D /* MCKExerciseItem.m */; };
+		383CC2591701986000328A7D /* MCKExerciseItemOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC24B1701986000328A7D /* MCKExerciseItemOption.m */; };
+		383CC25A1701986000328A7D /* MCKFrameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC24D1701986000328A7D /* MCKFrameInfo.m */; };
+		383CC25B1701986000328A7D /* MCKProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC24F1701986000328A7D /* MCKProgress.m */; };
+		383CC25C1701986000328A7D /* MCKProgressRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2511701986000328A7D /* MCKProgressRanking.m */; };
+		383CC25D1701986000328A7D /* MCKProgressSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2531701986000328A7D /* MCKProgressSet.m */; };
+		383CC2731701989600328A7D /* MCKCommunity.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2601701989600328A7D /* MCKCommunity.m */; };
+		383CC2741701989600328A7D /* MCKCommunityReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2621701989600328A7D /* MCKCommunityReply.m */; };
+		383CC2751701989600328A7D /* MCKDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2641701989600328A7D /* MCKDialogue.m */; };
+		383CC2761701989600328A7D /* MCKDialogueDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2661701989600328A7D /* MCKDialogueDetail.m */; };
+		383CC2771701989600328A7D /* MCKMessageSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2681701989600328A7D /* MCKMessageSummary.m */; };
+		383CC2781701989600328A7D /* MCKMms.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC26A1701989600328A7D /* MCKMms.m */; };
+		383CC2791701989600328A7D /* MCKNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC26C1701989600328A7D /* MCKNotice.m */; };
+		383CC27A1701989600328A7D /* MCKNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC26E1701989600328A7D /* MCKNotification.m */; };
+		383CC27B1701989600328A7D /* MCKVote.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2701701989600328A7D /* MCKVote.m */; };
+		383CC27C1701989600328A7D /* MCKVoteOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2721701989600328A7D /* MCKVoteOption.m */; };
 		38774E0017017EAC0081D5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38774DFF17017EAC0081D5D2 /* Foundation.framework */; };
 		38774E0517017EAC0081D5D2 /* MCampusKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38774E0417017EAC0081D5D2 /* MCampusKit.h */; };
 		38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0E17017F1C0081D5D2 /* MCKDefines.m */; };
@@ -30,6 +66,80 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		383CC2061701960700328A7D /* MCKCustomError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCustomError.h; sourceTree = "<group>"; };
+		383CC2071701960700328A7D /* MCKDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDataWrapper.h; sourceTree = "<group>"; };
+		383CC2081701960700328A7D /* MCKDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDataWrapper.m; sourceTree = "<group>"; };
+		383CC2091701960700328A7D /* MCKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKError.h; sourceTree = "<group>"; };
+		383CC20A1701960700328A7D /* MCKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKError.m; sourceTree = "<group>"; };
+		383CC20B1701960700328A7D /* MCKModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKModelBase.h; sourceTree = "<group>"; };
+		383CC20C1701960700328A7D /* MCKModelBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKModelBase.m; sourceTree = "<group>"; };
+		383CC20D1701960700328A7D /* MCKModelBaseIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKModelBaseIdentifier.h; sourceTree = "<group>"; };
+		383CC20E1701960700328A7D /* MCKModelBaseIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKModelBaseIdentifier.m; sourceTree = "<group>"; };
+		383CC214170196A700328A7D /* CityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityData.h; sourceTree = "<group>"; };
+		383CC215170196A700328A7D /* CityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityData.m; sourceTree = "<group>"; };
+		383CC216170196A700328A7D /* ProvinceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceData.h; sourceTree = "<group>"; };
+		383CC217170196A700328A7D /* ProvinceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceData.m; sourceTree = "<group>"; };
+		383CC21B1701972500328A7D /* MCKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKConfiguration.h; sourceTree = "<group>"; };
+		383CC21C1701972500328A7D /* MCKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKConfiguration.m; sourceTree = "<group>"; };
+		383CC21F1701975900328A7D /* MCKStudyPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKStudyPlan.h; sourceTree = "<group>"; };
+		383CC2201701975900328A7D /* MCKStudyPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKStudyPlan.m; sourceTree = "<group>"; };
+		383CC2211701975900328A7D /* MCKStudyPlans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKStudyPlans.h; sourceTree = "<group>"; };
+		383CC2221701975900328A7D /* MCKStudyPlans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKStudyPlans.m; sourceTree = "<group>"; };
+		383CC2261701982C00328A7D /* MCKFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKFriend.h; sourceTree = "<group>"; };
+		383CC2271701982C00328A7D /* MCKFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKFriend.m; sourceTree = "<group>"; };
+		383CC2281701982C00328A7D /* MCKProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProfile.h; sourceTree = "<group>"; };
+		383CC2291701982C00328A7D /* MCKProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProfile.m; sourceTree = "<group>"; };
+		383CC22A1701982C00328A7D /* MCKProfileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProfileInfo.h; sourceTree = "<group>"; };
+		383CC22B1701982C00328A7D /* MCKProfileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProfileInfo.m; sourceTree = "<group>"; };
+		383CC22C1701982C00328A7D /* MCKProfilePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProfilePhoto.h; sourceTree = "<group>"; };
+		383CC22D1701982C00328A7D /* MCKProfilePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProfilePhoto.m; sourceTree = "<group>"; };
+		383CC22E1701982C00328A7D /* MCKProfileStudyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProfileStudyDetail.h; sourceTree = "<group>"; };
+		383CC22F1701982C00328A7D /* MCKProfileStudyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProfileStudyDetail.m; sourceTree = "<group>"; };
+		383CC2301701982C00328A7D /* MCKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUser.h; sourceTree = "<group>"; };
+		383CC2311701982C00328A7D /* MCKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUser.m; sourceTree = "<group>"; };
+		383CC2321701982C00328A7D /* MCKUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUserContext.h; sourceTree = "<group>"; };
+		383CC2331701982C00328A7D /* MCKUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUserContext.m; sourceTree = "<group>"; };
+		383CC2341701982C00328A7D /* MCKUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUserSettings.h; sourceTree = "<group>"; };
+		383CC2351701982C00328A7D /* MCKUserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUserSettings.m; sourceTree = "<group>"; };
+		383CC23F1701986000328A7D /* MCKCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCourse.h; sourceTree = "<group>"; };
+		383CC2401701986000328A7D /* MCKCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCourse.m; sourceTree = "<group>"; };
+		383CC2411701986000328A7D /* MCKCourseware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCourseware.h; sourceTree = "<group>"; };
+		383CC2421701986000328A7D /* MCKCourseware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCourseware.m; sourceTree = "<group>"; };
+		383CC2451701986000328A7D /* MCKCoursewareSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCoursewareSet.h; sourceTree = "<group>"; };
+		383CC2461701986000328A7D /* MCKCoursewareSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCoursewareSet.m; sourceTree = "<group>"; };
+		383CC2471701986000328A7D /* MCKCoursewareStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCoursewareStatus.h; sourceTree = "<group>"; };
+		383CC2481701986000328A7D /* MCKExerciseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKExerciseItem.h; sourceTree = "<group>"; };
+		383CC2491701986000328A7D /* MCKExerciseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKExerciseItem.m; sourceTree = "<group>"; };
+		383CC24A1701986000328A7D /* MCKExerciseItemOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKExerciseItemOption.h; sourceTree = "<group>"; };
+		383CC24B1701986000328A7D /* MCKExerciseItemOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKExerciseItemOption.m; sourceTree = "<group>"; };
+		383CC24C1701986000328A7D /* MCKFrameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKFrameInfo.h; sourceTree = "<group>"; };
+		383CC24D1701986000328A7D /* MCKFrameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKFrameInfo.m; sourceTree = "<group>"; };
+		383CC24E1701986000328A7D /* MCKProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProgress.h; sourceTree = "<group>"; };
+		383CC24F1701986000328A7D /* MCKProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProgress.m; sourceTree = "<group>"; };
+		383CC2501701986000328A7D /* MCKProgressRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProgressRanking.h; sourceTree = "<group>"; };
+		383CC2511701986000328A7D /* MCKProgressRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProgressRanking.m; sourceTree = "<group>"; };
+		383CC2521701986000328A7D /* MCKProgressSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProgressSet.h; sourceTree = "<group>"; };
+		383CC2531701986000328A7D /* MCKProgressSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProgressSet.m; sourceTree = "<group>"; };
+		383CC25F1701989600328A7D /* MCKCommunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCommunity.h; sourceTree = "<group>"; };
+		383CC2601701989600328A7D /* MCKCommunity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCommunity.m; sourceTree = "<group>"; };
+		383CC2611701989600328A7D /* MCKCommunityReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCommunityReply.h; sourceTree = "<group>"; };
+		383CC2621701989600328A7D /* MCKCommunityReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCommunityReply.m; sourceTree = "<group>"; };
+		383CC2631701989600328A7D /* MCKDialogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDialogue.h; sourceTree = "<group>"; };
+		383CC2641701989600328A7D /* MCKDialogue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDialogue.m; sourceTree = "<group>"; };
+		383CC2651701989600328A7D /* MCKDialogueDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDialogueDetail.h; sourceTree = "<group>"; };
+		383CC2661701989600328A7D /* MCKDialogueDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDialogueDetail.m; sourceTree = "<group>"; };
+		383CC2671701989600328A7D /* MCKMessageSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKMessageSummary.h; sourceTree = "<group>"; };
+		383CC2681701989600328A7D /* MCKMessageSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKMessageSummary.m; sourceTree = "<group>"; };
+		383CC2691701989600328A7D /* MCKMms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKMms.h; sourceTree = "<group>"; };
+		383CC26A1701989600328A7D /* MCKMms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKMms.m; sourceTree = "<group>"; };
+		383CC26B1701989600328A7D /* MCKNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKNotice.h; sourceTree = "<group>"; };
+		383CC26C1701989600328A7D /* MCKNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKNotice.m; sourceTree = "<group>"; };
+		383CC26D1701989600328A7D /* MCKNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKNotification.h; sourceTree = "<group>"; };
+		383CC26E1701989600328A7D /* MCKNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKNotification.m; sourceTree = "<group>"; };
+		383CC26F1701989600328A7D /* MCKVote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKVote.h; sourceTree = "<group>"; };
+		383CC2701701989600328A7D /* MCKVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKVote.m; sourceTree = "<group>"; };
+		383CC2711701989600328A7D /* MCKVoteOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKVoteOption.h; sourceTree = "<group>"; };
+		383CC2721701989600328A7D /* MCKVoteOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKVoteOption.m; sourceTree = "<group>"; };
 		38774DFC17017EAC0081D5D2 /* libMCampusKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCampusKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38774DFF17017EAC0081D5D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		38774E0417017EAC0081D5D2 /* MCampusKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCampusKit.h; sourceTree = "<group>"; };
@@ -58,6 +168,113 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		383CC2131701969900328A7D /* City */ = {
+			isa = PBXGroup;
+			children = (
+				383CC214170196A700328A7D /* CityData.h */,
+				383CC215170196A700328A7D /* CityData.m */,
+				383CC216170196A700328A7D /* ProvinceData.h */,
+				383CC217170196A700328A7D /* ProvinceData.m */,
+			);
+			name = City;
+			sourceTree = "<group>";
+		};
+		383CC21A1701971A00328A7D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				383CC21B1701972500328A7D /* MCKConfiguration.h */,
+				383CC21C1701972500328A7D /* MCKConfiguration.m */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		383CC21E1701974800328A7D /* StudyPlan */ = {
+			isa = PBXGroup;
+			children = (
+				383CC21F1701975900328A7D /* MCKStudyPlan.h */,
+				383CC2201701975900328A7D /* MCKStudyPlan.m */,
+				383CC2211701975900328A7D /* MCKStudyPlans.h */,
+				383CC2221701975900328A7D /* MCKStudyPlans.m */,
+			);
+			name = StudyPlan;
+			sourceTree = "<group>";
+		};
+		383CC2251701981F00328A7D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				383CC2261701982C00328A7D /* MCKFriend.h */,
+				383CC2271701982C00328A7D /* MCKFriend.m */,
+				383CC2281701982C00328A7D /* MCKProfile.h */,
+				383CC2291701982C00328A7D /* MCKProfile.m */,
+				383CC22A1701982C00328A7D /* MCKProfileInfo.h */,
+				383CC22B1701982C00328A7D /* MCKProfileInfo.m */,
+				383CC22C1701982C00328A7D /* MCKProfilePhoto.h */,
+				383CC22D1701982C00328A7D /* MCKProfilePhoto.m */,
+				383CC22E1701982C00328A7D /* MCKProfileStudyDetail.h */,
+				383CC22F1701982C00328A7D /* MCKProfileStudyDetail.m */,
+				383CC2301701982C00328A7D /* MCKUser.h */,
+				383CC2311701982C00328A7D /* MCKUser.m */,
+				383CC2321701982C00328A7D /* MCKUserContext.h */,
+				383CC2331701982C00328A7D /* MCKUserContext.m */,
+				383CC2341701982C00328A7D /* MCKUserSettings.h */,
+				383CC2351701982C00328A7D /* MCKUserSettings.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		383CC23E1701984500328A7D /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				383CC23F1701986000328A7D /* MCKCourse.h */,
+				383CC2401701986000328A7D /* MCKCourse.m */,
+				383CC2411701986000328A7D /* MCKCourseware.h */,
+				383CC2421701986000328A7D /* MCKCourseware.m */,
+				383CC2451701986000328A7D /* MCKCoursewareSet.h */,
+				383CC2461701986000328A7D /* MCKCoursewareSet.m */,
+				383CC2471701986000328A7D /* MCKCoursewareStatus.h */,
+				383CC2481701986000328A7D /* MCKExerciseItem.h */,
+				383CC2491701986000328A7D /* MCKExerciseItem.m */,
+				383CC24A1701986000328A7D /* MCKExerciseItemOption.h */,
+				383CC24B1701986000328A7D /* MCKExerciseItemOption.m */,
+				383CC24C1701986000328A7D /* MCKFrameInfo.h */,
+				383CC24D1701986000328A7D /* MCKFrameInfo.m */,
+				383CC24E1701986000328A7D /* MCKProgress.h */,
+				383CC24F1701986000328A7D /* MCKProgress.m */,
+				383CC2501701986000328A7D /* MCKProgressRanking.h */,
+				383CC2511701986000328A7D /* MCKProgressRanking.m */,
+				383CC2521701986000328A7D /* MCKProgressSet.h */,
+				383CC2531701986000328A7D /* MCKProgressSet.m */,
+			);
+			name = Course;
+			sourceTree = "<group>";
+		};
+		383CC25E1701986E00328A7D /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				383CC25F1701989600328A7D /* MCKCommunity.h */,
+				383CC2601701989600328A7D /* MCKCommunity.m */,
+				383CC2611701989600328A7D /* MCKCommunityReply.h */,
+				383CC2621701989600328A7D /* MCKCommunityReply.m */,
+				383CC2631701989600328A7D /* MCKDialogue.h */,
+				383CC2641701989600328A7D /* MCKDialogue.m */,
+				383CC2651701989600328A7D /* MCKDialogueDetail.h */,
+				383CC2661701989600328A7D /* MCKDialogueDetail.m */,
+				383CC2671701989600328A7D /* MCKMessageSummary.h */,
+				383CC2681701989600328A7D /* MCKMessageSummary.m */,
+				383CC2691701989600328A7D /* MCKMms.h */,
+				383CC26A1701989600328A7D /* MCKMms.m */,
+				383CC26B1701989600328A7D /* MCKNotice.h */,
+				383CC26C1701989600328A7D /* MCKNotice.m */,
+				383CC26D1701989600328A7D /* MCKNotification.h */,
+				383CC26E1701989600328A7D /* MCKNotification.m */,
+				383CC26F1701989600328A7D /* MCKVote.h */,
+				383CC2701701989600328A7D /* MCKVote.m */,
+				383CC2711701989600328A7D /* MCKVoteOption.h */,
+				383CC2721701989600328A7D /* MCKVoteOption.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		38774DF317017EAC0081D5D2 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +330,21 @@
 		38774E1A17018C5F0081D5D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				383CC25E1701986E00328A7D /* Message */,
+				383CC23E1701984500328A7D /* Course */,
+				383CC2251701981F00328A7D /* User */,
+				383CC21E1701974800328A7D /* StudyPlan */,
+				383CC21A1701971A00328A7D /* Configuration */,
+				383CC2131701969900328A7D /* City */,
+				383CC2061701960700328A7D /* MCKCustomError.h */,
+				383CC2071701960700328A7D /* MCKDataWrapper.h */,
+				383CC2081701960700328A7D /* MCKDataWrapper.m */,
+				383CC2091701960700328A7D /* MCKError.h */,
+				383CC20A1701960700328A7D /* MCKError.m */,
+				383CC20B1701960700328A7D /* MCKModelBase.h */,
+				383CC20C1701960700328A7D /* MCKModelBase.m */,
+				383CC20D1701960700328A7D /* MCKModelBaseIdentifier.h */,
+				383CC20E1701960700328A7D /* MCKModelBaseIdentifier.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -190,6 +422,42 @@
 				38774E1317018B8A0081D5D2 /* NSDictionary+MCampusKit.m in Sources */,
 				38774E1617018C3B0081D5D2 /* MCKHTTPClient.m in Sources */,
 				38774E1917018C570081D5D2 /* MCKBaseDataProvider.m in Sources */,
+				383CC20F1701960700328A7D /* MCKDataWrapper.m in Sources */,
+				383CC2101701960700328A7D /* MCKError.m in Sources */,
+				383CC2111701960700328A7D /* MCKModelBase.m in Sources */,
+				383CC2121701960700328A7D /* MCKModelBaseIdentifier.m in Sources */,
+				383CC218170196A700328A7D /* CityData.m in Sources */,
+				383CC219170196A700328A7D /* ProvinceData.m in Sources */,
+				383CC21D1701972500328A7D /* MCKConfiguration.m in Sources */,
+				383CC2231701975900328A7D /* MCKStudyPlan.m in Sources */,
+				383CC2241701975900328A7D /* MCKStudyPlans.m in Sources */,
+				383CC2361701982C00328A7D /* MCKFriend.m in Sources */,
+				383CC2371701982C00328A7D /* MCKProfile.m in Sources */,
+				383CC2381701982C00328A7D /* MCKProfileInfo.m in Sources */,
+				383CC2391701982C00328A7D /* MCKProfilePhoto.m in Sources */,
+				383CC23A1701982C00328A7D /* MCKProfileStudyDetail.m in Sources */,
+				383CC23B1701982C00328A7D /* MCKUser.m in Sources */,
+				383CC23C1701982C00328A7D /* MCKUserContext.m in Sources */,
+				383CC23D1701982C00328A7D /* MCKUserSettings.m in Sources */,
+				383CC2541701986000328A7D /* MCKCourse.m in Sources */,
+				383CC2551701986000328A7D /* MCKCourseware.m in Sources */,
+				383CC2571701986000328A7D /* MCKCoursewareSet.m in Sources */,
+				383CC2581701986000328A7D /* MCKExerciseItem.m in Sources */,
+				383CC2591701986000328A7D /* MCKExerciseItemOption.m in Sources */,
+				383CC25A1701986000328A7D /* MCKFrameInfo.m in Sources */,
+				383CC25B1701986000328A7D /* MCKProgress.m in Sources */,
+				383CC25C1701986000328A7D /* MCKProgressRanking.m in Sources */,
+				383CC25D1701986000328A7D /* MCKProgressSet.m in Sources */,
+				383CC2731701989600328A7D /* MCKCommunity.m in Sources */,
+				383CC2741701989600328A7D /* MCKCommunityReply.m in Sources */,
+				383CC2751701989600328A7D /* MCKDialogue.m in Sources */,
+				383CC2761701989600328A7D /* MCKDialogueDetail.m in Sources */,
+				383CC2771701989600328A7D /* MCKMessageSummary.m in Sources */,
+				383CC2781701989600328A7D /* MCKMms.m in Sources */,
+				383CC2791701989600328A7D /* MCKNotice.m in Sources */,
+				383CC27A1701989600328A7D /* MCKNotification.m in Sources */,
+				383CC27B1701989600328A7D /* MCKVote.m in Sources */,
+				383CC27C1701989600328A7D /* MCKVoteOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
