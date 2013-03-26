@@ -10,6 +10,10 @@
 		38774E0017017EAC0081D5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38774DFF17017EAC0081D5D2 /* Foundation.framework */; };
 		38774E0517017EAC0081D5D2 /* MCampusKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38774E0417017EAC0081D5D2 /* MCampusKit.h */; };
 		38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0E17017F1C0081D5D2 /* MCKDefines.m */; };
+		38774E1317018B8A0081D5D2 /* NSDictionary+MCampusKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */; };
+		38774E1617018C3B0081D5D2 /* MCKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E1517018C3B0081D5D2 /* MCKHTTPClient.m */; };
+		38774E1917018C570081D5D2 /* MCKBaseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E1817018C570081D5D2 /* MCKBaseDataProvider.m */; };
+		A546AA3C56F04E688FDCBE6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A6C20261442B298FCA731 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +35,14 @@
 		38774E0417017EAC0081D5D2 /* MCampusKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCampusKit.h; sourceTree = "<group>"; };
 		38774E0D17017F1C0081D5D2 /* MCKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDefines.h; sourceTree = "<group>"; };
 		38774E0E17017F1C0081D5D2 /* MCKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDefines.m; sourceTree = "<group>"; };
+		38774E1117018B8A0081D5D2 /* NSDictionary+MCampusKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MCampusKit.h"; sourceTree = "<group>"; };
+		38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MCampusKit.m"; sourceTree = "<group>"; };
+		38774E1417018C3B0081D5D2 /* MCKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKHTTPClient.h; sourceTree = "<group>"; };
+		38774E1517018C3B0081D5D2 /* MCKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKHTTPClient.m; sourceTree = "<group>"; };
+		38774E1717018C570081D5D2 /* MCKBaseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKBaseDataProvider.h; sourceTree = "<group>"; };
+		38774E1817018C570081D5D2 /* MCKBaseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKBaseDataProvider.m; sourceTree = "<group>"; };
+		752AEE64653C440E830F3F34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		DB0A6C20261442B298FCA731 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38774E0017017EAC0081D5D2 /* Foundation.framework in Frameworks */,
+				A546AA3C56F04E688FDCBE6E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +64,7 @@
 				38774E0117017EAC0081D5D2 /* MCampusKit */,
 				38774DFE17017EAC0081D5D2 /* Frameworks */,
 				38774DFD17017EAC0081D5D2 /* Products */,
+				752AEE64653C440E830F3F34 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				38774DFF17017EAC0081D5D2 /* Foundation.framework */,
+				DB0A6C20261442B298FCA731 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -73,11 +88,33 @@
 		38774E0117017EAC0081D5D2 /* MCampusKit */ = {
 			isa = PBXGroup;
 			children = (
+				38774E1A17018C5F0081D5D2 /* Models */,
+				38774E1017018B640081D5D2 /* Categories */,
 				38774E0417017EAC0081D5D2 /* MCampusKit.h */,
 				38774E0D17017F1C0081D5D2 /* MCKDefines.h */,
 				38774E0E17017F1C0081D5D2 /* MCKDefines.m */,
+				38774E1417018C3B0081D5D2 /* MCKHTTPClient.h */,
+				38774E1517018C3B0081D5D2 /* MCKHTTPClient.m */,
+				38774E1717018C570081D5D2 /* MCKBaseDataProvider.h */,
+				38774E1817018C570081D5D2 /* MCKBaseDataProvider.m */,
 			);
 			path = MCampusKit;
+			sourceTree = "<group>";
+		};
+		38774E1017018B640081D5D2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				38774E1117018B8A0081D5D2 /* NSDictionary+MCampusKit.h */,
+				38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		38774E1A17018C5F0081D5D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +127,7 @@
 				38774DF817017EAC0081D5D2 /* Sources */,
 				38774DF917017EAC0081D5D2 /* Frameworks */,
 				38774DFA17017EAC0081D5D2 /* CopyFiles */,
+				ED395A71D8E74C658A08BB22 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,12 +164,32 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ED395A71D8E74C658A08BB22 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		38774DF817017EAC0081D5D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */,
+				38774E1317018B8A0081D5D2 /* NSDictionary+MCampusKit.m in Sources */,
+				38774E1617018C3B0081D5D2 /* MCKHTTPClient.m in Sources */,
+				38774E1917018C570081D5D2 /* MCKBaseDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +251,7 @@
 		};
 		38774E0B17017EAC0081D5D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 752AEE64653C440E830F3F34 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/MCampusKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -205,6 +264,7 @@
 		};
 		38774E0C17017EAC0081D5D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 752AEE64653C440E830F3F34 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/MCampusKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -234,6 +294,7 @@
 				38774E0C17017EAC0081D5D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
