@@ -11,11 +11,11 @@
 @interface ProgressDataProvider : BaseDataProvider
 
 - (void)getCourseRankingWithCourseId:(NSString *)courseId
-                             success:(void (^)(MCKDataWrapper *dataWrapper))success
-                             failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getProgressWithCourseId:(NSString *)courseId
-                      pageIndex:(NSInteger)pageIndex
-                        success:(void (^)(MCKDataWrapper *dataWrapper))success
-                        failure:(void (^)(NSError *error))failure;
+    pageIndex:(NSInteger)pageIndex
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 @end

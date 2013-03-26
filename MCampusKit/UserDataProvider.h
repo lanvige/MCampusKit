@@ -16,66 +16,66 @@
 {
 }
 - (void)sendCodeWithPhone:(NSString *)phone
-                     type:(NSString *)type
-                  success:(void (^)(MCKDataWrapper *dataWrapper))success
-                  failure:(void (^)(NSError *error))failure;
+    type:(NSString *)type
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)sendCodeForgotWithPhone:(NSString *)phone
-                           type:(NSString *)type
-                        success:(void (^)(MCKDataWrapper *dataWrapper))success
-                        failure:(void (^)(NSError *error))failure;
+    type:(NSString *)type
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)setPasswordWithPhone:(NSString *)phone
-                    password:(NSString *)password
-                  activeCode:(NSString *)activeCode
-                     success:(void (^)(MCKDataWrapper *dataWrapper))success
-                     failure:(void (^)(NSError *error))failure;
+    password:(NSString *)password
+    activeCode:(NSString *)activeCode
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)setPasswordForgotWithPhone:(NSString *)phone
-                          password:(NSString *)password
-                        activeCode:(NSString *)activeCode
-                           success:(void (^)(MCKDataWrapper *dataWrapper))success
-                           failure:(void (^)(NSError *error))failure;
+    password:(NSString *)password
+    activeCode:(NSString *)activeCode
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)resetPasswordWithPhone:(NSString *)phone
-                      password:(NSString *)password
-                    activeCode:(NSString *)activeCode
-                       success:(void (^)(MCKDataWrapper *dataWrapper))success
-                       failure:(void (^)(NSError *error))failure;
+    password:(NSString *)password
+    activeCode:(NSString *)activeCode
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)loginWithPhone:(NSString *)nameOrPhone
-              password:(NSString *)password
-               success:(void(^)(MCKDataWrapper *dataWrapper))success
-               failure:(void (^)(NSError *error))failure;
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getUserProfileWithUserId:(NSString *)userId
-                         success:(void (^)(MCKDataWrapper *dataWrapper))success
-                         failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMyProfileWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                        failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)updateMyProfileWithGender:(NSString *)gender
-                        birthdate:(NSString *)birthdate
-                         cityCode:(NSString *)cityCode
-                         qqNumber:(NSString *)qqNumber
-                            hobby:(NSString *)hobby
-                   defaultPhotoId:(NSString *)defaultPhotoId
-                         photoIds:(NSString *)photoIds
-                          success:(void (^)(MCKDataWrapper *dataWrapper))success
-                          failure:(void (^)(NSError *error))failure;
+    birthdate:(NSString *)birthdate
+    cityCode:(NSString *)cityCode
+    qqNumber:(NSString *)qqNumber
+    hobby:(NSString *)hobby
+    defaultPhotoId:(NSString *)defaultPhotoId
+    photoIds:(NSString *)photoIds
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)updateAvatarWithImageData:(NSData *)imageData
-                         progress:(void (^)(CGFloat progress))progressBlock
-                          success:(void (^)(MCKDataWrapper *dataWrapper))success
-                          failure:(void (^)(NSError *error))failure;
+    progress:(void (^)(CGFloat progress))progressBlock
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getUserSettingsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                           failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)updateUserSettingsWithCanbeinvited:(NSString *)canbeinvited
-                               showProfile:(NSString *)showProfile
-                                   success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                   failure:(void (^)(NSError *error))failure;
+    showProfile:(NSString *)showProfile
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 @end

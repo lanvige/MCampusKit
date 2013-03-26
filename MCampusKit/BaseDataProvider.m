@@ -20,8 +20,8 @@
 // Get object with json.
 - (void)getContentsWithPath:(NSString *)path
     paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+    success:(MCKHTTPClientSuccess)success
+    failure:(MCKHTTPClientFailure)failure
 {
     // encode url fix chinese issue.
     path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -40,7 +40,9 @@
 //        }
 //    }
 
-    NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET" path:path parameters:parameters];
+    NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET"
+                                                                              path:path
+                                                                        parameters:parameters];
     [request setTimeoutInterval:20];
 
     AFHTTPRequestOperation *operation = [[MCKHTTPClient sharedClient]
@@ -50,59 +52,13 @@
                                              NSLog(@"GET SUCCESS - %s ", __PRETTY_FUNCTION__);
 
                                              if (success) {
-                                                 success(operation, responseObject);
+                                                 success((AFJSONRequestOperation *)operation, responseObject);
                                              }
                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                              NSLog(@"GET ERROR - %@", error);
 
                                              if (failure) {
-                                                 failure(operation, error);
-                                             }
-                                         }];
-
-    [[MCKHTTPClient sharedClient] enqueueHTTPRequestOperation:operation];
-}
-
-- (void)getSystemContentWithPath:(NSString *)path
-    paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-{
-
-//    if (![[NetworkReachabilityManager sharedInstance] isNetworkReachability]) {
-//
-//        // Check network:
-//        if (failure) {
-//            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
-//            [errDict setValue:@"网络不可用..." forKey:NSLocalizedDescriptionKey];
-//            NSError *err = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
-//
-//            failure(nil, err);
-//
-//            return;
-//        }
-//    }
-
-    // encode url fix chinese issue.
-    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
-    NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET" path:path parameters:parameters];
-    [request setTimeoutInterval:20];
-
-    AFHTTPRequestOperation *operation = [[MCKHTTPClient sharedClient]
-                                         HTTPRequestOperationWithRequest:request
-                                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                             // Mapping JSON data to Data Module Objects
-                                             NSLog(@"GET SUCCESS - %s ", __PRETTY_FUNCTION__);
-
-                                             if (success) {
-                                                 success(operation, responseObject);
-                                             }
-                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                             NSLog(@"GET ERROR - %@", error);
-
-                                             if (failure) {
-                                                 failure(operation, error);
+                                                 failure((AFJSONRequestOperation *) operation, error);
                                              }
                                          }];
 
@@ -113,14 +69,12 @@
 // Get object with json.
 - (void)getObjectsWithPath:(NSString *)path
     paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+    success:(MCKHTTPClientWrapperSuccess)success
+    failure:(MCKHTTPClientFailure)failure
 {
-
     [self getContentsWithPath:path
                     paramters:parameters
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         //
          MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:responseObject];
 
          id jsonData = [responseObject valueForKeyPath:@"data"];
@@ -130,9 +84,9 @@
              if ([jsonData isEqual:@"0"]) {
                  NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
                  [errDict setValue:@"Unkonw server issue" forKey:NSLocalizedDescriptionKey];
-                 NSError *err = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+                 NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
 
-                 failure(operation, err);
+                 failure((AFJSONRequestOperation *) operation, error);
              } else if (success) {
                  NSLog(@"get jsondata - %@", jsonData);
                  success(operation, dataWrapper, jsonData);
@@ -141,60 +95,22 @@
              if (failure) {
                  NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
                  [errDict setValue:dataWrapper.error.message forKey:NSLocalizedDescriptionKey];
-                 NSError *err = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+                 NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
 
-                 failure(operation, err);
+                 failure((AFJSONRequestOperation *) operation, error);
              }
          }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          if (failure) {
-             failure(operation, error);
+             failure((AFJSONRequestOperation *) operation, error);
          }
      }];
 }
-
-
-// Get object with json.
-- (void)getSystemObjectsWithPath:(NSString *)path
-    paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-{
-    NSLog(@"request path=%@", path);
-
-    [self getSystemContentWithPath:path
-                         paramters:parameters
-                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         //
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:responseObject];
-
-         id jsonData = [responseObject valueForKeyPath:@"data"];
-
-         if (dataWrapper.isSuccess) {
-             if (success) {
-                 success(operation, dataWrapper, jsonData);
-             }
-         } else {
-             if (failure) {
-                 NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
-                 [errDict setValue:dataWrapper.error.message forKey:NSLocalizedDescriptionKey];
-                 NSError *err = [NSError errorWithDomain:NSCocoaErrorDomain code:MCKSystemError userInfo:errDict];
-
-                 failure(operation, err);
-             }
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(operation, error);
-         }
-     }];
-}
-
 
 - (void)getContentWithTokenPath:(NSString *)path
     paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+    success:(MCKHTTPClientSuccess)success
+    failure:(MCKHTTPClientFailure)failure
 {
     // Add common path.
     // FIXME:
@@ -205,12 +121,11 @@
                     paramters:parameters
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
          if (success) {
-//                              DLog(@"%@", responseObject);
-             success(operation, responseObject);
+             success((AFJSONRequestOperation *) operation, responseObject);
          }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          if (failure) {
-             failure(operation, error);
+             failure((AFJSONRequestOperation *) operation, error);
          }
      }];
 }
@@ -259,16 +174,17 @@
 
 - (void)getObjectsWithTokenPath:(NSString *)path
     paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+    success:(MCKHTTPClientWrapperSuccess)success
+    failure:(MCKHTTPClientFailure)failure
 {
     // Add common path.
 
 //    path = [path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", CACHE.context.mId, CACHE.context.token]];
-
     // FIXME:
     path = @"";
-    [self getObjectsWithPath:path paramters:parameters success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithPath:path
+                   paramters:parameters
+                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (success) {
              success(operation, dataWrapper, jsonData);
          }
@@ -281,50 +197,9 @@
      }];
 }
 
-- (void)getSystemObjectsWithTokenPath:(NSString *)path
-    paramters:(NSDictionary *)parameters
-    success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-{
-    // Add common path.
-    // FIXME:
-    path = @"";
-//    path = [path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", CACHE.context.mId, CACHE.context.token]];
-
-    [self getSystemObjectsWithPath:path paramters:parameters success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject) {
-         if (success) {
-             success(operation, dataWrapper, responseObject);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"GET ERROR - %@", error);
-
-         if (failure) {
-             failure(operation, error);
-         }
-     }];
-}
-
-
-// - (void)saveObjectWithPath:(NSString *)path
-//                parameters:(NSDictionary *)params
-//                completion:(void (^)(BOOL))block {
-//    [[APIClient sharedClient] postPath:path
-//                            parameters:params
-//                               success:^(AFHTTPRequestOperation *operation, id response) {
-//                                   DLog(@"SAVE SUCCESS - %s ", __PRETTY_FUNCTION__);
-//                                   DLog(@"========%@", params);
-//                                   if (block) {
-//                                       block(TRUE);
-//                                   }
-//                               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                                   DLog(@"SAVE ERROR - %@", error);
-//                                   if (block) {
-//                                       block(FALSE);
-//                                   }
-//                               }];
-// }
-
-- (void)saveObjectWithPath:(NSString *)path parameters:(NSDictionary *)params completion:(void (^)(id jsonData))block
+- (void)saveObjectWithPath:(NSString *)path
+    parameters:(NSDictionary *)params
+    completion:(void (^)(id jsonData))block
 {
 
     [[MCKHTTPClient sharedClient] postPath:path
@@ -340,9 +215,10 @@
      }];
 }
 
-- (void)saveObjectWithMultiHeaderAndPath:(NSString *)path parameters:(NSDictionary *)params completion:(void (^)(id jsonData))completionBlock
+- (void)saveObjectWithMultiHeaderAndPath:(NSString *)path
+    parameters:(NSDictionary *)params
+    completion:(void (^)(id jsonData))completionBlock
 {
-
     NSMutableURLRequest *postRequest = [[MCKHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST"
                                                                                                path:path
                                                                                          parameters:params

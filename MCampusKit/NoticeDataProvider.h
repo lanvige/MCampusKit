@@ -12,52 +12,52 @@
 @interface NoticeDataProvider : BaseDataProvider
 
 - (void)getNoticesWithNoticeId:(NSString *)noticeId
-                    latestType:(NSString *)latestType
-                       success:(void (^)(MCKDataWrapper *dataWrapper))success
-                       failure:(void (^)(NSError *error))failure;
+    latestType:(NSString *)latestType
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getFreshNoticesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                           failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getUpdateNoticesWithLatestNoticeId:(NSString *)latestNoticeId
-                                   success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                   failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMoreNoticesWithLastNoticeId:(NSString *)lastNoticeId
-                               success:(void (^)(MCKDataWrapper *dataWrapper))success
-                               failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)setNoticeAsReadedWithNoticeId:(NSString *)noticeId
-                              success:(void (^)(MCKDataWrapper *dataWrapper))success
-                              failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)replyTopicWithNoticeId:(NSString *)noticeId
-                    receiverId:(NSString *)receiverId
-                       content:(NSString *)content
-                       success:(void (^)(MCKDataWrapper *dataWrapper))success
-                       failure:(void (^)(NSError *error))failure;
+    receiverId:(NSString *)receiverId
+    content:(NSString *)content
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)fowardTopicWithNoticeId:(NSString *)noticeId
-                      friendsId:(NSString *)friendsId
-                        success:(void (^)(MCKDataWrapper *dataWrapper))success
-                        failure:(void (^)(NSError *error))failure;
+    friendsId:(NSString *)friendsId
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMmsWithMmsId:(NSString *)mmsId
-                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMMSContentWithMmsId:(NSString *)mmsId
-                       success:(void (^)(id jsonData))success
-                       failure:(void (^)(NSError *error))failure;
+    success:(void (^)(id jsonData))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getVoteWithNoticeId:(NSString *)noticeId
-                    success:(void (^)(MCKDataWrapper *dataWrapper))success
-                    failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)voteWithVoteId:(NSString *)voteId
-                option:(NSString *)option
-              noticeId:(NSString *)noticeId
-               success:(void (^)(MCKDataWrapper *dataWrapper))success
-               failure:(void (^)(NSError *error))failure;
+    option:(NSString *)option
+    noticeId:(NSString *)noticeId
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 @end

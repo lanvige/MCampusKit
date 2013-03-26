@@ -14,9 +14,6 @@
 
 @implementation NoticeDataProvider
 
-#pragma mark -
-#pragma mark Get notice
-
 // http://222.66.33.210:9092/rest/v1/msg/ios/notice/get?uid=39&fromid=0&getlatest=1&t=F0B09E1537ACCA3A&client=2
 - (void)getNoticesWithNoticeId:(NSString *)noticeId
     latestType:(NSString *)latestType

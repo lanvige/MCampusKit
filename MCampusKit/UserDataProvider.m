@@ -28,9 +28,9 @@
 {
     NSString *path = [NSString stringWithFormat:@"v1/user/activate/sendcode?phone=%@&type=1", phone];
 
-    [self getSystemObjectsWithPath:path
-                         paramters:nil
-                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
          dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
          [dataWrapper.modelList addObject:jsonData];
@@ -55,9 +55,9 @@
 {
     NSString *path = [NSString stringWithFormat:@"v1/user/activate/sendcode?phone=%@&type=2", phone];
 
-    [self getSystemObjectsWithPath:path
-                         paramters:nil
-                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
          dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
          [dataWrapper.modelList addObject:jsonData];
@@ -81,9 +81,9 @@
 {
     NSString *path = [NSString stringWithFormat:@"v1/user/activate?phone=%@&acode=%@&password=%@&ctype=1", phone, activeCode, password];
 
-    [self getSystemObjectsWithPath:path
-                         paramters:nil
-                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (jsonData != [NSNull null]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
@@ -114,9 +114,9 @@
 {
     NSString *path = [NSString stringWithFormat:@"v1/user/activate?phone=%@&acode=%@&password=%@&ctype=2", phone, activeCode, password];
 
-    [self getSystemObjectsWithPath:path
-                         paramters:nil
-                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (jsonData != [NSNull null]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
@@ -150,9 +150,9 @@
 {
     NSString *path = [NSString stringWithFormat:@"v1/user/resetpwd?nameorphone=%@&acode=%@&password=%@&ctype=2", phone, activeCode, password];
 
-    [self getSystemObjectsWithPath:path
-                         paramters:nil
-                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
          [dataWrapper.modelList addObject:jsonData];
 
@@ -174,9 +174,9 @@
 {
     NSString *path = [NSString stringWithFormat:@"v1/user/login?nameorphone=%@&pwd=%@&client=2", nameOrPhone, password];
 
-    [self getSystemObjectsWithPath:path
-                         paramters:nil
-                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (jsonData != [NSNull null]) {
              // FIXME:
 //             CACHE.context = [[MCUserContext alloc] initWithAttributes:jsonData];

@@ -11,38 +11,39 @@
 @class MCKDataWrapper;
 
 @interface DialogueDataProvider : BaseDataProvider
+
 - (void)getDialoguesWithTimestamp:(NSString *)timestamp
-                       latestType:(NSString *)latestType
-                          success:(void (^)(MCKDataWrapper *dataWrapper))success
-                          failure:(void (^)(NSError *error))failure;
+    latestType:(NSString *)latestType
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 // First time to get top 20 items.
 - (void)getFreshDialoguesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                             failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getUpdateDialoguesWithTimestamp:(NSString *)timestamp
-                                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMoreDialoguesWithTimestamp:(NSString *)timestamp
-                              success:(void (^)(MCKDataWrapper *dataWrapper))success
-                              failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getDialogueWithUserId:(NSString *)userId
-                      success:(void (^)(MCKDataWrapper *dataWrapper))success
-                      failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)sendDialogueWithSid:(NSString *)sid
-                        rid:(NSString *)rid
-                    content:(NSString *)content
-                    success:(void (^)(MCKDataWrapper *dataWrapper))success
-                    failure:(void (^)(NSError *error))failure;
+    rid:(NSString *)rid
+    content:(NSString *)content
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)sendDialogueWithSid:(NSString *)sid
-                        rid:(NSString *)rid
-                    content:(NSString *)content
-                  imageData:(NSData *)imageData
-                   progress:(void (^)(CGFloat progress))progressBlock
-                 completion:(void (^)(MCKDataWrapper *, NSError *))completionBlock;
+    rid:(NSString *)rid
+    content:(NSString *)content
+    imageData:(NSData *)imageData
+    progress:(void (^)(CGFloat progress))progressBlock
+    completion:(void (^)(MCKDataWrapper *, NSError *))completionBlock;
 
 @end

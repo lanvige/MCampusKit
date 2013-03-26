@@ -13,6 +13,6 @@
 @interface ConfigurationDataProvider : BaseDataProvider
 
 - (void)getConfigurationsWithSuccess:(void (^)(MCKDataWrapper *configObject))success
-                             failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 @end

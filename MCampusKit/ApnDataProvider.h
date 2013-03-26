@@ -11,7 +11,7 @@
 @interface ApnDataProvider : BaseDataProvider
 
 - (void)sendDeviceTokenWithDeviceToken:(NSString *)deviceToken
-                         success:(void (^)(MCKDataWrapper *configObject))success
-                         failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *configObject))success
+    failure:(void (^)(NSError *error))failure;
 
 @end

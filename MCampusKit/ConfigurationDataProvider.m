@@ -16,26 +16,28 @@
 
 // http://222.66.33.210:9092/rest/v1/comm/ios/config/get?&client=2&uid=3&t=F3CD921D2CA61426
 - (void)getConfigurationsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                             failure:(void (^)(NSError *error))failure {
+    failure:(void (^)(NSError *error))failure
+{
     NSString *path = [NSString stringWithFormat:@"v1/comm/ios/config/get?"];
-    [self getSystemObjectsWithTokenPath:path
-                              paramters:nil
-                                success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-                                    if (jsonData != [NSNull null]) {
-                                        dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-                                        MCKConfiguration *conf = [[MCKConfiguration alloc] initWithAttributes:jsonData];
-                                        [dataWrapper.modelList addObject:conf];
-                                        
-                                    } else {
-                                        dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-                                    }
-                                    
-                                    if (success) {
-                                        success(dataWrapper);
-                                    }
-                                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                    failure(error);
-                                }];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData != [NSNull null]) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+             MCKConfiguration *conf = [[MCKConfiguration alloc] initWithAttributes:jsonData];
+             [dataWrapper.modelList addObject:conf];
+
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure(error);
+     }];
 }
 
 @end

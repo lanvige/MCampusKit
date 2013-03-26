@@ -11,19 +11,19 @@
 @interface ExecriseDataProvider : BaseDataProvider
 
 - (void)getExecriseWithCoursewareId:(NSString *)coursewareId
-                             success:(void (^)(MCKDataWrapper *dataWrapper))success
-                             failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)postExecriseWithCoursewareId:(NSString *)coursewareId
-                              answer:(NSString *)answer
-                             success:(void (^)(BOOL result))success
-                             failure:(void (^)(NSError *))failure;
+    answer:(NSString *)answer
+    success:(void (^)(BOOL result))success
+    failure:(void (^)(NSError *))failure;
 
 - (void)getFriendsDidTheExecriseWithCoursewareId:(NSString *)coursewareId
-                                         success:(void (^)(MCKDataWrapper *))success
-                                         failure:(void (^)(NSError *))failure;
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure;
 
 - (void)getHighestScoreWithCoursewareId:(NSString *)coursewareId
-                                success:(void (^)(MCKDataWrapper *))success
-                                failure:(void (^)(NSError *))failure;
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure;
 @end

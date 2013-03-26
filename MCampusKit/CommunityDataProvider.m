@@ -27,7 +27,8 @@
 {
     // FIXME:
     NSString *mySchools = @"";
-    //NSString *mySchools = [(MCKConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
+
+    // NSString *mySchools = [(MCKConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
 
     NSLog(@"%@", mySchools);
     NSString *path = [NSString stringWithFormat:@"v1/sns/topics?schools=%@&tag=%@&getlatest=%@&start=%@&course=%@&courseware=%@", mySchools, tags, latestType, timestamp, courseId, coursewareId];
@@ -216,7 +217,7 @@
 {
     // FIXME:
     NSString *mySchools = @"";
-    //NSString *mySchools = [(MCConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
+    // NSString *mySchools = [(MCConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
     NSString *path = [NSString stringWithFormat:@"v1/sns/topic/add?schools=%@&course=%@&courseware=%@&tags=%@&content=%@", mySchools, courseId, coursewareId, tags, content];
 
     [self getObjectsWithTokenPath:path
@@ -359,30 +360,30 @@
 // 删除单条社区话题或回复
 // http://192.168.100.193:8080/rest/v1/sns/topic/delete?&topic=1&uid=12&start=&tag=&t=F0B09E1537ACCA3A
 - (void)deleteTopicWithTopicId:(NSString *)topicId
-                       success:(void (^)(MCKDataWrapper *))success
-                       failure:(void (^)(NSError *))failure
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/sns/topic/delete?topic=%@", topicId];
-    
+
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-                              
-                              if (jsonData != [NSNull null]) {
-                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-                                  [dataWrapper.modelList addObject:jsonData];
-                              } else {
-                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-                              }
-                              
-                              if (success) {
-                                  success(dataWrapper);
-                              }
-                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                              if (failure) {
-                                  failure(error);
-                              }
-                          }];
+
+         if (jsonData != [NSNull null]) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+             [dataWrapper.modelList addObject:jsonData];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 @end

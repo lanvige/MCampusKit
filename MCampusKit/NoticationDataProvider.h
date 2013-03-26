@@ -11,18 +11,18 @@
 @interface NoticationDataProvider : BaseDataProvider
 
 - (void)getNoticationsWithNoticationId:(NSString *)noticationId
-                            latestType:(NSString *)latestType
-                               success:(void (^)(MCKDataWrapper *dataWrapper))success
-                               failure:(void (^)(NSError *error))failure;
+    latestType:(NSString *)latestType
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getFreshNoticationsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                               failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getUpdateNoticationsWithNoticationId:(NSString *)noticationId
-                                     success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                     failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMoreNoticationsWithNoticationId:(NSString *)noticationId
-                                   success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                   failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 @end

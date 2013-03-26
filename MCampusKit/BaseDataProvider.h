@@ -7,37 +7,25 @@
 //
 
 #import "MCKDataWrapper.h"
-#import "UIKit/UIKit.h"
-#import "AFHTTPRequestOperation.h"
+#import "MCKHTTPClient.h"
 
 @interface BaseDataProvider : NSObject
 
-// Get the all objects / Object json data from API.
 - (void)getContentsWithPath:(NSString *)path
                   paramters:(NSDictionary *)parameters
-                    success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                    success:(MCKHTTPClientSuccess)success
+                    failure:(MCKHTTPClientFailure)failure;
 
-- (void)getSystemContentWithPath:(NSString *)path
-                       paramters:(NSDictionary *)parameters
-                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 - (void)getObjectsWithPath:(NSString *)path
                  paramters:(NSDictionary *)parameters
-                   success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-- (void)getSystemObjectsWithPath:(NSString *)path
-                 paramters:(NSDictionary *)parameters
-                   success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
+                   success:(MCKHTTPClientWrapperSuccess)success
+                   failure:(MCKHTTPClientFailure)failure;
 
 - (void)getContentWithTokenPath:(NSString *)path
                       paramters:(NSDictionary *)parameters
-                        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                        success:(MCKHTTPClientSuccess)success
+                        failure:(MCKHTTPClientFailure)failure;
 
 - (void)getContentWithTokenPaths:(NSArray *)paths
                        paramters:(NSDictionary *)parameters
@@ -46,13 +34,8 @@
 
 - (void)getObjectsWithTokenPath:(NSString *)path
                       paramters:(NSDictionary *)parameters
-                        success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-- (void)getSystemObjectsWithTokenPath:(NSString *)path
-                            paramters:(NSDictionary *)parameters
-                              success:(void (^)(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject))success
-                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                        success:(MCKHTTPClientWrapperSuccess)success
+                        failure:(MCKHTTPClientFailure)failure;
 
 - (void)saveObjectWithPath:(NSString *)path
                 parameters:(NSDictionary *)params
@@ -61,7 +44,6 @@
 - (void)saveObjectWithMultiHeaderAndPath:(NSString *)path
                               parameters:(NSDictionary *)params
                               completion:(void (^)(id jsonData))completionBlock;
-
 
 - (void)saveObjectWithPath:(NSString *)path
                 parameters:(NSDictionary *)params

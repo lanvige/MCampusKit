@@ -7,9 +7,13 @@
 //
 
 #import "AFNetworking.h"
+@class MCKDataWrapper;
 
-typedef void (^EXKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
-typedef void (^EXKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
+// CDKDispatchRelease
+typedef void (^MCKHTTPClientSuccess)(AFJSONRequestOperation *operation, id responseObject);
+typedef void (^MCKHTTPClientWrapperSuccess)(AFHTTPRequestOperation *operation,
+    MCKDataWrapper *dataWrapper, id responseObject);
+typedef void (^MCKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError *error);
 
 @interface MCKHTTPClient : AFHTTPClient
 

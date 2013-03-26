@@ -13,26 +13,26 @@
 @interface FriendDataProvider : BaseDataProvider
 
 - (void)getFriendsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                      failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getFriendsWithFriendId:(NSString *)friendId
-                       success:(void (^)(MCKDataWrapper *dataWrapper))success
-                       failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)addFriendWithFriendId:(NSString *)friendId
-                      success:(void (^)(MCKDataWrapper *dataWrapper))success
-                      failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)acceptFriendRequestWithFriendId:(NSString *)friendId
-                                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)ignoreFriendRequestWithFriendId:(NSString *)friendId
-                                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)relieveFriendWithFriendId:(NSString *)friendId
-                          success:(void (^)(MCKDataWrapper *dataWrapper))success
-                          failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 @end

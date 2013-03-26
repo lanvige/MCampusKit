@@ -46,6 +46,7 @@
 
 - (void)dealloc
 {
+    MCKDispatchRelease(_callbackQueue);
 }
 
 
