@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		38774E0017017EAC0081D5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38774DFF17017EAC0081D5D2 /* Foundation.framework */; };
 		38774E0517017EAC0081D5D2 /* MCampusKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38774E0417017EAC0081D5D2 /* MCampusKit.h */; };
-		38774E0717017EAC0081D5D2 /* MCampusKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0617017EAC0081D5D2 /* MCampusKit.m */; };
+		38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0E17017F1C0081D5D2 /* MCKDefines.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,9 +28,9 @@
 /* Begin PBXFileReference section */
 		38774DFC17017EAC0081D5D2 /* libMCampusKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCampusKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38774DFF17017EAC0081D5D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		38774E0317017EAC0081D5D2 /* MCampusKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCampusKit-Prefix.pch"; sourceTree = "<group>"; };
 		38774E0417017EAC0081D5D2 /* MCampusKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCampusKit.h; sourceTree = "<group>"; };
-		38774E0617017EAC0081D5D2 /* MCampusKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCampusKit.m; sourceTree = "<group>"; };
+		38774E0D17017F1C0081D5D2 /* MCKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDefines.h; sourceTree = "<group>"; };
+		38774E0E17017F1C0081D5D2 /* MCKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDefines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,18 +74,10 @@
 			isa = PBXGroup;
 			children = (
 				38774E0417017EAC0081D5D2 /* MCampusKit.h */,
-				38774E0617017EAC0081D5D2 /* MCampusKit.m */,
-				38774E0217017EAC0081D5D2 /* Supporting Files */,
+				38774E0D17017F1C0081D5D2 /* MCKDefines.h */,
+				38774E0E17017F1C0081D5D2 /* MCKDefines.m */,
 			);
 			path = MCampusKit;
-			sourceTree = "<group>";
-		};
-		38774E0217017EAC0081D5D2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				38774E0317017EAC0081D5D2 /* MCampusKit-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38774E0717017EAC0081D5D2 /* MCampusKit.m in Sources */,
+				38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,8 +195,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/MCampusKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MCampusKit/MCampusKit-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -215,8 +207,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/MCampusKit.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MCampusKit/MCampusKit-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
