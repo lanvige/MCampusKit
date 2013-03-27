@@ -31,8 +31,7 @@
 
 - (id)init
 {
-    NSURL *base = nil;
-//    base = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/%@/", kEXKAPIScheme, kEXKAPIHost, version]];
+    NSURL *base = [NSURL URLWithString:kMCKAPIHost];
 
     if ((self = [super initWithBaseURL:base])) {
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];

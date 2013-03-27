@@ -15,6 +15,6 @@
 #define MCKDispatchRelease(queue) dispatch_release(queue)
 #endif
 
-extern NSString *const kAPIBaseURLString;
-
 extern NSString *const kMCKKeychainServiceName;
+
+extern NSString *const kMCKAPIHost;
