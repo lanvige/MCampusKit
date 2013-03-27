@@ -15,7 +15,8 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+    
     self.name = [dictionary safeObjectForKey:@"name"];
     self.icon = [dictionary safeObjectForKey:@"icon"];
     self.progress = [[dictionary safeObjectForKey:@"progress"] floatValue];

@@ -15,8 +15,8 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+ 
     self.url = [dictionary safeObjectForKey:@"url"];
     self.isDefault = [[dictionary safeObjectForKey:@"isDefault"] boolValue];
     self.status = [[dictionary safeObjectForKey:@"status"] intValue];

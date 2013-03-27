@@ -16,7 +16,8 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+    
     self.senderId = [dictionary safeObjectForKey:@"senderId"];
     self.senderName = [dictionary safeObjectForKey:@"senderName"];
     self.senderImg = [dictionary safeObjectForKey:@"senderImg"];

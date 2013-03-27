@@ -20,7 +20,8 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd HH:mm"];
 
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+    
     self.senderId = [[dictionary safeObjectForKey:@"senderId"] intValue];
     self.content = [dictionary safeObjectForKey:@"content"];
     self.senderIcon = [dictionary safeObjectForKey:@"senderIcon"];

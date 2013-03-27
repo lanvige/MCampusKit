@@ -16,7 +16,8 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+    
     self.title = [dictionary safeObjectForKey:@"title"];
     self.point = [[dictionary safeObjectForKey:@"point"] intValue];
 

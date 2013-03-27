@@ -15,7 +15,8 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+    
     self.name = [dictionary safeObjectForKey:@"name"];
     self.avatar = [dictionary safeObjectForKey:@"icon"];
 

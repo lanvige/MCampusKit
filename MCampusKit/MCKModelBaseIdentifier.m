@@ -10,4 +10,9 @@
 
 @implementation MCKModelBaseIdentifier
 
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
+    self.mId = [dictionary safeObjectForKey:@"id"];
+}
+
 @end

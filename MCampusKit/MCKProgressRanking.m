@@ -15,7 +15,8 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    [super unpackDictionary:dictionary];
+    
     self.title = [dictionary safeObjectForKey:@"title"];
     self.bookCover = [dictionary safeObjectForKey:@"bookCover"];
     self.myRanking =  [[dictionary safeObjectForKey:@"myRanking"] intValue];

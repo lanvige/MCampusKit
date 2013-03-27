@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSString *mId;
 
+- (void)unpackDictionary:(NSDictionary *)dictionary;
+
 @end

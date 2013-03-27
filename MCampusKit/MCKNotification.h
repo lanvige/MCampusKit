@@ -9,7 +9,7 @@
 
 #import "MCKUser.h"
 
-@interface MCKNotification : MCKModelBase
+@interface MCKNotification : MCKModelBaseIdentifier
 
 @property (nonatomic, strong) NSString *Id;
 @property (nonatomic, strong) NSString *senderId;
