@@ -14,12 +14,15 @@
 
 + (id)objectWithDictionary:(NSDictionary *)dictionary
 {
-    if (dictionary) {
+    if (!dictionary) {
         return nil;
     }
 
-    MCKModelBase *object = [[self class] init];
-    [object unpackDictionary:dictionary];
+    MCKModelBase *object = [[self alloc] init];
+    
+    if ([object shouldUnpackDictionary:dictionary]) {
+        [object unpackDictionary:dictionary];
+    }
 
     return object;
 }
