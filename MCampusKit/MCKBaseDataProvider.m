@@ -78,7 +78,7 @@
          MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
          [dataWrapper unpackDictionary:responseObject];
 
-         id jsonData = [responseObject valueForKeyPath:@"data"];
+         id jsonData = [responseObject safeObjectForKey:@"data"];
 
          if (dataWrapper.isSuccess) {
              if ([jsonData isEqual:@"0"]) {
@@ -131,6 +131,7 @@
      }];
 }
 
+// Multi requests at once
 - (void)getContentWithTokenPaths:(NSArray *)paths
     paramters:(NSDictionary *)parameters
     success:(void (^)(NSArray *operations))success
@@ -187,13 +188,11 @@
                    paramters:parameters
                      success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (success) {
-             success(operation, dataWrapper, jsonData);
+             success((AFJSONRequestOperation *) operation, dataWrapper, jsonData);
          }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"GET ERROR - %@", error);
-
          if (failure) {
-             failure(operation, error);
+             failure((AFJSONRequestOperation *) operation, error);
          }
      }];
 }
