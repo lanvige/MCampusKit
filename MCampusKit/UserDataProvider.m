@@ -84,7 +84,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
 
@@ -117,7 +117,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
 
@@ -177,7 +177,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              // FIXME:
 //             CACHE.context = [[MCUserContext alloc] initWithAttributes:jsonData];
 //             [CACHE store];
@@ -212,7 +212,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              MCKProfile *profile = [[MCKProfile alloc] init];
              [profile unpackDictionary:jsonData];

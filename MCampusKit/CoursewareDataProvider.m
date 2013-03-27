@@ -74,7 +74,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
              MCKCoursewareSet *coursewareSet = [[MCKCoursewareSet alloc] init];
@@ -202,7 +202,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
              for (NSDictionary * attributes in jsonData) {

@@ -36,7 +36,7 @@
     [self getObjectsWithTokenPath:path paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              //                                  NSArray *courseList = (NSArray *)jsonData;
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 

@@ -57,7 +57,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              if (success) {
                  success(TRUE);
              }
@@ -115,7 +115,7 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
 

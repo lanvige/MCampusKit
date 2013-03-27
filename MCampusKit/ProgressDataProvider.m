@@ -26,7 +26,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
              MCKProgressRanking *progressRanking = [[MCKProgressRanking alloc] init];

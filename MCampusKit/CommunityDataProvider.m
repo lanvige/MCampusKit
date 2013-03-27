@@ -37,7 +37,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          //
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              NSArray *topicList = [jsonData objectForKey:@"topics"];
 
              //                                  if ([topicList isKindOfClass:[NSArray class]]) {
@@ -187,7 +187,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              NSArray *data = (NSArray *) jsonData;
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[data count]];
 
@@ -314,7 +314,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
          } else {
@@ -344,7 +344,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
          } else {
@@ -373,7 +373,7 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
          } else {

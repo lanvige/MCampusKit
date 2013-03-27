@@ -19,6 +19,4 @@
 @property (nonatomic, strong) NSString *strPlanId;
 @property (nonatomic, strong) NSString *strAlarm;
 
-- (void)unpackDictionary:(NSDictionary *)dictionary;
-
 @end

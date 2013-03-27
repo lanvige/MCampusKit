@@ -7,7 +7,3 @@
 //
 
 #import "MCKDefines.h"
-
-@implementation MCKDefines
-
-@end
