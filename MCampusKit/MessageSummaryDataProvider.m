@@ -8,7 +8,6 @@
 
 #import "MessageSummaryDataProvider.h"
 #import "MCKHTTPClient.h"
-#import "MCKUserContext.h"
 #import "MCKDataWrapper.h"
 #import "MCKMessageSummary.h"
 #import "MCKConfiguration.h"

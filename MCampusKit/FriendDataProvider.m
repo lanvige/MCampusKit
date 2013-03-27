@@ -10,7 +10,6 @@
 
 #import "MCKDataWrapper.h"
 #import "MCKHTTPClient.h"
-#import "MCKUserContext.h"
 #import "MCKFriend.h"
 
 @implementation FriendDataProvider

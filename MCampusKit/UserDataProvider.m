@@ -9,7 +9,6 @@
 #import "UserDataProvider.h"
 #import "MCKHTTPClient.h"
 #import "MCKUser.h"
-#import "MCKUserContext.h"
 #import "MCKDataWrapper.h"
 #import "MCKUserSettings.h"
 #import "MCKProfile.h"

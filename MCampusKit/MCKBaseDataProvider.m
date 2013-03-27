@@ -12,6 +12,7 @@
 #import "Reachability.h"
 #import "MCKCustomError.h"
 #import "MCKError.h"
+#import "MCKUser.h"
 
 // Set AFN timeout
 // http://stackoverflow.com/questions/8304560/how-to-set-a-timeout-with-afnetworking
@@ -108,15 +109,28 @@
      }];
 }
 
+#pragma mark -
+#pragma mark Get with Token
+
 - (void)getContentWithTokenPath:(NSString *)path
     paramters:(NSDictionary *)parameters
     success:(MCKHTTPClientSuccess)success
     failure:(MCKHTTPClientFailure)failure
 {
-    // Add common path.
-    // FIXME:
-    path = @"";
-    // path = [path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", CACHE.context.mId, CACHE.context.token]];
+    MCKUser *currentUser = [MCKUser currentUser];
+
+    if (currentUser) {
+        if (failure) {
+            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+            [errDict setValue:@"当前登陆失效，请重新登陆" forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+            failure(nil, error);
+        }
+
+        return;
+    }
+
+    path = [path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", currentUser.mId, currentUser.accessToken]];
 
     [self getContentsWithPath:path
                     paramters:parameters
@@ -151,14 +165,24 @@
 //        }
 //    }
 
+    MCKUser *currentUser = [MCKUser currentUser];
+
+    if (currentUser) {
+        if (failure) {
+            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+            [errDict setValue:@"当前登陆失效，请重新登陆" forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+            failure(error);
+        }
+
+        return;
+    }
+
     // Add common path.
     NSMutableArray *requests = [[NSMutableArray alloc] init];
 
     for (NSString *path in paths) {
-//        NSString *pathWithToken = [[path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", CACHE.context.mId, CACHE.context.token]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
-        // FIXME: REMOVE BELOW LINE
-        NSString *pathWithToken = @"";
+        NSString *pathWithToken = [[path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", currentUser.mId, currentUser.accessToken]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET" path:pathWithToken parameters:parameters];
         [requests addObject:request];
         [request setTimeoutInterval:10];
@@ -166,7 +190,6 @@
 
     [[MCKHTTPClient sharedClient] enqueueBatchOfHTTPRequestOperationsWithRequests:requests
                                                                     progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
-         //
      } completionBlock:^(NSArray *operations) {
          if (success) {
              success(operations);
@@ -179,11 +202,20 @@
     success:(MCKHTTPClientWrapperSuccess)success
     failure:(MCKHTTPClientFailure)failure
 {
-    // Add common path.
+    MCKUser *currentUser = [MCKUser currentUser];
 
-//    path = [path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", CACHE.context.mId, CACHE.context.token]];
-    // FIXME:
-    path = @"";
+    if (currentUser) {
+        if (failure) {
+            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+            [errDict setValue:@"当前登陆失效，请重新登陆" forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+            failure(nil, error);
+        }
+
+        return;
+    }
+
+    path = [path stringByAppendingString:[NSString stringWithFormat:@"&client=2&uid=%@&t=%@", currentUser.mId, currentUser.accessToken]];
     [self getObjectsWithPath:path
                    paramters:parameters
                      success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
@@ -219,10 +251,11 @@
     parameters:(NSDictionary *)params
     completion:(void (^)(id jsonData))completionBlock
 {
-    NSMutableURLRequest *postRequest = [[MCKHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST"
-                                                                                               path:path
-                                                                                         parameters:params
-                                                                          constructingBodyWithBlock: ^(id formData) {
+    NSMutableURLRequest *postRequest = [[MCKHTTPClient sharedClient]
+                                        multipartFormRequestWithMethod:@"POST"
+                                                                  path:path
+                                                            parameters:params
+                                             constructingBodyWithBlock: ^(id formData) {
 //                   NSMutableDictionary *headers = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 //                                                   @"application/x-www-form-urlencoded; charset=UTF-8",@"Content-Type",
 //                                                   [NSString stringWithFormat:@"form-data; name=\"%@\"", @"usr_info"],@"Content-Disposition"
@@ -265,10 +298,11 @@
 //        }
 //    }
 
-    NSURLRequest *postRequest = [[MCKHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST"
-                                                                                        path:path
-                                                                                  parameters:params
-                                                                   constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
+    NSURLRequest *postRequest = [[MCKHTTPClient sharedClient]
+                                 multipartFormRequestWithMethod:@"POST"
+                                                           path:path
+                                                     parameters:params
+                                      constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
                                      [formData appendPartWithFileData:imageData
                                                                  name:@"file"
                                                              fileName:@"uploadImage.jpg"
@@ -294,7 +328,11 @@
      }];
 
     [[MCKHTTPClient sharedClient] enqueueHTTPRequestOperation:operation];
-};
+}
+
+
+#pragma mark -
+#pragma mark Update
 
 - (void)updateObjectWithPath:(NSString *)path
     parameters:(NSDictionary *)params
@@ -316,6 +354,10 @@
          }
      }];
 }
+
+
+#pragma mark -
+#pragma mark Delete
 
 - (void)deleteObjectWithPath:(NSString *)path
     completion:(void (^)(BOOL))block

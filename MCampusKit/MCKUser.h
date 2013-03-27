@@ -6,14 +6,18 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #import "MCKModelBaseIdentifier.h"
+
+extern NSString *const kMCKCurrentUserChangedNotification;
 
 @interface MCKUser : MCKModelBaseIdentifier
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *avatar;
+@property (nonatomic, strong) NSString *accessToken;
+
++ (MCKUser *)currentUser;
++ (void)setCurrentUser:(MCKUser *)user;
 
 - (void)unpackDictionary:(NSDictionary *)dictionary;
 

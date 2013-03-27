@@ -7,3 +7,5 @@
 //
 
 #import "MCKDefines.h"
+
+NSString *const kMCKKeychainServiceName = @"MCampus";

@@ -10,7 +10,6 @@
 
 #import "MCKHTTPClient.h"
 #import "MCKDataWrapper.h"
-#import "MCKUserContext.h"
 #import "MCKCommunity.h"
 #import "MCKConfiguration.h"
 

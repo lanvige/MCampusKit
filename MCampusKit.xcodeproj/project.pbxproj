@@ -22,7 +22,6 @@
 		383CC2391701982C00328A7D /* MCKProfilePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC22D1701982C00328A7D /* MCKProfilePhoto.m */; };
 		383CC23A1701982C00328A7D /* MCKProfileStudyDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC22F1701982C00328A7D /* MCKProfileStudyDetail.m */; };
 		383CC23B1701982C00328A7D /* MCKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2311701982C00328A7D /* MCKUser.m */; };
-		383CC23C1701982C00328A7D /* MCKUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2331701982C00328A7D /* MCKUserContext.m */; };
 		383CC23D1701982C00328A7D /* MCKUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2351701982C00328A7D /* MCKUserSettings.m */; };
 		383CC2541701986000328A7D /* MCKCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2401701986000328A7D /* MCKCourse.m */; };
 		383CC2551701986000328A7D /* MCKCourseware.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2421701986000328A7D /* MCKCourseware.m */; };
@@ -111,8 +110,6 @@
 		383CC22F1701982C00328A7D /* MCKProfileStudyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProfileStudyDetail.m; sourceTree = "<group>"; };
 		383CC2301701982C00328A7D /* MCKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUser.h; sourceTree = "<group>"; };
 		383CC2311701982C00328A7D /* MCKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUser.m; sourceTree = "<group>"; };
-		383CC2321701982C00328A7D /* MCKUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUserContext.h; sourceTree = "<group>"; };
-		383CC2331701982C00328A7D /* MCKUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUserContext.m; sourceTree = "<group>"; };
 		383CC2341701982C00328A7D /* MCKUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUserSettings.h; sourceTree = "<group>"; };
 		383CC2351701982C00328A7D /* MCKUserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUserSettings.m; sourceTree = "<group>"; };
 		383CC23F1701986000328A7D /* MCKCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCourse.h; sourceTree = "<group>"; };
@@ -256,8 +253,6 @@
 				383CC22F1701982C00328A7D /* MCKProfileStudyDetail.m */,
 				383CC2301701982C00328A7D /* MCKUser.h */,
 				383CC2311701982C00328A7D /* MCKUser.m */,
-				383CC2321701982C00328A7D /* MCKUserContext.h */,
-				383CC2331701982C00328A7D /* MCKUserContext.m */,
 				383CC2341701982C00328A7D /* MCKUserSettings.h */,
 				383CC2351701982C00328A7D /* MCKUserSettings.m */,
 			);
@@ -544,7 +539,6 @@
 				383CC2391701982C00328A7D /* MCKProfilePhoto.m in Sources */,
 				383CC23A1701982C00328A7D /* MCKProfileStudyDetail.m in Sources */,
 				383CC23B1701982C00328A7D /* MCKUser.m in Sources */,
-				383CC23C1701982C00328A7D /* MCKUserContext.m in Sources */,
 				383CC23D1701982C00328A7D /* MCKUserSettings.m in Sources */,
 				383CC2541701986000328A7D /* MCKCourse.m in Sources */,
 				383CC2551701986000328A7D /* MCKCourseware.m in Sources */,

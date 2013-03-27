@@ -16,3 +16,5 @@
 #endif
 
 extern NSString *const kAPIBaseURLString;
+
+extern NSString *const kMCKKeychainServiceName;

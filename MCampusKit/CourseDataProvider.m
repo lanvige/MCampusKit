@@ -9,7 +9,6 @@
 #import "CourseDataProvider.h"
 
 #import "MCKHTTPClient.h"
-#import "MCKUserContext.h"
 #import "MCKCourse.h"
 
 @implementation CourseDataProvider
