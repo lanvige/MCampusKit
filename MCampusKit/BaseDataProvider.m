@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "Reachability.h"
 #import "MCKCustomError.h"
+#import "MCKError.h"
 
 // Set AFN timeout
 // http://stackoverflow.com/questions/8304560/how-to-set-a-timeout-with-afnetworking
@@ -52,7 +53,7 @@
                                              NSLog(@"GET SUCCESS - %s ", __PRETTY_FUNCTION__);
 
                                              if (success) {
-                                                 success((AFJSONRequestOperation *)operation, responseObject);
+                                                 success((AFJSONRequestOperation *) operation, responseObject);
                                              }
                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                              NSLog(@"GET ERROR - %@", error);
@@ -66,7 +67,6 @@
 }
 
 
-// Get object with json.
 - (void)getObjectsWithPath:(NSString *)path
     paramters:(NSDictionary *)parameters
     success:(MCKHTTPClientWrapperSuccess)success
@@ -75,20 +75,21 @@
     [self getContentsWithPath:path
                     paramters:parameters
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:responseObject];
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+         [dataWrapper unpackDictionary:responseObject];
 
          id jsonData = [responseObject valueForKeyPath:@"data"];
 
          if (dataWrapper.isSuccess) {
-             // data = 0
              if ([jsonData isEqual:@"0"]) {
                  NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
                  [errDict setValue:@"Unkonw server issue" forKey:NSLocalizedDescriptionKey];
                  NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
 
-                 failure((AFJSONRequestOperation *) operation, error);
+                 if (failure) {
+                     failure((AFJSONRequestOperation *) operation, error);
+                 }
              } else if (success) {
-                 NSLog(@"get jsondata - %@", jsonData);
                  success(operation, dataWrapper, jsonData);
              }
          } else {

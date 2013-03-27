@@ -288,7 +288,7 @@
 
                   completion:^(BOOL success, NSError *error, id jsonData) {
 
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:jsonData];
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
 
          // TODO what's the return.
          if (completionBlock) {

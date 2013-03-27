@@ -10,16 +10,10 @@
 
 @implementation MCKError
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 {
-    self = [super init];
-
-    if (!self) {
-        self.code = [[attributes valueForKeyPath:@"code"] intValue];
-        self.message = [attributes valueForKeyPath:@"message"];
-    }
-
-    return self;
+    self.code = [[dictionary safeObjectForKey:@"code"] intValue];
+    self.message = [dictionary safeObjectForKey:@"message"];
 }
 
 @end

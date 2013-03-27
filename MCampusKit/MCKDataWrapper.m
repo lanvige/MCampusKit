@@ -7,31 +7,27 @@
 //
 
 #import "MCKDataWrapper.h"
+#import "MCKError.h"
+#import "NSDictionary+MCampusKit.h"
 
 @implementation MCKDataWrapper
 
-#pragma mark - Build object with Dictionary
+#pragma mark - 
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        bool result = false;
-
-        self.timestamp = [attributes valueForKeyPath:@"timestamp"];
-        self.isSuccess = [[attributes valueForKeyPath:@"isSuccess"] boolValue];
-
-        // Build error object.
-        id errorDic = [attributes objectForKey:@"error"];
-
-        if (errorDic != [NSNull null]) {
-            self.error = [[MCKError alloc] initWithAttributes:errorDic];
-            result = true;
-        }
+    self.timestamp = [dictionary safeObjectForKey:@"timestamp"];
+    self.isSuccess = [[dictionary safeObjectForKey:@"isSuccess"] boolValue];
+    self.error = [dictionary safeObjectForKey:@"error"];
+    
+    // Build error object.
+    id errorDic = [dictionary safeObjectForKey:@"error"];
+    
+    if (errorDic) {
+        self.error = [[MCKError alloc] init];
+        [self.error unpackDictionary:errorDic];
     }
-
-    return self;
 }
 
 @end

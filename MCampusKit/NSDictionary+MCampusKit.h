@@ -10,6 +10,6 @@
 
 @interface NSDictionary (MCampusKit)
 
-- (id)safeOjbectForKey:(id)key;
+- (id)safeObjectForKey:(id)key;
 
 @end

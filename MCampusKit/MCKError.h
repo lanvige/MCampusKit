@@ -13,6 +13,6 @@
 @property (nonatomic, assign) NSInteger code;
 @property (nonatomic, strong) NSString *message;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

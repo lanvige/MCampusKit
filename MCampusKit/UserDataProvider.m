@@ -276,7 +276,8 @@
     [self saveObjectWithMultiHeaderAndPath:path
                                 parameters:params
                                 completion:^(id jsonData) {
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:jsonData];
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+                                    [dataWrapper unpackDictionary:jsonData];
 
          [dataWrapper.modelList addObject:nil];
 
@@ -316,7 +317,8 @@
              progressBlock(progress);
          }
      } completion:^(BOOL success2, NSError *error, id jsonData) {
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:jsonData];
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+         [dataWrapper unpackDictionary:jsonData];
          NSString *str = [jsonData objectForKey:@"data"];
          dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
          [dataWrapper.modelList addObject:str];

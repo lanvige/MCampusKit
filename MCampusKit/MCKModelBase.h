@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDictionary+MCampusKit.h"
 
 @interface MCKModelBase : NSObject
 

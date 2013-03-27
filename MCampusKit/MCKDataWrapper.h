@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MCKModelBase.h"
-#import "MCKError.h"
+@class MCKError;
 
 @interface MCKDataWrapper : MCKModelBase
 
@@ -20,6 +20,6 @@
 @property (nonatomic, strong) NSMutableArray *modelList;
 
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

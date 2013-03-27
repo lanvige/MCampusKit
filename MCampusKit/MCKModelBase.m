@@ -9,6 +9,7 @@
 
 #import "MCKModelBase.h"
 #import <objc/runtime.h>
+#import "NSDictionary+MCampusKit.h"
 
 @implementation MCKModelBase
 

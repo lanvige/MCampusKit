@@ -10,7 +10,7 @@
 
 @implementation NSDictionary (MCampusKit)
 
-- (id)safeOjbectForKey:(id)key
+- (id)safeObjectForKey:(id)key
 {
     id value = [self valueForKey:key];
     if (value == [NSNull null]) {
