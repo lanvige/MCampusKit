@@ -24,7 +24,7 @@
     // build topic reply array(maybe empty.)
     id optionsArray = [dictionary safeObjectForKey:@"options"];
 
-    if (optionsArray != [NSNull null]) {
+    if (optionsArray) {
         // Need init the array first.
         self.options = [NSMutableArray arrayWithCapacity:[optionsArray count]];
 

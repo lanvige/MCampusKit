@@ -22,7 +22,7 @@
     // build topic reply array(maybe empty.)
     id courseArray = [dictionary safeObjectForKey:@"coursewares"];
 
-    if (courseArray != [NSNull null]) {
+    if (courseArray) {
         // Need init the array first.
         self.coursewares = [NSMutableArray arrayWithCapacity:[courseArray count]];
 
