@@ -19,6 +19,6 @@
 
 @property (nonatomic, strong) NSString *strInsertName;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

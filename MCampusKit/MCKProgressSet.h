@@ -13,6 +13,6 @@
 @property (nonatomic, assign) NSInteger recordCount;
 @property (nonatomic, strong) NSMutableArray *progresses;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

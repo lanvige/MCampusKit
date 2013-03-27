@@ -15,6 +15,6 @@
 
 @property (nonatomic, strong) NSMutableArray *coursewares;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -23,6 +23,6 @@
 
 + (MCKConfiguration *)sharedConfiguration;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

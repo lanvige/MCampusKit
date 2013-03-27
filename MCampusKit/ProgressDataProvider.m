@@ -29,7 +29,8 @@
          if (jsonData != [NSNull null]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
-             MCKProgressRanking *progressRanking = [[MCKProgressRanking alloc] initWithAttributes:jsonData];
+             MCKProgressRanking *progressRanking = [[MCKProgressRanking alloc] init];
+             [progressRanking unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:progressRanking];
 
          } else {
@@ -59,11 +60,11 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
-             MCKProgressSet *progressSet = [[MCKProgressSet alloc] initWithAttributes:jsonData];
+             MCKProgressSet *progressSet = [[MCKProgressSet alloc] init];
+             [progressSet unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:progressSet];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];

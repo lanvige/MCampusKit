@@ -41,7 +41,8 @@
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
              for (NSDictionary * attributes in jsonData) {
-                 MCKCourse *course = [[MCKCourse alloc] initWithAttributes:attributes];
+                 MCKCourse *course = [[MCKCourse alloc] init];
+                 [course unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:course];
              }
          } else {
@@ -67,12 +68,13 @@
     [self getObjectsWithTokenPath:path paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              //                                  NSArray *courseList = (NSArray *)jsonData;
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
              for (NSDictionary * attributes in jsonData) {
-                 MCKCourse *course = [[MCKCourse alloc] initWithAttributes:attributes];
+                 MCKCourse *course = [[MCKCourse alloc] init];
+                 [course unpackDictionary:jsonData];
                  [dataWrapper.modelList addObject:course];
              }
          } else {

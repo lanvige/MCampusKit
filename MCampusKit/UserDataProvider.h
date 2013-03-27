@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
 @class MCKDataWrapper;
 
-@interface UserDataProvider : BaseDataProvider
+@interface UserDataProvider : MCKBaseDataProvider
 {
 }
 - (void)sendCodeWithPhone:(NSString *)phone

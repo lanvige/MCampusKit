@@ -10,26 +10,19 @@
 
 @implementation MCKStudyPlan
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        return nil;
-    }
-
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
 
-    self.planDate = [formatter dateFromString:[attributes valueForKeyPath:@"date"]];
-    self.alarmMinutes = [[attributes valueForKeyPath:@"alarmMinutes"] intValue];
-    self.place = [attributes valueForKeyPath:@"place"];
-    self.title = [attributes valueForKeyPath:@"title"];
-    self.description = [attributes valueForKeyPath:@"description"];
-
-    return self;
+    self.planDate = [formatter dateFromString:[dictionary safeObjectForKey:@"date"]];
+    self.alarmMinutes = [[dictionary safeObjectForKey:@"alarmMinutes"] intValue];
+    self.place = [dictionary safeObjectForKey:@"place"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.description = [dictionary safeObjectForKey:@"description"];
 }
 
 @end

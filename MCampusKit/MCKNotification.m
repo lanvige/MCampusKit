@@ -10,31 +10,27 @@
 
 @implementation MCKNotification
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd HH:mm"];
+    
+    self.Id = [dictionary safeObjectForKey:@"id"];
+    self.senderId = [dictionary safeObjectForKey:@"senderId"];
+    self.content = [dictionary safeObjectForKey:@"content"];
+    self.type = [[dictionary safeObjectForKey:@"type"] intValue];
+    self.createtime = [formatter dateFromString:[dictionary safeObjectForKey:@"createtime"]];
+    self.parameter = [dictionary safeObjectForKey:@"parameter"];
 
-    if (!self) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MM/dd HH:mm"];
-        self.Id = [attributes valueForKeyPath:@"id"];
-        self.senderId = [attributes valueForKeyPath:@"senderId"];
-        self.content = [attributes valueForKeyPath:@"content"];
-        self.type = [[attributes valueForKeyPath:@"type"] intValue];
-        self.createtime = [formatter dateFromString:[attributes valueForKeyPath:@"createtime"]];
-        self.parameter = [attributes valueForKeyPath:@"parameter"];
-
-        // build user
-        id userDict = [attributes objectForKey:@"user"];
-
-        if (userDict != [NSNull null]) {
-            self.user = [[MCKUser alloc] initWithAttributes:userDict];
-        }
+    // build user
+    id userDict = [dictionary safeObjectForKey:@"user"];
+    if (userDict) {
+        self.user = [[MCKUser alloc] init];
+        [self.user unpackDictionary:userDict];
     }
-
-    return self;
 }
 
 @end

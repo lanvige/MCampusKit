@@ -13,6 +13,6 @@
 @property (nonatomic, assign) BOOL canBeInvited;
 @property (nonatomic, assign) BOOL showProfile;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

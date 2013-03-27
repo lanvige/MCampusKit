@@ -7,9 +7,9 @@
 //
 //  通知
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
-@interface NoticeDataProvider : BaseDataProvider
+@interface NoticeDataProvider : MCKBaseDataProvider
 
 - (void)getNoticesWithNoticeId:(NSString *)noticeId
     latestType:(NSString *)latestType

@@ -16,6 +16,6 @@
 @property (nonatomic, assign) bool isMyClassMate;
 
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

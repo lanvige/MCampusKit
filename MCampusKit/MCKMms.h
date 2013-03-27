@@ -18,6 +18,6 @@
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSMutableArray *frameInfoList;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -16,6 +16,6 @@
 @property (nonatomic, assign) NSInteger privateMsgCount;
 @property (nonatomic, assign) BOOL isMyFriend;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

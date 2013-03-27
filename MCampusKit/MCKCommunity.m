@@ -11,46 +11,40 @@
 
 @implementation MCKCommunity
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        return nil;
-    }
-
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.userId = [[attributes valueForKeyPath:@"userId"] intValue];
-    self.userName = [attributes valueForKeyPath:@"userName"];
-    self.userIcon = [attributes valueForKeyPath:@"userIcon"];
-    self.userType = [attributes valueForKeyPath:@"userType"];
-    self.tags = [attributes valueForKeyPath:@"tags"];
-    self.content = [attributes valueForKeyPath:@"content"];
-    self.resourceUrl = [attributes valueForKey:@"resourceUrl"];
-    self.courseId = [attributes valueForKey:@"course"];
-    self.courseName = [attributes valueForKey:@"courseName"];
-    self.coursewareId = [attributes valueForKey:@"courseware"];
-    self.coursewareName = [attributes valueForKey:@"coursewareName"];
-    self.createtime = [attributes valueForKeyPath:@"createtime"];
-    self.replayCount = [[attributes valueForKeyPath:@"replyCount"] intValue];
-    self.updateTimestamp = [attributes valueForKeyPath:@"updateTimestamp"];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.userId = [[dictionary safeObjectForKey:@"userId"] intValue];
+    self.userName = [dictionary safeObjectForKey:@"userName"];
+    self.userIcon = [dictionary safeObjectForKey:@"userIcon"];
+    self.userType = [dictionary safeObjectForKey:@"userType"];
+    self.tags = [dictionary safeObjectForKey:@"tags"];
+    self.content = [dictionary safeObjectForKey:@"content"];
+    self.resourceUrl = [dictionary safeObjectForKey:@"resourceUrl"];
+    self.courseId = [dictionary safeObjectForKey:@"course"];
+    self.courseName = [dictionary safeObjectForKey:@"courseName"];
+    self.coursewareId = [dictionary safeObjectForKey:@"courseware"];
+    self.coursewareName = [dictionary safeObjectForKey:@"coursewareName"];
+    self.createtime = [dictionary safeObjectForKey:@"createtime"];
+    self.replayCount = [[dictionary safeObjectForKey:@"replyCount"] intValue];
+    self.updateTimestamp = [dictionary safeObjectForKey:@"updateTimestamp"];
 
     // build topic reply array(maybe empty.)
-    id repliesArray = [attributes objectForKey:@"replies"];
+    id repliesArray = [dictionary safeObjectForKey:@"replies"];
 
-    if (repliesArray != [NSNull null]) {
+    if (repliesArray) {
         // Need init the array first.
         self.replies = [NSMutableArray arrayWithCapacity:[repliesArray count]];
 
         for (NSDictionary *lrAttributes in repliesArray) {
-            MCKCommunityReply *topicReply = [[MCKCommunityReply alloc] initWithAttributes:lrAttributes];
+            MCKCommunityReply *topicReply = [[MCKCommunityReply alloc] init];
+            [topicReply unpackDictionary:lrAttributes];
             [self.replies addObject:topicReply];
         }
     }
-
-    return self;
 }
 
 @end

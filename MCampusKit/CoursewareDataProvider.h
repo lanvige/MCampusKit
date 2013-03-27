@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
-@interface CoursewareDataProvider : BaseDataProvider
+@interface CoursewareDataProvider : MCKBaseDataProvider
 
 - (void)getCoursewaresWithCourse:(NSString *)courseId
     timestamp:(NSString *)timestamp

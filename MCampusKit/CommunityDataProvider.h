@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
 // 讨论数据存取
 
 @class MCKDataWrapper;
 
-@interface CommunityDataProvider : BaseDataProvider
+@interface CommunityDataProvider : MCKBaseDataProvider
 
 - (void)getTopicsWithTags:(NSString *)tags
     timestamp:(NSString *)timestamp

@@ -10,31 +10,24 @@
 
 @implementation MCKCourse
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.studentCount = [[dictionary safeObjectForKey:@"studentCount"] intValue];
+    self.bookCover = [dictionary safeObjectForKey:@"bookCover"];
+    self.questionCount = [[dictionary safeObjectForKey:@"questionCount"] intValue];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
+    self.commentCount = [[dictionary safeObjectForKey:@"commentCount"] intValue];
+    self.commentStar = [[dictionary safeObjectForKey:@"commentStar"] intValue];
+    self.desc = [dictionary safeObjectForKey:@"desc"];
 
-    if (!self) {
-        self.mId = [attributes valueForKeyPath:@"id"];
-        self.title = [attributes valueForKeyPath:@"title"];
-
-        // self.progress = [[attributes valueForKeyPath:@"progress"] floatValue];
-        self.studentCount = [[attributes valueForKeyPath:@"studentCount"] intValue];
-        self.bookCover = [attributes valueForKeyPath:@"bookCover"];
-        self.questionCount = [[attributes valueForKeyPath:@"questionCount"] intValue];
-        self.status = [[attributes valueForKeyPath:@"status"] intValue];
-        self.commentCount = [[attributes valueForKeyPath:@"commentCount"] intValue];
-        self.commentStar = [[attributes valueForKeyPath:@"commentStar"] intValue];
-        self.desc = [attributes valueForKeyPath:@"desc"];
-
-        // Build teacher name list.
-        NSMutableArray *teachernameList = [attributes objectForKey:@"teacherNameList"];
-        self.teacherNameList = teachernameList;
-    }
-
-    return self;
+    // Build teacher name list.
+    NSMutableArray *teachernameList = [dictionary safeObjectForKey:@"teacherNameList"];
+    self.teacherNameList = teachernameList;
 }
 
 @end

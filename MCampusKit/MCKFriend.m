@@ -10,25 +10,19 @@
 
 @implementation MCKFriend
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes {
-    
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.name = [attributes valueForKeyPath:@"name"];
-    self.icon = [attributes valueForKeyPath:@"icon"];
-    self.status = [[attributes valueForKeyPath:@"status"] intValue];
-    self.groupId = [[attributes valueForKeyPath:@"groupId"] intValue];
-    self.phoneNumber = [attributes valueForKeyPath:@"phoneNumber"];
-    self.hasClient = [[attributes valueForKey:@"hasClient"] boolValue];
-    self.myClassmate = [[attributes valueForKey:@"myClassmate"] boolValue];
-    
-    return self;
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.name = [dictionary safeObjectForKey:@"name"];
+    self.icon = [dictionary safeObjectForKey:@"icon"];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
+    self.groupId = [[dictionary safeObjectForKey:@"groupId"] intValue];
+    self.phoneNumber = [dictionary safeObjectForKey:@"phoneNumber"];
+    self.hasClient = [[dictionary safeObjectForKey:@"hasClient"] boolValue];
+    self.myClassmate = [[dictionary safeObjectForKey:@"myClassmate"] boolValue];
 }
 
 @end

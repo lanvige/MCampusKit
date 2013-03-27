@@ -11,48 +11,38 @@
 
 @implementation MCKNotice
 
-#pragma mark - Build object with Dictionar
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.senderId = [dictionary safeObjectForKey:@"senderId"];
+    self.senderName = [dictionary safeObjectForKey:@"senderName"];
+    self.senderImg = [dictionary safeObjectForKey:@"senderImg"];
+    self.messageTime = [dictionary safeObjectForKey:@"messageTime"];
+    self.messageType = [dictionary safeObjectForKey:@"messageType"];
+    self.messageContent = [dictionary safeObjectForKey:@"messageContent"];
+    self.mmsImageUrl = [dictionary safeObjectForKey:@"mmsImageUrl"];
 
-    if (!self) {
-        return nil;
-    }
-
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.senderId = [attributes valueForKeyPath:@"senderId"];
-    self.senderName = [attributes valueForKeyPath:@"senderName"];
-    self.senderImg = [attributes valueForKeyPath:@"senderImg"];
-    self.messageTime = [attributes valueForKeyPath:@"messageTime"];
-//    self.messageType = [[attributes valueForKeyPath:@"messageType"] intValue];
-    self.messageType = [attributes valueForKeyPath:@"messageType"];
-
-    self.messageContent = [attributes valueForKeyPath:@"messageContent"];
-
-    if ([[attributes valueForKeyPath:@"mmsImageUrl"] isEqual:[NSNull null]]) {
+    if (!self.mmsImageUrl) {
         self.mmsImageUrl = @"";
-    } else {
-        self.mmsImageUrl = [attributes valueForKeyPath:@"mmsImageUrl"];
     }
 
-    self.status = [[attributes valueForKeyPath:@"status"] intValue];
-    self.mmsId = [[attributes valueForKeyPath:@"mmsId"] intValue];
-    self.repostUserId = [[attributes valueForKeyPath:@"repostUserId"] intValue];
-    self.repostUserName = [attributes valueForKeyPath:@"repostUserName"];
-    self.mmsImageIcon = [attributes valueForKeyPath:@"mmsImageIcon"];
-    self.senderType = [attributes valueForKeyPath:@"senderType"];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
+    self.mmsId = [[dictionary safeObjectForKey:@"mmsId"] intValue];
+    self.repostUserId = [[dictionary safeObjectForKey:@"repostUserId"] intValue];
+    self.repostUserName = [dictionary safeObjectForKey:@"repostUserName"];
+    self.mmsImageIcon = [dictionary safeObjectForKey:@"mmsImageIcon"];
+    self.senderType = [dictionary safeObjectForKey:@"senderType"];
 
     // Build Study Plan
+    id studyPlanDic = [dictionary safeObjectForKey:@"studyPlan"];
 
-    id studyPlanDic = [attributes objectForKey:@"studyPlan"];
-
-    if (studyPlanDic != [NSNull null]) {
-        self.studyPlan = [[MCKStudyPlan alloc] initWithAttributes:studyPlanDic];
+    if (studyPlanDic) {
+        self.studyPlan = [[MCKStudyPlan alloc] init];
+        [self.studyPlan unpackDictionary:studyPlanDic];
     }
-
-    return self;
 }
 
 @end

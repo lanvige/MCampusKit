@@ -10,22 +10,16 @@
 
 @implementation MCKProfilePhoto
 
-@synthesize url, isDefault, status;
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-#pragma mark - Build object with Dictionary
-
-- (id)initWithAttributes:(NSDictionary *)attributes {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
     
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.url = [attributes valueForKeyPath:@"url"];
-    self.isDefault = [[attributes valueForKey:@"isDefault"] boolValue];
-    self.status = [[attributes valueForKeyPath:@"status"] intValue];
-    
-    return self;
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.url = [dictionary safeObjectForKey:@"url"];
+    self.isDefault = [[dictionary safeObjectForKey:@"isDefault"] boolValue];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
 }
 
 @end

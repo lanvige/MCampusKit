@@ -11,33 +11,29 @@
 
 @implementation MCKVote
 
-@synthesize noticeId, title, votedOption, options;
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"voteId"];
+    self.noticeId = [dictionary safeObjectForKey:@"messageId"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.votedOption = [dictionary safeObjectForKey:@"votedOption"];
 
-    if (!self) {
-        self.mId = [attributes valueForKeyPath:@"voteId"];
-        self.noticeId = [attributes valueForKeyPath:@"messageId"];
-        self.title = [attributes valueForKeyPath:@"title"];
-        self.votedOption = [attributes valueForKeyPath:@"votedOption"];
+    // build topic reply array(maybe empty.)
+    id optionsArray = [dictionary safeObjectForKey:@"options"];
 
-        // build topic reply array(maybe empty.)
-        id optionsArray = [attributes objectForKey:@"options"];
+    if (optionsArray != [NSNull null]) {
+        // Need init the array first.
+        self.options = [NSMutableArray arrayWithCapacity:[optionsArray count]];
 
-        if (optionsArray != [NSNull null]) {
-            // Need init the array first.
-            self.options = [NSMutableArray arrayWithCapacity:[optionsArray count]];
-
-            for (NSDictionary *voAttributes in optionsArray) {
-                MCKVoteOption *voteOption = [[MCKVoteOption alloc] initWithAttributes:voAttributes];
-                [self.options addObject:voteOption];
-            }
+        for (NSDictionary *voAttributes in optionsArray) {
+            MCKVoteOption *voteOption = [[MCKVoteOption alloc] init];
+            [voteOption unpackDictionary:voAttributes];
+            [self.options addObject:voteOption];
         }
     }
-
-    return self;
 }
 
 @end

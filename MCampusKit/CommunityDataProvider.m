@@ -44,7 +44,8 @@
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[topicList count]];
 
              for (NSDictionary * attributes in topicList) {
-                 MCKCommunity *topic = [[MCKCommunity alloc] initWithAttributes:attributes];
+                 MCKCommunity *topic = [[MCKCommunity alloc] init];
+                 [topic unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:topic];
              }
          } else {
@@ -155,9 +156,10 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKCommunity *topic = [[MCKCommunity alloc] initWithAttributes:jsonData];
+             MCKCommunity *topic = [[MCKCommunity alloc] init];
+             [topic unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:topic];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
@@ -190,7 +192,8 @@
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[data count]];
 
              for (NSDictionary * attributes in data) {
-                 MCKCommunity *topic = [[MCKCommunity alloc] initWithAttributes:attributes];
+                 MCKCommunity *topic = [[MCKCommunity alloc] init];
+                 [topic unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:topic];
              }
          } else {
@@ -224,9 +227,10 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKCommunity *topic = [[MCKCommunity alloc] initWithAttributes:jsonData];
+             MCKCommunity *topic = [[MCKCommunity alloc] init];
+             [topic unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:topic];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];

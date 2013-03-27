@@ -17,9 +17,10 @@
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, assign) NSInteger groupId;
 @property (nonatomic, strong) NSString *phoneNumber;
-@property (nonatomic, assign) bool hasClient;
-@property (nonatomic, assign) bool myClassmate;
+@property (nonatomic, assign) BOOL hasClient;
+@property (nonatomic, assign) BOOL myClassmate;
 @property (nonatomic, strong) NSString *strName;
-- (id)initWithAttributes:(NSDictionary *)attributes;
+
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

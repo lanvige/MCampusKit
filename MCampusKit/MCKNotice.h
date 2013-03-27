@@ -13,7 +13,6 @@
 @interface MCKNotice : MCKModelBaseIdentifier
 
 @property (nonatomic, strong) NSString *NameStr;
-
 @property (nonatomic, strong) NSString *senderId;
 @property (nonatomic, strong) NSString *senderName;
 @property (nonatomic, strong) NSString *senderImg;
@@ -32,6 +31,6 @@
 @property (nonatomic, strong) NSString *senderType;
 @property (nonatomic, strong) MCKStudyPlan *studyPlan;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

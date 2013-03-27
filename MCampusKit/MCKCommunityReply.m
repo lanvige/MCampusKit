@@ -10,27 +10,21 @@
 
 @implementation MCKCommunityReply
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes {
-    // build frame
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd HH:mm"];
-    
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.userId = [[attributes valueForKeyPath:@"userId"] intValue];
-    self.userIcon = [attributes valueForKeyPath:@"userIcon"];
-    self.userName = [attributes valueForKeyPath:@"userName"];
-    self.userType = [attributes valueForKeyPath:@"userType"];
-    self.content = [attributes valueForKeyPath:@"content"];
-    self.createtime = [formatter dateFromString:[attributes valueForKeyPath:@"createtime"]];
-    
-    return self;
+
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.userId = [[dictionary safeObjectForKey:@"userId"] intValue];
+    self.userIcon = [dictionary safeObjectForKey:@"userIcon"];
+    self.userName = [dictionary safeObjectForKey:@"userName"];
+    self.userType = [dictionary safeObjectForKey:@"userType"];
+    self.content = [dictionary safeObjectForKey:@"content"];
+    self.createtime = [formatter dateFromString:[dictionary safeObjectForKey:@"createtime"]];
 }
 
 @end

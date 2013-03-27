@@ -10,17 +10,14 @@
 
 @implementation MCKExerciseItemOption
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        self.hasSelected = [[attributes valueForKeyPath:@"hasSelected"] boolValue];
-        self.content = [attributes valueForKeyPath:@"content"];
-        self.correct = [[attributes valueForKeyPath:@"correct"] boolValue];
-    }
-
-    return self;
+    self.hasSelected = [[dictionary safeObjectForKey:@"hasSelected"] boolValue];
+    self.content = [dictionary safeObjectForKey:@"content"];
+    self.correct = [[dictionary safeObjectForKey:@"correct"] boolValue];
 }
 
 @end

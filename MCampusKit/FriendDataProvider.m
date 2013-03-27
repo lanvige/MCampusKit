@@ -24,12 +24,13 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              NSArray *friendList = (NSArray *) jsonData;
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendList count]];
 
              for (NSDictionary * attributes in friendList) {
-                 MCKFriend *friend = [[MCKFriend alloc] initWithAttributes:attributes];
+                 MCKFriend *friend = [[MCKFriend alloc] init];
+                 [friend unpackDictionary:jsonData];
                  [dataWrapper.modelList addObject:friend];
              }
          } else {
@@ -56,13 +57,13 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
-
+         if (jsonData) {
              NSArray *friendList = (NSArray *) jsonData;
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendList count]];
 
              for (NSDictionary * attributes in friendList) {
-                 MCKFriend *friend = [[MCKFriend alloc] initWithAttributes:attributes];
+                 MCKFriend *friend = [[MCKFriend alloc] init];
+                 [friend unpackDictionary:jsonData];
                  [dataWrapper.modelList addObject:friend];
              }
          } else {
@@ -120,11 +121,11 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
-             // NSDictionary *friendArray = [responseObject objectForKey:@"data"];
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
-             MCKFriend *friend = [[MCKFriend alloc] initWithAttributes:jsonData];
+             MCKFriend *friend = [[MCKFriend alloc] init];
+             [friend unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:friend];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];

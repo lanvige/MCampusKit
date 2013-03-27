@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
 @class MCKDataWrapper;
 
-@interface FriendDataProvider : BaseDataProvider
+@interface FriendDataProvider : MCKBaseDataProvider
 
 - (void)getFriendsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;

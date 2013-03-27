@@ -25,9 +25,8 @@
 @property (nonatomic, strong) NSString *createtime;
 @property (nonatomic, assign) NSInteger replayCount;
 @property (nonatomic, strong) NSMutableArray *replies;
-
 @property (nonatomic, strong) NSString *updateTimestamp;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

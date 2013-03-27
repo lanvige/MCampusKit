@@ -10,23 +10,20 @@
 
 @implementation MCKUserContext
 
-@synthesize name, token;
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-    if (self) {
-        self.mId = [attributes valueForKeyPath:@"id"];
-        self.name = [attributes valueForKeyPath:@"name"];
-        if ([[attributes valueForKey:@"icon"] isEqual:[NSNull null]]) {
-            self.avatar = @"";
-        }else {
-            self.avatar = [attributes valueForKey:@"icon"];       
-        }
-        self.token = [attributes valueForKeyPath:@"token"];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.name = [dictionary safeObjectForKey:@"name"];
+    self.avatar = [dictionary safeObjectForKey:@"icon"];
+
+    if (!self.avatar) {
+        self.avatar = @"";
     }
 
-    return self;
+    self.token = [dictionary safeObjectForKey:@"token"];
 }
 
 @end

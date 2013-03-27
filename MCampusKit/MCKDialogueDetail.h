@@ -20,6 +20,6 @@
 @property (nonatomic, assign) NSInteger readed;
 @property (nonatomic, strong) NSDate *createtime;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

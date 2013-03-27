@@ -23,11 +23,12 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
              for (NSDictionary * attributes in jsonData) {
-                 MCKExerciseItem *exerciseItem = [[MCKExerciseItem alloc] initWithAttributes:attributes];
+                 MCKExerciseItem *exerciseItem = [[MCKExerciseItem alloc] init];
+                 [exerciseItem unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:exerciseItem];
              }
          } else {
@@ -81,12 +82,13 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              NSArray *friendList = (NSArray *) jsonData;
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendList count]];
 
              for (NSDictionary * attributes in friendList) {
-                 MCKFriend *friend = [[MCKFriend alloc] initWithAttributes:attributes];
+                 MCKFriend *friend = [[MCKFriend alloc] init];
+                 [friend unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:friend];
              }
          } else {

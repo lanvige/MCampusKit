@@ -214,7 +214,8 @@
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (jsonData != [NSNull null]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKProfile *profile = [[MCKProfile alloc] initWithAttributes:jsonData];
+             MCKProfile *profile = [[MCKProfile alloc] init];
+             [profile unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:profile];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
@@ -341,9 +342,10 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKUserSettings *settings = [[MCKUserSettings alloc] initWithAttributes:jsonData];
+             MCKUserSettings *settings = [[MCKUserSettings alloc] init];
+             [settings unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:settings];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];

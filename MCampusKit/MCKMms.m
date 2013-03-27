@@ -11,38 +11,27 @@
 
 @implementation MCKMms
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    // build frame
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"messageId"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.mmsId = [[dictionary safeObjectForKey:@"mmsId"] intValue];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
 
-    if (!self) {
-        return nil;
-    }
+    id frameInfoArray = [dictionary safeObjectForKey:@"frameInfoList"];
 
-    // messageid 是主键
-    // TODO
-    self.mId = [attributes valueForKeyPath:@"messageId"];
-    self.title = [attributes valueForKeyPath:@"title"];
-    self.mmsId = [[attributes valueForKeyPath:@"mmsId"] intValue];
-    self.status = [[attributes valueForKeyPath:@"status"] intValue];
-
-    // build array(maybe empty.)
-    id frameInfoArray = [attributes objectForKey:@"frameInfoList"];
-
-    if (frameInfoArray != [NSNull null]) {
-        // Need init the array first.
+    if (frameInfoArray) {
         self.frameInfoList = [NSMutableArray arrayWithCapacity:[frameInfoArray count]];
 
         for (NSDictionary *fiAttributes in frameInfoArray) {
-            MCKFrameInfo *frameInfo = [[MCKFrameInfo alloc] initWithAttributes:fiAttributes];
+            MCKFrameInfo *frameInfo = [[MCKFrameInfo alloc] init];
+            [frameInfo unpackDictionary:fiAttributes];
             [self.frameInfoList addObject:frameInfo];
         }
     }
-
-    return self;
 }
 
 @end

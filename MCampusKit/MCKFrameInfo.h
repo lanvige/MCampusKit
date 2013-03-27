@@ -18,6 +18,6 @@
 @property (nonatomic, strong) NSString *context;
 @property (nonatomic, assign) long size;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

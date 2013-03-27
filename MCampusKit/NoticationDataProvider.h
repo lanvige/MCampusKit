@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
-@interface NoticationDataProvider : BaseDataProvider
+@interface NoticationDataProvider : MCKBaseDataProvider
 
 - (void)getNoticationsWithNoticationId:(NSString *)noticationId
     latestType:(NSString *)latestType

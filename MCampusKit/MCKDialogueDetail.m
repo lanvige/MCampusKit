@@ -12,30 +12,24 @@
 
 #pragma mark - Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    // build frame
-    self = [super init];
-
-    if (!self) {
-        return nil;
-    }
-
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM/dd HH:mm"];
 
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.senderId = [[attributes valueForKeyPath:@"senderId"] intValue];
-    self.content = [attributes valueForKeyPath:@"content"];
-    self.senderIcon = [attributes valueForKeyPath:@"senderIcon"];
-    self.senderName = [attributes valueForKeyPath:@"senderName"];
-    self.contacterId = [[attributes valueForKeyPath:@"contacterId"] intValue];
-    self.resourceUrl = [attributes valueForKeyPath:@"resourceUrl"];
-    self.status = [[attributes valueForKeyPath:@"status"] intValue];
-    self.readed = [[attributes valueForKeyPath:@"readed"] intValue];
-    self.createtime = [formatter dateFromString:[attributes valueForKeyPath:@"createtime"]];
-
-    return self;
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.senderId = [[dictionary safeObjectForKey:@"senderId"] intValue];
+    self.content = [dictionary safeObjectForKey:@"content"];
+    self.senderIcon = [dictionary safeObjectForKey:@"senderIcon"];
+    self.senderName = [dictionary safeObjectForKey:@"senderName"];
+    self.contacterId = [[dictionary safeObjectForKey:@"contacterId"] intValue];
+    self.resourceUrl = [dictionary safeObjectForKey:@"resourceUrl"];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
+    self.readed = [[dictionary safeObjectForKey:@"readed"] intValue];
+    self.createtime = [formatter dateFromString:[dictionary safeObjectForKey:@"createtime"]];
 }
 
 @end

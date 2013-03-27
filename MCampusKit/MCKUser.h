@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *avatar;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -25,6 +25,6 @@
 
 @property (nonatomic, strong) NSArray *teacherNameList;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

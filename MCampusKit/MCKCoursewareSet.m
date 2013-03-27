@@ -11,29 +11,27 @@
 
 @implementation MCKCoursewareSet
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.courseProgress = [[dictionary safeObjectForKey:@"courseProgress"] floatValue];
+    self.coursewareCount = [[dictionary safeObjectForKey:@"coursewareCount"] intValue];
 
-    if (!self) {
-        self.courseProgress = [[attributes valueForKeyPath:@"courseProgress"] floatValue];
-        self.coursewareCount = [[attributes valueForKeyPath:@"coursewareCount"] intValue];
+    // build topic reply array(maybe empty.)
+    id courseArray = [dictionary safeObjectForKey:@"coursewares"];
 
-        // build topic reply array(maybe empty.)
-        id courseArray = [attributes objectForKey:@"coursewares"];
+    if (courseArray != [NSNull null]) {
+        // Need init the array first.
+        self.coursewares = [NSMutableArray arrayWithCapacity:[courseArray count]];
 
-        if (courseArray != [NSNull null]) {
-            // Need init the array first.
-            self.coursewares = [NSMutableArray arrayWithCapacity:[courseArray count]];
-
-            for (NSDictionary *lrAttributes in courseArray) {
-                MCKCourseware *courseware = [[MCKCourseware alloc] initWithAttributes:lrAttributes];
-                [self.coursewares addObject:courseware];
-            }
+        for (NSDictionary *lrAttributes in courseArray) {
+            MCKCourseware *courseware = [[MCKCourseware alloc] init];
+            [courseware unpackDictionary:lrAttributes];
+            [self.coursewares addObject:courseware];
         }
     }
-
-    return self;
 }
 
 @end

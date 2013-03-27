@@ -10,23 +10,16 @@
 
 @implementation MCKMessageSummary
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        return nil;
-    }
-
-    self.newNoticeCount = [[attributes valueForKeyPath:@"newNoticeCount"] intValue];
-    self.newFriendMsgCount = [[attributes valueForKeyPath:@"newFriendMsgCount"] intValue];
-    self.newDiscussionCount = [[attributes valueForKeyPath:@"newDiscussionCount"] intValue];
-    self.newSystemMsgCount = [[attributes valueForKeyPath:@"newSystemMsgCount"] intValue];
-    self.allNewMessageCount = [[attributes valueForKeyPath:@"allNewMessageCount"] intValue];
-
-    return self;
+    self.newNoticeCount = [[dictionary safeObjectForKey:@"newNoticeCount"] intValue];
+    self.newFriendMsgCount = [[dictionary safeObjectForKey:@"newFriendMsgCount"] intValue];
+    self.newDiscussionCount = [[dictionary safeObjectForKey:@"newDiscussionCount"] intValue];
+    self.newSystemMsgCount = [[dictionary safeObjectForKey:@"newSystemMsgCount"] intValue];
+    self.allNewMessageCount = [[dictionary safeObjectForKey:@"allNewMessageCount"] intValue];
 }
 
 @end

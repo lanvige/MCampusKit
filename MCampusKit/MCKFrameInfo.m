@@ -10,23 +10,18 @@
 
 @implementation MCKFrameInfo
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        self.resourceUrl = [attributes valueForKeyPath:@"resourceUrl"];
-        self.audioUrl = [attributes valueForKeyPath:@"audioUrl"];
-        self.thumbImgUrl = [attributes valueForKeyPath:@"thumbimgUrl"];
-        self.videoImgUrl = [attributes valueForKeyPath:@"videoImgUrl"];
-        self.resourceType = [attributes valueForKeyPath:@"resourceType"];
-        self.context = [attributes valueForKeyPath:@"status"];
-        self.size = [[attributes valueForKeyPath:@"size"] longValue];
-    }
-
-    return self;
+    self.resourceUrl = [dictionary safeObjectForKey:@"resourceUrl"];
+    self.audioUrl = [dictionary safeObjectForKey:@"audioUrl"];
+    self.thumbImgUrl = [dictionary safeObjectForKey:@"thumbimgUrl"];
+    self.videoImgUrl = [dictionary safeObjectForKey:@"videoImgUrl"];
+    self.resourceType = [dictionary safeObjectForKey:@"resourceType"];
+    self.context = [dictionary safeObjectForKey:@"status"];
+    self.size = [[dictionary safeObjectForKey:@"size"] longValue];
 }
 
 @end

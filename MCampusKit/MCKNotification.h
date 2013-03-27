@@ -19,6 +19,6 @@
 @property (nonatomic, strong) MCKUser *user;
 @property (nonatomic, strong) NSString *parameter;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

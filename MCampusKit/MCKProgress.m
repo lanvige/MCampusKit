@@ -10,19 +10,16 @@
 
 @implementation MCKProgress
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        self.mId = [attributes valueForKeyPath:@"id"];
-        self.name = [attributes valueForKeyPath:@"name"];
-        self.icon = [attributes valueForKeyPath:@"icon"];
-        self.progress = [[attributes valueForKeyPath:@"progress"] floatValue];
-        self.isMyClassMate = [[attributes valueForKeyPath:@"name"] boolValue];
-    }
-
-    return self;
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.name = [dictionary safeObjectForKey:@"name"];
+    self.icon = [dictionary safeObjectForKey:@"icon"];
+    self.progress = [[dictionary safeObjectForKey:@"progress"] floatValue];
+    self.isMyClassMate = [[dictionary safeObjectForKey:@"name"] boolValue];
 }
 
 @end

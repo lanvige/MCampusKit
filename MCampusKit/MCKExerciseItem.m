@@ -11,31 +11,28 @@
 
 @implementation MCKExerciseItem
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.point = [[dictionary safeObjectForKey:@"point"] intValue];
 
-    if (!self) {
+    // build topic reply array(maybe empty.)
+    id optionsArray = [dictionary safeObjectForKey:@"optionList"];
 
-        self.mId = [attributes valueForKeyPath:@"id"];
-        self.title = [attributes valueForKeyPath:@"title"];
-        self.point = [[attributes valueForKeyPath:@"point"] intValue];
+    if (optionsArray) {
+        // Need init the array first.
+        self.optionList = [NSMutableArray arrayWithCapacity:[optionsArray count]];
 
-        // build topic reply array(maybe empty.)
-        id optionsArray = [attributes objectForKey:@"optionList"];
-
-        if (optionsArray != [NSNull null]) {
-            // Need init the array first.
-            self.optionList = [NSMutableArray arrayWithCapacity:[optionsArray count]];
-
-            for (NSDictionary *optionAttributes in optionsArray) {
-                MCKExerciseItemOption *option = [[MCKExerciseItemOption alloc] initWithAttributes:optionAttributes];
-                [self.optionList addObject:option];
-            }
+        for (NSDictionary *optionAttributes in optionsArray) {
+            MCKExerciseItemOption *option = [[MCKExerciseItemOption alloc] init];
+            [option unpackDictionary:optionAttributes];
+            [self.optionList addObject:option];
         }
     }
-
-    return self;
 }
 
 

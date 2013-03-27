@@ -16,6 +16,6 @@
 @property (nonatomic, assign) int newSystemMsgCount;
 @property (nonatomic, assign) int allNewMessageCount;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

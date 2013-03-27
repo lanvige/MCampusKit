@@ -11,37 +11,35 @@
 
 @implementation MCKCourseware
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.type = [[dictionary safeObjectForKey:@"type"] intValue];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
+    self.unit = [[dictionary safeObjectForKey:@"unit"] intValue];
+    self.tags = [dictionary safeObjectForKey:@"tags"];
+    self.bookcover = [dictionary safeObjectForKey:@"bookcover"];
+    self.size = [[dictionary safeObjectForKey:@"size"] intValue];
+    self.scoringAverage = [[dictionary safeObjectForKey:@"scoringAverage"] floatValue];
+    self.version = [[dictionary safeObjectForKey:@"version"] intValue];
 
-    if (!self) {
-        self.mId = [attributes valueForKeyPath:@"id"];
-        self.title = [attributes valueForKeyPath:@"title"];
-        self.type = [[attributes valueForKeyPath:@"type"] intValue];
-        self.status = [[attributes valueForKeyPath:@"status"] intValue];
-        self.unit = [[attributes valueForKeyPath:@"unit"] intValue];
-        self.tags = [attributes valueForKeyPath:@"tags"];
-        self.bookcover = [attributes valueForKeyPath:@"bookcover"];
-        self.size = [[attributes valueForKeyPath:@"size"] intValue];
-        self.scoringAverage = [[attributes valueForKeyPath:@"scoringAverage"] floatValue];
-        self.version = [[attributes valueForKey:@"version"] intValue];
+    // build array(maybe empty.)
+    id frameInfoArray = [dictionary safeObjectForKey:@"frameInfoList"];
 
-        // build array(maybe empty.)
-        id frameInfoArray = [attributes objectForKey:@"frameInfoList"];
+    if (frameInfoArray) {
+        // Need init the array first.
+        self.frameInfoList = [NSMutableArray arrayWithCapacity:[frameInfoArray count]];
 
-        if (frameInfoArray != [NSNull null]) {
-            // Need init the array first.
-            self.frameInfoList = [NSMutableArray arrayWithCapacity:[frameInfoArray count]];
-
-            for (NSDictionary *fiAttributes in frameInfoArray) {
-                MCKFrameInfo *frameInfo = [[MCKFrameInfo alloc] initWithAttributes:fiAttributes];
-                [self.frameInfoList addObject:frameInfo];
-            }
+        for (NSDictionary *fiAttributes in frameInfoArray) {
+            MCKFrameInfo *frameInfo = [[MCKFrameInfo alloc] init];
+            [frameInfo unpackDictionary:fiAttributes];
+            [self.frameInfoList addObject:frameInfo];
         }
     }
-
-    return self;
 }
 
 @end

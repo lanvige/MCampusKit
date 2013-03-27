@@ -14,6 +14,6 @@
 @property (nonatomic, assign) NSInteger point;
 @property (nonatomic, strong) NSMutableArray *optionList;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

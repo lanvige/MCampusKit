@@ -14,6 +14,6 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, assign) BOOL correct;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

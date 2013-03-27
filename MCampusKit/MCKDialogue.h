@@ -19,8 +19,8 @@
 @property (nonatomic, assign) NSInteger unreadedMsgCount;
 @property (nonatomic, strong) NSString *updatetime;
 @property (nonatomic, assign) NSInteger hasNewMessage;
-
 @property (nonatomic, strong) NSString *updateTimestamp;
-- (id)initWithAttributes:(NSDictionary *)attributes;
+
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

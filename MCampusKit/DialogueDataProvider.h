@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
 @class MCKDataWrapper;
 
-@interface DialogueDataProvider : BaseDataProvider
+@interface DialogueDataProvider : MCKBaseDataProvider
 
 - (void)getDialoguesWithTimestamp:(NSString *)timestamp
     latestType:(NSString *)latestType

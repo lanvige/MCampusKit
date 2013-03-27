@@ -10,21 +10,14 @@
 
 @implementation MCKUser
 
-@synthesize username, avatar;
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-#pragma mark - Build object with Dictionary
-
-- (id)initWithAttributes:(NSDictionary *)attributes {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    self.mId = [attributes valueForKeyPath:@"userId"];
-    self.username = [attributes valueForKeyPath:@"userName"];
-    self.avatar = [attributes valueForKeyPath:@"icon"];
-    
-    return self;
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
+    self.mId = [dictionary safeObjectForKey:@"userId"];
+    self.username = [dictionary safeObjectForKey:@"userName"];
+    self.avatar = [dictionary safeObjectForKey:@"icon"];
 }
 
 @end

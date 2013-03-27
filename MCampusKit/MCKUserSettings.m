@@ -10,22 +10,13 @@
 
 @implementation MCKUserSettings
 
-@synthesize canBeInvited, showProfile;
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-#pragma mark - Build object with Dictionary
-
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        return nil;
-    }
-
-    self.canBeInvited = [[attributes valueForKeyPath:@"canBeInvited"] boolValue];
-    self.showProfile = [[attributes valueForKeyPath:@"showProfile"] boolValue];
-
-    return self;
+    self.canBeInvited = [[dictionary safeObjectForKey:@"canBeInvited"] boolValue];
+    self.showProfile = [[dictionary safeObjectForKey:@"showProfile"] boolValue];
 }
 
 @end

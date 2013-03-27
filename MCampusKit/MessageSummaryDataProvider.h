@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
 @class MCKDataWrapper;
 
-@interface MessageSummaryDataProvider : BaseDataProvider
+@interface MessageSummaryDataProvider : MCKBaseDataProvider
 
 - (void)getMessageSummaryWithTimestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success

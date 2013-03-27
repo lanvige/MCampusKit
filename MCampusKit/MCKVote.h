@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSString *votedOption;
 @property (nonatomic, strong) NSMutableArray *options;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -11,28 +11,25 @@
 
 @implementation MCKProgressSet
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.recordCount = [[dictionary safeObjectForKey:@"recordCount"] intValue];
 
-    if (!self) {
-        self.recordCount = [[attributes valueForKeyPath:@"recordCount"] intValue];
+    // build topic reply array(maybe empty.)
+    id progressArray = [dictionary safeObjectForKey:@"pageData"];
 
-        // build topic reply array(maybe empty.)
-        id progressArray = [attributes objectForKey:@"pageData"];
+    if (progressArray) {
+        self.progresses = [NSMutableArray arrayWithCapacity:[progressArray count]];
 
-        if (progressArray != [NSNull null]) {
-            // Need init the array first.
-            self.progresses = [NSMutableArray arrayWithCapacity:[progressArray count]];
-
-            for (NSDictionary *progressAttributes in progressArray) {
-                MCKProgress *progress = [[MCKProgress alloc] initWithAttributes:progressAttributes];
-                [self.progresses addObject:progress];
-            }
+        for (NSDictionary *progressAttributes in progressArray) {
+            MCKProgress *progress = [[MCKProgress alloc] init];
+            [progress unpackDictionary:progressAttributes];
+            [self.progresses addObject:progress];
         }
     }
-
-    return self;
 }
 
 @end

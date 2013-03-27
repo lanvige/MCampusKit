@@ -16,6 +16,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *description;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

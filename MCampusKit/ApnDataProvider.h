@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
-@interface ApnDataProvider : BaseDataProvider
+@interface ApnDataProvider : MCKBaseDataProvider
 
 - (void)sendDeviceTokenWithDeviceToken:(NSString *)deviceToken
     success:(void (^)(MCKDataWrapper *configObject))success

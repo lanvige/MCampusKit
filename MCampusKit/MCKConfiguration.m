@@ -22,22 +22,17 @@
     return _sharedUserContext;
 }
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.restServerPath = [attributes valueForKeyPath:@"restServerPath"];
-    self.pushServer = [attributes valueForKeyPath:@"pushServer"];
-    self.coursePackagePath = [attributes valueForKeyPath:@"coursePackagePath"];
-    self.coursePackageVersion = [attributes valueForKeyPath:@"coursePackageVersion"];
-    self.landingPageUrl = [attributes valueForKeyPath:@"landingPageUrl"];
+    self.restServerPath = [dictionary safeObjectForKey:@"restServerPath"];
+    self.pushServer = [dictionary safeObjectForKey:@"pushServer"];
+    self.coursePackagePath = [dictionary safeObjectForKey:@"coursePackagePath"];
+    self.landingPageUrl = [dictionary safeObjectForKey:@"landingPageUrl"];
 
-    // Build teacher name list.
-//    NSArray *schoolIds = [[attributes objectForKey:@"mySchoolIds"] componentsSeparatedByString:@","];
-//    self.mySchoolIds = schoolIds;
-    self.mySchoolIds = [attributes valueForKeyPath:@"mySchoolIds"];
-
-    return self;
+    self.mySchoolIds = [dictionary safeObjectForKey:@"mySchoolIds"];
 }
 
 @end

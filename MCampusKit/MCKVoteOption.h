@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *value;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

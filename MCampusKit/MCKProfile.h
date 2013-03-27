@@ -19,6 +19,6 @@
 @property (nonatomic, strong) MCKProfileStudyDetail *studyDetail;
 @property (nonatomic, strong) NSMutableArray *photos;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

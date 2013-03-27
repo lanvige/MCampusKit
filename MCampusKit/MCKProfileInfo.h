@@ -19,6 +19,6 @@
 @property (nonatomic, strong) NSString *qqNumber;
 @property (nonatomic, strong) NSString *hobby;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

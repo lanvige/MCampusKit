@@ -11,9 +11,9 @@
 @interface MCKProfilePhoto : MCKModelBaseIdentifier
 
 @property (nonatomic, strong) NSString *url;
-@property (nonatomic, assign) bool isDefault;
-@property (nonatomic, assign) int status;
+@property (nonatomic, assign) BOOL isDefault;
+@property (nonatomic, assign) NSInteger status;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

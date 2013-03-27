@@ -10,16 +10,13 @@
 
 @implementation MCKVoteOption
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
-
-    if (!self) {
-        self.content = [attributes valueForKeyPath:@"content"];
-        self.value = [attributes valueForKeyPath:@"value"];
-    }
-
-    return self;
+    self.content = [dictionary safeObjectForKey:@"content"];
+    self.value = [dictionary safeObjectForKey:@"value"];
 }
 
 @end

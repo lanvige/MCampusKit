@@ -47,7 +47,7 @@
 		383CC28C1701A07B00328A7D /* CoursewareDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2861701A07B00328A7D /* CoursewareDataProvider.m */; };
 		383CC28D1701A07B00328A7D /* ExecriseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2881701A07B00328A7D /* ExecriseDataProvider.m */; };
 		383CC28E1701A07B00328A7D /* ProgressDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC28A1701A07B00328A7D /* ProgressDataProvider.m */; };
-		383CC2951701A12F00328A7D /* BaseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2901701A12F00328A7D /* BaseDataProvider.m */; };
+		383CC2951701A12F00328A7D /* MCKBaseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2901701A12F00328A7D /* MCKBaseDataProvider.m */; };
 		383CC2961701A12F00328A7D /* MCKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2921701A12F00328A7D /* MCKHTTPClient.m */; };
 		383CC2991701D06D00328A7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383CC2981701D06B00328A7D /* UIKit.framework */; };
 		383CC2A21701D55B00328A7D /* FriendDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC29F1701D55B00328A7D /* FriendDataProvider.m */; };
@@ -63,7 +63,6 @@
 		38774E0517017EAC0081D5D2 /* MCampusKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38774E0417017EAC0081D5D2 /* MCampusKit.h */; };
 		38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0E17017F1C0081D5D2 /* MCKDefines.m */; };
 		38774E1317018B8A0081D5D2 /* NSDictionary+MCampusKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */; };
-		38774E1917018C570081D5D2 /* MCKBaseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E1817018C570081D5D2 /* MCKBaseDataProvider.m */; };
 		A546AA3C56F04E688FDCBE6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A6C20261442B298FCA731 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -163,8 +162,8 @@
 		383CC2881701A07B00328A7D /* ExecriseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExecriseDataProvider.m; sourceTree = "<group>"; };
 		383CC2891701A07B00328A7D /* ProgressDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressDataProvider.h; sourceTree = "<group>"; };
 		383CC28A1701A07B00328A7D /* ProgressDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressDataProvider.m; sourceTree = "<group>"; };
-		383CC28F1701A12F00328A7D /* BaseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataProvider.h; sourceTree = "<group>"; };
-		383CC2901701A12F00328A7D /* BaseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataProvider.m; sourceTree = "<group>"; };
+		383CC28F1701A12F00328A7D /* MCKBaseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKBaseDataProvider.h; sourceTree = "<group>"; };
+		383CC2901701A12F00328A7D /* MCKBaseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKBaseDataProvider.m; sourceTree = "<group>"; };
 		383CC2911701A12F00328A7D /* MCKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKHTTPClient.h; sourceTree = "<group>"; };
 		383CC2921701A12F00328A7D /* MCKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKHTTPClient.m; sourceTree = "<group>"; };
 		383CC2981701D06B00328A7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -193,8 +192,6 @@
 		38774E0E17017F1C0081D5D2 /* MCKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDefines.m; sourceTree = "<group>"; };
 		38774E1117018B8A0081D5D2 /* NSDictionary+MCampusKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MCampusKit.h"; sourceTree = "<group>"; };
 		38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MCampusKit.m"; sourceTree = "<group>"; };
-		38774E1717018C570081D5D2 /* MCKBaseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKBaseDataProvider.h; sourceTree = "<group>"; };
-		38774E1817018C570081D5D2 /* MCKBaseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKBaseDataProvider.m; sourceTree = "<group>"; };
 		752AEE64653C440E830F3F34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB0A6C20261442B298FCA731 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -327,8 +324,8 @@
 				383CC29C1701D52100328A7D /* Message Center */,
 				383CC29A1701D50100328A7D /* System */,
 				383CC2821701A07200328A7D /* Course */,
-				383CC28F1701A12F00328A7D /* BaseDataProvider.h */,
-				383CC2901701A12F00328A7D /* BaseDataProvider.m */,
+				383CC28F1701A12F00328A7D /* MCKBaseDataProvider.h */,
+				383CC2901701A12F00328A7D /* MCKBaseDataProvider.m */,
 				383CC2911701A12F00328A7D /* MCKHTTPClient.h */,
 				383CC2921701A12F00328A7D /* MCKHTTPClient.m */,
 			);
@@ -426,8 +423,6 @@
 				38774E0417017EAC0081D5D2 /* MCampusKit.h */,
 				38774E0D17017F1C0081D5D2 /* MCKDefines.h */,
 				38774E0E17017F1C0081D5D2 /* MCKDefines.m */,
-				38774E1717018C570081D5D2 /* MCKBaseDataProvider.h */,
-				38774E1817018C570081D5D2 /* MCKBaseDataProvider.m */,
 			);
 			path = MCampusKit;
 			sourceTree = "<group>";
@@ -534,7 +529,6 @@
 			files = (
 				38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */,
 				38774E1317018B8A0081D5D2 /* NSDictionary+MCampusKit.m in Sources */,
-				38774E1917018C570081D5D2 /* MCKBaseDataProvider.m in Sources */,
 				383CC20F1701960700328A7D /* MCKDataWrapper.m in Sources */,
 				383CC2101701960700328A7D /* MCKError.m in Sources */,
 				383CC2111701960700328A7D /* MCKModelBase.m in Sources */,
@@ -575,7 +569,7 @@
 				383CC28C1701A07B00328A7D /* CoursewareDataProvider.m in Sources */,
 				383CC28D1701A07B00328A7D /* ExecriseDataProvider.m in Sources */,
 				383CC28E1701A07B00328A7D /* ProgressDataProvider.m in Sources */,
-				383CC2951701A12F00328A7D /* BaseDataProvider.m in Sources */,
+				383CC2951701A12F00328A7D /* MCKBaseDataProvider.m in Sources */,
 				383CC2961701A12F00328A7D /* MCKHTTPClient.m in Sources */,
 				383CC2A21701D55B00328A7D /* FriendDataProvider.m in Sources */,
 				383CC2A31701D55B00328A7D /* UserDataProvider.m in Sources */,

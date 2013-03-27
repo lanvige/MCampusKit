@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
 @class MCKDataWrapper;
 
-@interface CourseDataProvider : BaseDataProvider
+@interface CourseDataProvider : MCKBaseDataProvider
 
 - (void)getCoursesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;

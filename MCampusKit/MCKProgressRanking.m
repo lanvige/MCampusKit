@@ -10,30 +10,27 @@
 
 @implementation MCKProgressRanking
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+#pragma mark -
+#pragma mark Build object with Dictionary
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.title = [dictionary safeObjectForKey:@"title"];
+    self.bookCover = [dictionary safeObjectForKey:@"bookCover"];
+    self.myRanking =  [[dictionary safeObjectForKey:@"myRanking"] intValue];
+    self.hasNewQuestion = [[dictionary safeObjectForKey:@"hasNewQuestion"] intValue];
+    self.progress = [[dictionary safeObjectForKey:@"progress"] floatValue];
+    self.questionCount = [[dictionary safeObjectForKey:@"questionCount"] intValue];
+    self.rankingDesc = [dictionary safeObjectForKey:@"rankingDesc"];
+    self.status = [[dictionary safeObjectForKey:@"status"] intValue];
+    self.studentCount = [[dictionary safeObjectForKey:@"studentCount"] intValue];
+    self.supportCount = [[dictionary safeObjectForKey:@"supportCount"] intValue];
+    self.wareAmount = [[dictionary safeObjectForKey:@"wareAmount"] intValue];
 
-    if (!self) {
-        self.mId = [attributes valueForKeyPath:@"id"];
-        self.title = [attributes valueForKeyPath:@"title"];
-        self.bookCover = [attributes valueForKeyPath:@"bookCover"];
-        self.myRanking =  [[attributes valueForKeyPath:@"myRanking"] intValue];
-        self.hasNewQuestion = [[attributes valueForKeyPath:@"hasNewQuestion"] intValue];
-        self.progress = [[attributes valueForKeyPath:@"progress"] floatValue];
-        self.questionCount = [[attributes valueForKeyPath:@"questionCount"] intValue];
-        self.rankingDesc = [attributes valueForKeyPath:@"rankingDesc"];
-        self.status = [[attributes valueForKeyPath:@"status"] intValue];
-        self.studentCount = [[attributes valueForKeyPath:@"studentCount"] intValue];
-        self.supportCount = [[attributes valueForKeyPath:@"supportCount"] intValue];
-        self.wareAmount = [[attributes valueForKeyPath:@"wareAmount"] intValue];
-
-        // Build teacher name list.
-        NSMutableArray *teachernameList = [attributes objectForKey:@"teacherNameList"];
-        self.teacherNameList = teachernameList;
-    }
-
-    return self;
+    // Build teacher name list.
+    NSMutableArray *teachernameList = [dictionary safeObjectForKey:@"teacherNameList"];
+    self.teacherNameList = teachernameList;
 }
 
 @end

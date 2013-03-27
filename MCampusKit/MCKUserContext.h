@@ -17,22 +17,6 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *avatar;
 
-//@property (nonatomic, strong) NSString *PhoneNumber;
-//@property (nonatomic) NSInteger Gender;
-//@property (nonatomic, strong) NSString *Intro;
-//@property (nonatomic) BOOL CanBeInvite;
-//@property (nonatomic) NSInteger GroupId;
-//@property (nonatomic, strong) NSString *GroupName;
-//@property (nonatomic) NSInteger FriendCount;
-//@property (nonatomic) NSInteger CourseCount;
-//@property (nonatomic) NSInteger DiscussionCount;
-//@property (nonatomic) NSInteger ProvinceId;
-//@property (nonatomic) NSInteger ProvinceName;
-//@property (nonatomic) NSInteger CityId;
-//@property (nonatomic) NSInteger CityName;
-//@property (nonatomic) NSInteger CityCode;
-//@property (nonatomic, strong) NSData *BirthData;
-
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 @end

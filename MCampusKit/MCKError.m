@@ -10,7 +10,7 @@
 
 @implementation MCKError
 
-- (void)unpackDictionary:(NSDictionary *)dictionary;
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
     self.code = [[dictionary safeObjectForKey:@"code"] intValue];
     self.message = [dictionary safeObjectForKey:@"message"];

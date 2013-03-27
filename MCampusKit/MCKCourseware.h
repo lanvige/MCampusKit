@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSString *courseTitle;
 @property (nonatomic, assign) BOOL hasLocalFile;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
 
 
 @end

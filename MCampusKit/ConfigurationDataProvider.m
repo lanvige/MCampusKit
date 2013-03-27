@@ -23,11 +23,11 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKConfiguration *conf = [[MCKConfiguration alloc] initWithAttributes:jsonData];
+             MCKConfiguration *conf = [[MCKConfiguration alloc] init];
+             [conf unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:conf];
-
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
          }

@@ -25,10 +25,11 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
-             MCKCoursewareSet *coursewareSet = [[MCKCoursewareSet alloc] initWithAttributes:jsonData];
+             MCKCoursewareSet *coursewareSet = [[MCKCoursewareSet alloc] init];
+             [coursewareSet unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:coursewareSet];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
@@ -76,7 +77,8 @@
          if (jsonData != [NSNull null]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
-             MCKCoursewareSet *coursewareSet = [[MCKCoursewareSet alloc] initWithAttributes:jsonData];
+             MCKCoursewareSet *coursewareSet = [[MCKCoursewareSet alloc] init];
+             [coursewareSet unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:coursewareSet];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
@@ -108,7 +110,8 @@
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[responseObject count]];
 
              for (NSDictionary * attributes in responseObject) {
-                 MCKFrameInfo *frameInfo = [[MCKFrameInfo alloc] initWithAttributes:attributes];
+                 MCKFrameInfo *frameInfo = [[MCKFrameInfo alloc] init];
+                 [frameInfo unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:frameInfo];
              }
          } else {

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "BaseDataProvider.h"
+#import "MCKBaseDataProvider.h"
 
-@interface ProgressDataProvider : BaseDataProvider
+@interface ProgressDataProvider : MCKBaseDataProvider
 
 - (void)getCourseRankingWithCourseId:(NSString *)courseId
     success:(void (^)(MCKDataWrapper *dataWrapper))success

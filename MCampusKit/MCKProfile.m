@@ -14,49 +14,44 @@
 
 @implementation MCKProfile
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes
+- (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.name = [dictionary safeObjectForKey:@"name"];
+    self.canBeInvited = [dictionary safeObjectForKey:@"canBeInvited"];
+    self.hasClient = [[dictionary safeObjectForKey:@"hasClient"] boolValue];
 
-    if (!self) {
-        return nil;
-    }
-
-    self.mId = [attributes valueForKeyPath:@"id"];
-    self.name = [attributes valueForKeyPath:@"name"];
-    self.canBeInvited = [attributes valueForKey:@"canBeInvited"];
-    self.hasClient = [[attributes valueForKey:@"hasClient"] boolValue];
-    // build info
     // If you can't get the user's info, it means it been setted private.
-    id infoDic = [attributes objectForKey:@"info"];
+    id infoDic = [dictionary safeObjectForKey:@"info"];
 
-    if (infoDic != [NSNull null]) {
-        self.info = [[MCKProfileInfo alloc] initWithAttributes:infoDic];
+    if (infoDic) {
+        self.info = [[MCKProfileInfo alloc] init];
+        [self.info unpackDictionary:infoDic];
     }
 
     // build study detail
-    id studyDetailDic = [attributes objectForKey:@"studyDetail"];
+    id studyDetailDic = [dictionary safeObjectForKey:@"studyDetail"];
 
-    if (studyDetailDic != [NSNull null]) {
-        self.studyDetail = [[MCKProfileStudyDetail alloc] initWithAttributes:studyDetailDic];
+    if (studyDetailDic) {
+        self.studyDetail = [[MCKProfileStudyDetail alloc] init];
+        [self.studyDetail unpackDictionary:studyDetailDic];
     }
 
     // build topic reply array(maybe empty.)
-    id photosArray = [attributes objectForKey:@"photos"];
-
-    if (photosArray != [NSNull null]) {
+    id photosArray = [dictionary safeObjectForKey:@"photos"];
+    if (photosArray) {
         // Need init the array first.
         self.photos = [NSMutableArray arrayWithCapacity:[photosArray count]];
 
         for (NSDictionary *photoAttributes in photosArray) {
-            MCKProfilePhoto *photo = [[MCKProfilePhoto alloc] initWithAttributes:photoAttributes];
+            MCKProfilePhoto *photo = [[MCKProfilePhoto alloc] init];
+            [photo unpackDictionary:photoAttributes];
             [self.photos addObject:photo];
         }
     }
-
-    return self;
 }
 
 @end

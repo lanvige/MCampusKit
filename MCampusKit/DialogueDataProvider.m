@@ -33,7 +33,8 @@
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
              for (NSDictionary * attributes in jsonData) {
-                 MCKDialogue *dialogue = [[MCKDialogue alloc] initWithAttributes:attributes];
+                 MCKDialogue *dialogue = [[MCKDialogue alloc] init];
+                 [dialogue unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:dialogue];
              }
          } else {
@@ -118,8 +119,9 @@
          if (jsonData != [NSNull null]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
-             for (NSDictionary * attributes in jsonData) {
-                 MCKDialogueDetail *dialogue = [[MCKDialogueDetail alloc] initWithAttributes:attributes];
+             for (NSDictionary *attributes in jsonData) {
+                 MCKDialogueDetail *dialogue = [[MCKDialogueDetail alloc] init];
+                 [dialogue unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:dialogue];
              }
          } else {
@@ -149,12 +151,12 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
 
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
 
              if (jsonData) {
-                 MCKDialogueDetail *dialog = [[MCKDialogueDetail alloc] initWithAttributes:jsonData];
-
+                 MCKDialogueDetail *dialog = [[MCKDialogueDetail alloc] init];
+                 [dialog unpackDictionary:jsonData];
                  [[dataWrapper modelList] addObject:dialog];
              }
          } else {
@@ -207,7 +209,8 @@
          }
      }
                   completion:^(BOOL success, NSError *error, id jsonData) {
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] initWithAttributes:jsonData];
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+         [dataWrapper unpackDictionary:jsonData];
 
          // TODO what's the return.
          if (completionBlock) {

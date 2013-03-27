@@ -10,21 +10,16 @@
 
 @implementation MCKProfileStudyDetail
 
-#pragma mark - Build object with Dictionary
+#pragma mark -
+#pragma mark Build object with Dictionary
 
-- (id)initWithAttributes:(NSDictionary *)attributes {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    self.friendCount = [[attributes valueForKeyPath:@"friendCount"] intValue];
-    self.courseCount = [[attributes valueForKeyPath:@"courseCount"] intValue];
-    self.discussionCount = [[attributes valueForKeyPath:@"discussionCount"] intValue];
-    self.privateMsgCount = [[attributes valueForKeyPath:@"privateMsgCount"] intValue];
-    self.isMyFriend = [[attributes valueForKeyPath:@"isMyFriend"] boolValue];
-    
-    return self;
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
+    self.friendCount = [[dictionary safeObjectForKey:@"friendCount"] intValue];
+    self.courseCount = [[dictionary safeObjectForKey:@"courseCount"] intValue];
+    self.discussionCount = [[dictionary safeObjectForKey:@"discussionCount"] intValue];
+    self.privateMsgCount = [[dictionary safeObjectForKey:@"privateMsgCount"] intValue];
+    self.isMyFriend = [[dictionary safeObjectForKey:@"isMyFriend"] boolValue];
 }
 
 @end

@@ -26,8 +26,9 @@
          if ([jsonData isKindOfClass:[NSArray class]]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
-             for (NSDictionary * attributes in jsonData) {
-                 MCKNotification *notification = [[MCKNotification alloc] initWithAttributes:attributes];
+             for (NSDictionary *attributes in jsonData) {
+                 MCKNotification *notification = [[MCKNotification alloc] init];
+                 [notification unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:notification];
              }
          } else {

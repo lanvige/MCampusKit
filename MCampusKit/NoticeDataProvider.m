@@ -29,8 +29,9 @@
          if ([jsonData isKindOfClass:[NSArray class]]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
-             for (NSDictionary * attributes in jsonData) {
-                 MCKNotice *notice = [[MCKNotice alloc] initWithAttributes:attributes];
+             for (NSDictionary *attributes in jsonData) {
+                 MCKNotice *notice = [[MCKNotice alloc] init];
+                 [notice unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:notice];
              }
          } else {
@@ -193,9 +194,10 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKMms *message = [[MCKMms alloc] initWithAttributes:jsonData];
+             MCKMms *message = [[MCKMms alloc] init];
+             [message unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:message];
 
          } else {
@@ -244,10 +246,10 @@
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData != [NSNull null]) {
+         if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-
-             MCKVote *vote = [[MCKVote alloc] initWithAttributes:jsonData];
+             MCKVote *vote = [[MCKVote alloc] init];
+             [vote unpackDictionary:jsonData];
              [dataWrapper.modelList addObject:vote];
 
          } else {
