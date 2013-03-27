@@ -46,7 +46,6 @@
 
 // Forgot password
 // http://222.66.33.210:9092/rest/v1/user/activate/sendcode?phone=13681667933&type=2
-// Error null, Data 0, 1?
 - (void)sendCodeForgotWithPhone:(NSString *)phone
     type:(NSString *)type
     success:(void (^)(MCKDataWrapper *dataWrapper))success
@@ -177,10 +176,8 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (jsonData) {
-             // FIXME:
-//             CACHE.context = [[MCUserContext alloc] initWithAttributes:jsonData];
-//             [CACHE store];
-//             [dataWrapper.modelList addObject:CACHE.context];
+             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
+             [MCKUser setCurrentUser:user];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
          }

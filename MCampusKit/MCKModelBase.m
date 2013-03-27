@@ -12,6 +12,27 @@
 
 @implementation MCKModelBase
 
++ (id)objectWithDictionary:(NSDictionary *)dictionary
+{
+    if (dictionary) {
+        return nil;
+    }
+
+    MCKModelBase *object = [[self class] init];
+    [object unpackDictionary:dictionary];
+
+    return object;
+}
+
+- (BOOL)shouldUnpackDictionary:(NSDictionary *)dictionary
+{
+    return FALSE;
+}
+
+- (void)unpackDictionary:(NSDictionary *)dictionary
+{
+}
+
 // *******************************************************************************************************/
 // this encode the instacnec variables defined in the self class, the ones defined in super class in not
 // included

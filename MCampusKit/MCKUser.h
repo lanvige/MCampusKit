@@ -19,6 +19,4 @@ extern NSString *const kMCKCurrentUserChangedNotification;
 + (MCKUser *)currentUser;
 + (void)setCurrentUser:(MCKUser *)user;
 
-- (void)unpackDictionary:(NSDictionary *)dictionary;
-
 @end

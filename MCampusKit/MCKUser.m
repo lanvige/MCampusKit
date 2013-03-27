@@ -63,6 +63,11 @@ static MCKUser *__currentUser = nil;
 #pragma mark -
 #pragma mark Build object with Dictionary
 
+- (BOOL)shouldUnpackDictionary:(NSDictionary *)dictionary
+{
+    return TRUE;
+}
+
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
     self.mId = [dictionary safeObjectForKey:@"userId"];

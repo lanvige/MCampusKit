@@ -12,4 +12,8 @@
 
 @interface MCKModelBase : NSObject
 
++ (id)objectWithDictionary:(NSDictionary *)dictionary;
+- (BOOL)shouldUnpackDictionary:(NSDictionary *)dictionary;
+- (void)unpackDictionary:(NSDictionary *)dictionary;
+
 @end

@@ -19,6 +19,9 @@
 
 @implementation MCKBaseDataProvider
 
+#pragma mark -
+#pragma mark Get without Token
+
 // Get object with json.
 - (void)getContentsWithPath:(NSString *)path
     paramters:(NSDictionary *)parameters
@@ -228,6 +231,9 @@
          }
      }];
 }
+
+#pragma mark -
+#pragma mark Save methods
 
 - (void)saveObjectWithPath:(NSString *)path
     parameters:(NSDictionary *)params
