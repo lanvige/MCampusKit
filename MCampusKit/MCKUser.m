@@ -20,7 +20,8 @@ static MCKUser *__currentUser = nil;
 {
     if (!__currentUser) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        MCKUser *user = [userDefaults objectForKey:kMCKUserIdKey];
+        NSData *userData = [userDefaults objectForKey:kMCKUserIdKey];
+        MCKUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
 
         if (!user) {
             return nil;
@@ -33,7 +34,7 @@ static MCKUser *__currentUser = nil;
             return nil;
         }
 
-        __currentUser.accessToken = accessToken;
+        __currentUser = user;
     }
 
     return __currentUser;
@@ -53,7 +54,8 @@ static MCKUser *__currentUser = nil;
         [SSKeychain setPassword:user.accessToken forService:kMCKKeychainServiceName account:user.mId];
         
         __currentUser = user;
-        [userDefaults setObject:user forKey:kMCKUserIdKey];
+        NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+        [userDefaults setObject:userData forKey:kMCKUserIdKey];
     }
 
     [userDefaults synchronize];
