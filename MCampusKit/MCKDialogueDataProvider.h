@@ -10,7 +10,7 @@
 
 @class MCKDataWrapper;
 
-@interface DialogueDataProvider : MCKBaseDataProvider
+@interface MCKDialogueDataProvider : MCKBaseDataProvider
 
 - (void)getDialoguesWithTimestamp:(NSString *)timestamp
     latestType:(NSString *)latestType

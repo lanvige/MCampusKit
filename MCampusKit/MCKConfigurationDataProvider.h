@@ -10,7 +10,7 @@
 
 @class MCKDataWrapper, MCConfiguration;
 
-@interface ConfigurationDataProvider : MCKBaseDataProvider
+@interface MCKConfigurationDataProvider : MCKBaseDataProvider
 
 - (void)getConfigurationsWithSuccess:(void (^)(MCKDataWrapper *configObject))success
     failure:(void (^)(NSError *error))failure;

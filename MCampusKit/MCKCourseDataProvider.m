@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "CourseDataProvider.h"
+#import "MCKCourseDataProvider.h"
 
 #import "MCKHTTPClient.h"
 #import "MCKCourse.h"
 
-@implementation CourseDataProvider
+@implementation MCKCourseDataProvider
 
 // http://svc.ydxy.cn/rest/v2/course/list/get?from=&client=2&uid=3&t=F3CD921D2CA61426
 - (void)getCoursesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success

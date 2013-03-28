@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Lantop Co. Ltd. All rights reserved.
 //
 
-#import "ExecriseDataProvider.h"
+#import "MCKExecriseDataProvider.h"
 #import "MCKFriend.h"
 #import "MCKExerciseItem.h"
 
-@implementation ExecriseDataProvider
+@implementation MCKExecriseDataProvider
 
 // http://192.168.100.48:9092/rest/v2/course/ios/courseware/exercise/list/get?uid=39&courseware=3&t=F0B09E1537ACCA3A&from=1361961384283
 - (void)getExecriseWithCoursewareId:(NSString *)coursewareId

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "ConfigurationDataProvider.h"
+#import "MCKConfigurationDataProvider.h"
 
 #import "MCKHTTPClient.h"
 #import "MCKDataWrapper.h"
 #import "MCKConfiguration.h"
 
-@implementation ConfigurationDataProvider
+@implementation MCKConfigurationDataProvider
 
 // http://222.66.33.210:9092/rest/v1/comm/ios/config/get?&client=2&uid=3&t=F3CD921D2CA61426
 - (void)getConfigurationsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success

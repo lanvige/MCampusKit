@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "ProgressDataProvider.h"
+#import "MCKProgressDataProvider.h"
 
 #import "MCKProgressRanking.h"
 #import "MCKProgress.h"
 #import "MCKProgressSet.h"
 
-@implementation ProgressDataProvider
+@implementation MCKProgressDataProvider
 
 // http://222.66.33.210:9092/rest/v1/course/courseware/exercise/ranking/mine?uid=39&course=2&t=F0B09E1537ACCA3A
 //

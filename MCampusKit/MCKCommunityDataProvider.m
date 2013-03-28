@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "CommunityDataProvider.h"
+#import "MCKCommunityDataProvider.h"
 
 #import "MCKHTTPClient.h"
 #import "MCKDataWrapper.h"
 #import "MCKCommunity.h"
 #import "MCKConfiguration.h"
 
-@implementation CommunityDataProvider
+@implementation MCKCommunityDataProvider
 
 // http://222.66.33.210:9092/rest/v1/sns/topics?schools=1%2C2%2C&start=0&&tag=&t=F0B09E1537ACCA3A&getlatest=1
 - (void)getTopicsWithTags:(NSString *)tags

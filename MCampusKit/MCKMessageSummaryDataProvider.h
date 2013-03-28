@@ -10,7 +10,7 @@
 
 @class MCKDataWrapper;
 
-@interface MessageSummaryDataProvider : MCKBaseDataProvider
+@interface MCKMessageSummaryDataProvider : MCKBaseDataProvider
 
 - (void)getMessageSummaryWithTimestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success

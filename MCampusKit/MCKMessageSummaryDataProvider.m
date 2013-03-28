@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "MessageSummaryDataProvider.h"
+#import "MCKMessageSummaryDataProvider.h"
 #import "MCKHTTPClient.h"
 #import "MCKDataWrapper.h"
 #import "MCKMessageSummary.h"
 #import "MCKConfiguration.h"
 
-@implementation MessageSummaryDataProvider
+@implementation MCKMessageSummaryDataProvider
 
 - (void)getMessageSummaryWithTimestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success

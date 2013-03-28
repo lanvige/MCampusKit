@@ -8,7 +8,7 @@
 
 #import "MCKBaseDataProvider.h"
 
-@interface CoursewareDataProvider : MCKBaseDataProvider
+@interface MCKCoursewareDataProvider : MCKBaseDataProvider
 
 - (void)getCoursewaresWithCourse:(NSString *)courseId
     timestamp:(NSString *)timestamp

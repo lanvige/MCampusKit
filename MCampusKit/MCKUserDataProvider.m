@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "UserDataProvider.h"
+#import "MCKUserDataProvider.h"
 #import "MCKHTTPClient.h"
 #import "MCKUser.h"
 #import "MCKDataWrapper.h"
 #import "MCKUserSettings.h"
 #import "MCKProfile.h"
 
-@implementation UserDataProvider
+@implementation MCKUserDataProvider
 
 #pragma mark -
 #pragma mark Register, Login

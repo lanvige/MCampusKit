@@ -8,7 +8,7 @@
 
 #import "MCKBaseDataProvider.h"
 
-@interface ApnDataProvider : MCKBaseDataProvider
+@interface MCKApnDataProvider : MCKBaseDataProvider
 
 - (void)sendDeviceTokenWithDeviceToken:(NSString *)deviceToken
     success:(void (^)(MCKDataWrapper *configObject))success

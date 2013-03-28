@@ -12,7 +12,7 @@
 
 @class MCKDataWrapper;
 
-@interface UserDataProvider : MCKBaseDataProvider
+@interface MCKUserDataProvider : MCKBaseDataProvider
 {
 }
 - (void)sendCodeWithPhone:(NSString *)phone

@@ -14,7 +14,7 @@
 
 @class MCKDataWrapper;
 
-@interface CommunityDataProvider : MCKBaseDataProvider
+@interface MCKCommunityDataProvider : MCKBaseDataProvider
 
 - (void)getTopicsWithTags:(NSString *)tags
     timestamp:(NSString *)timestamp

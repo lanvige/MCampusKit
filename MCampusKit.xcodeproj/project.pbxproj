@@ -42,22 +42,22 @@
 		383CC27A1701989600328A7D /* MCKNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC26E1701989600328A7D /* MCKNotification.m */; };
 		383CC27B1701989600328A7D /* MCKVote.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2701701989600328A7D /* MCKVote.m */; };
 		383CC27C1701989600328A7D /* MCKVoteOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2721701989600328A7D /* MCKVoteOption.m */; };
-		383CC28B1701A07B00328A7D /* CourseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2841701A07B00328A7D /* CourseDataProvider.m */; };
-		383CC28C1701A07B00328A7D /* CoursewareDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2861701A07B00328A7D /* CoursewareDataProvider.m */; };
-		383CC28D1701A07B00328A7D /* ExecriseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2881701A07B00328A7D /* ExecriseDataProvider.m */; };
-		383CC28E1701A07B00328A7D /* ProgressDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC28A1701A07B00328A7D /* ProgressDataProvider.m */; };
+		383CC28B1701A07B00328A7D /* MCKCourseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2841701A07B00328A7D /* MCKCourseDataProvider.m */; };
+		383CC28C1701A07B00328A7D /* MCKCoursewareDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2861701A07B00328A7D /* MCKCoursewareDataProvider.m */; };
+		383CC28D1701A07B00328A7D /* MCKExecriseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2881701A07B00328A7D /* MCKExecriseDataProvider.m */; };
+		383CC28E1701A07B00328A7D /* MCKProgressDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC28A1701A07B00328A7D /* MCKProgressDataProvider.m */; };
 		383CC2951701A12F00328A7D /* MCKBaseDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2901701A12F00328A7D /* MCKBaseDataProvider.m */; };
 		383CC2961701A12F00328A7D /* MCKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2921701A12F00328A7D /* MCKHTTPClient.m */; };
 		383CC2991701D06D00328A7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383CC2981701D06B00328A7D /* UIKit.framework */; };
-		383CC2A21701D55B00328A7D /* FriendDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC29F1701D55B00328A7D /* FriendDataProvider.m */; };
-		383CC2A31701D55B00328A7D /* UserDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2A11701D55B00328A7D /* UserDataProvider.m */; };
-		383CC2A81701D59200328A7D /* ApnDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2A51701D59200328A7D /* ApnDataProvider.m */; };
-		383CC2A91701D59200328A7D /* ConfigurationDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2A71701D59200328A7D /* ConfigurationDataProvider.m */; };
-		383CC2B41701D5AB00328A7D /* CommunityDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2AB1701D5AB00328A7D /* CommunityDataProvider.m */; };
-		383CC2B51701D5AB00328A7D /* DialogueDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2AD1701D5AB00328A7D /* DialogueDataProvider.m */; };
-		383CC2B61701D5AB00328A7D /* MessageSummaryDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2AF1701D5AB00328A7D /* MessageSummaryDataProvider.m */; };
-		383CC2B71701D5AB00328A7D /* NoticationDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2B11701D5AB00328A7D /* NoticationDataProvider.m */; };
-		383CC2B81701D5AB00328A7D /* NoticeDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2B31701D5AB00328A7D /* NoticeDataProvider.m */; };
+		383CC2A21701D55B00328A7D /* MCKFriendDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC29F1701D55B00328A7D /* MCKFriendDataProvider.m */; };
+		383CC2A31701D55B00328A7D /* MCKUserDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2A11701D55B00328A7D /* MCKUserDataProvider.m */; };
+		383CC2A81701D59200328A7D /* MCKApnDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2A51701D59200328A7D /* MCKApnDataProvider.m */; };
+		383CC2A91701D59200328A7D /* MCKConfigurationDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2A71701D59200328A7D /* MCKConfigurationDataProvider.m */; };
+		383CC2B41701D5AB00328A7D /* MCKCommunityDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2AB1701D5AB00328A7D /* MCKCommunityDataProvider.m */; };
+		383CC2B51701D5AB00328A7D /* MCKDialogueDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2AD1701D5AB00328A7D /* MCKDialogueDataProvider.m */; };
+		383CC2B61701D5AB00328A7D /* MCKMessageSummaryDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2AF1701D5AB00328A7D /* MCKMessageSummaryDataProvider.m */; };
+		383CC2B71701D5AB00328A7D /* MCKNoticationDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2B11701D5AB00328A7D /* MCKNoticationDataProvider.m */; };
+		383CC2B81701D5AB00328A7D /* MCKNoticeDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2B31701D5AB00328A7D /* MCKNoticeDataProvider.m */; };
 		38774E0017017EAC0081D5D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38774DFF17017EAC0081D5D2 /* Foundation.framework */; };
 		38774E0517017EAC0081D5D2 /* MCampusKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38774E0417017EAC0081D5D2 /* MCampusKit.h */; };
 		38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0E17017F1C0081D5D2 /* MCKDefines.m */; };
@@ -151,37 +151,37 @@
 		383CC2701701989600328A7D /* MCKVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKVote.m; sourceTree = "<group>"; };
 		383CC2711701989600328A7D /* MCKVoteOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKVoteOption.h; sourceTree = "<group>"; };
 		383CC2721701989600328A7D /* MCKVoteOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKVoteOption.m; sourceTree = "<group>"; };
-		383CC2831701A07B00328A7D /* CourseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDataProvider.h; sourceTree = "<group>"; };
-		383CC2841701A07B00328A7D /* CourseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDataProvider.m; sourceTree = "<group>"; };
-		383CC2851701A07B00328A7D /* CoursewareDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursewareDataProvider.h; sourceTree = "<group>"; };
-		383CC2861701A07B00328A7D /* CoursewareDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursewareDataProvider.m; sourceTree = "<group>"; };
-		383CC2871701A07B00328A7D /* ExecriseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExecriseDataProvider.h; sourceTree = "<group>"; };
-		383CC2881701A07B00328A7D /* ExecriseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExecriseDataProvider.m; sourceTree = "<group>"; };
-		383CC2891701A07B00328A7D /* ProgressDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressDataProvider.h; sourceTree = "<group>"; };
-		383CC28A1701A07B00328A7D /* ProgressDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressDataProvider.m; sourceTree = "<group>"; };
+		383CC2831701A07B00328A7D /* MCKCourseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCourseDataProvider.h; sourceTree = "<group>"; };
+		383CC2841701A07B00328A7D /* MCKCourseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCourseDataProvider.m; sourceTree = "<group>"; };
+		383CC2851701A07B00328A7D /* MCKCoursewareDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCoursewareDataProvider.h; sourceTree = "<group>"; };
+		383CC2861701A07B00328A7D /* MCKCoursewareDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCoursewareDataProvider.m; sourceTree = "<group>"; };
+		383CC2871701A07B00328A7D /* MCKExecriseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKExecriseDataProvider.h; sourceTree = "<group>"; };
+		383CC2881701A07B00328A7D /* MCKExecriseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKExecriseDataProvider.m; sourceTree = "<group>"; };
+		383CC2891701A07B00328A7D /* MCKProgressDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKProgressDataProvider.h; sourceTree = "<group>"; };
+		383CC28A1701A07B00328A7D /* MCKProgressDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKProgressDataProvider.m; sourceTree = "<group>"; };
 		383CC28F1701A12F00328A7D /* MCKBaseDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKBaseDataProvider.h; sourceTree = "<group>"; };
 		383CC2901701A12F00328A7D /* MCKBaseDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKBaseDataProvider.m; sourceTree = "<group>"; };
 		383CC2911701A12F00328A7D /* MCKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKHTTPClient.h; sourceTree = "<group>"; };
 		383CC2921701A12F00328A7D /* MCKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKHTTPClient.m; sourceTree = "<group>"; };
 		383CC2981701D06B00328A7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		383CC29E1701D55B00328A7D /* FriendDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDataProvider.h; sourceTree = "<group>"; };
-		383CC29F1701D55B00328A7D /* FriendDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDataProvider.m; sourceTree = "<group>"; };
-		383CC2A01701D55B00328A7D /* UserDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataProvider.h; sourceTree = "<group>"; };
-		383CC2A11701D55B00328A7D /* UserDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataProvider.m; sourceTree = "<group>"; };
-		383CC2A41701D59200328A7D /* ApnDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApnDataProvider.h; sourceTree = "<group>"; };
-		383CC2A51701D59200328A7D /* ApnDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApnDataProvider.m; sourceTree = "<group>"; };
-		383CC2A61701D59200328A7D /* ConfigurationDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationDataProvider.h; sourceTree = "<group>"; };
-		383CC2A71701D59200328A7D /* ConfigurationDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationDataProvider.m; sourceTree = "<group>"; };
-		383CC2AA1701D5AB00328A7D /* CommunityDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityDataProvider.h; sourceTree = "<group>"; };
-		383CC2AB1701D5AB00328A7D /* CommunityDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityDataProvider.m; sourceTree = "<group>"; };
-		383CC2AC1701D5AB00328A7D /* DialogueDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogueDataProvider.h; sourceTree = "<group>"; };
-		383CC2AD1701D5AB00328A7D /* DialogueDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogueDataProvider.m; sourceTree = "<group>"; };
-		383CC2AE1701D5AB00328A7D /* MessageSummaryDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSummaryDataProvider.h; sourceTree = "<group>"; };
-		383CC2AF1701D5AB00328A7D /* MessageSummaryDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSummaryDataProvider.m; sourceTree = "<group>"; };
-		383CC2B01701D5AB00328A7D /* NoticationDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticationDataProvider.h; sourceTree = "<group>"; };
-		383CC2B11701D5AB00328A7D /* NoticationDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticationDataProvider.m; sourceTree = "<group>"; };
-		383CC2B21701D5AB00328A7D /* NoticeDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeDataProvider.h; sourceTree = "<group>"; };
-		383CC2B31701D5AB00328A7D /* NoticeDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeDataProvider.m; sourceTree = "<group>"; };
+		383CC29E1701D55B00328A7D /* MCKFriendDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKFriendDataProvider.h; sourceTree = "<group>"; };
+		383CC29F1701D55B00328A7D /* MCKFriendDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKFriendDataProvider.m; sourceTree = "<group>"; };
+		383CC2A01701D55B00328A7D /* MCKUserDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKUserDataProvider.h; sourceTree = "<group>"; };
+		383CC2A11701D55B00328A7D /* MCKUserDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKUserDataProvider.m; sourceTree = "<group>"; };
+		383CC2A41701D59200328A7D /* MCKApnDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKApnDataProvider.h; sourceTree = "<group>"; };
+		383CC2A51701D59200328A7D /* MCKApnDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKApnDataProvider.m; sourceTree = "<group>"; };
+		383CC2A61701D59200328A7D /* MCKConfigurationDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKConfigurationDataProvider.h; sourceTree = "<group>"; };
+		383CC2A71701D59200328A7D /* MCKConfigurationDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKConfigurationDataProvider.m; sourceTree = "<group>"; };
+		383CC2AA1701D5AB00328A7D /* MCKCommunityDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCommunityDataProvider.h; sourceTree = "<group>"; };
+		383CC2AB1701D5AB00328A7D /* MCKCommunityDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCommunityDataProvider.m; sourceTree = "<group>"; };
+		383CC2AC1701D5AB00328A7D /* MCKDialogueDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDialogueDataProvider.h; sourceTree = "<group>"; };
+		383CC2AD1701D5AB00328A7D /* MCKDialogueDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDialogueDataProvider.m; sourceTree = "<group>"; };
+		383CC2AE1701D5AB00328A7D /* MCKMessageSummaryDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKMessageSummaryDataProvider.h; sourceTree = "<group>"; };
+		383CC2AF1701D5AB00328A7D /* MCKMessageSummaryDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKMessageSummaryDataProvider.m; sourceTree = "<group>"; };
+		383CC2B01701D5AB00328A7D /* MCKNoticationDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKNoticationDataProvider.h; sourceTree = "<group>"; };
+		383CC2B11701D5AB00328A7D /* MCKNoticationDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKNoticationDataProvider.m; sourceTree = "<group>"; };
+		383CC2B21701D5AB00328A7D /* MCKNoticeDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKNoticeDataProvider.h; sourceTree = "<group>"; };
+		383CC2B31701D5AB00328A7D /* MCKNoticeDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKNoticeDataProvider.m; sourceTree = "<group>"; };
 		38774DFC17017EAC0081D5D2 /* libMCampusKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCampusKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38774DFF17017EAC0081D5D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		38774E0417017EAC0081D5D2 /* MCampusKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCampusKit.h; sourceTree = "<group>"; };
@@ -330,14 +330,14 @@
 		383CC2821701A07200328A7D /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				383CC2831701A07B00328A7D /* CourseDataProvider.h */,
-				383CC2841701A07B00328A7D /* CourseDataProvider.m */,
-				383CC2851701A07B00328A7D /* CoursewareDataProvider.h */,
-				383CC2861701A07B00328A7D /* CoursewareDataProvider.m */,
-				383CC2871701A07B00328A7D /* ExecriseDataProvider.h */,
-				383CC2881701A07B00328A7D /* ExecriseDataProvider.m */,
-				383CC2891701A07B00328A7D /* ProgressDataProvider.h */,
-				383CC28A1701A07B00328A7D /* ProgressDataProvider.m */,
+				383CC2831701A07B00328A7D /* MCKCourseDataProvider.h */,
+				383CC2841701A07B00328A7D /* MCKCourseDataProvider.m */,
+				383CC2851701A07B00328A7D /* MCKCoursewareDataProvider.h */,
+				383CC2861701A07B00328A7D /* MCKCoursewareDataProvider.m */,
+				383CC2871701A07B00328A7D /* MCKExecriseDataProvider.h */,
+				383CC2881701A07B00328A7D /* MCKExecriseDataProvider.m */,
+				383CC2891701A07B00328A7D /* MCKProgressDataProvider.h */,
+				383CC28A1701A07B00328A7D /* MCKProgressDataProvider.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -345,10 +345,10 @@
 		383CC29A1701D50100328A7D /* System */ = {
 			isa = PBXGroup;
 			children = (
-				383CC2A41701D59200328A7D /* ApnDataProvider.h */,
-				383CC2A51701D59200328A7D /* ApnDataProvider.m */,
-				383CC2A61701D59200328A7D /* ConfigurationDataProvider.h */,
-				383CC2A71701D59200328A7D /* ConfigurationDataProvider.m */,
+				383CC2A41701D59200328A7D /* MCKApnDataProvider.h */,
+				383CC2A51701D59200328A7D /* MCKApnDataProvider.m */,
+				383CC2A61701D59200328A7D /* MCKConfigurationDataProvider.h */,
+				383CC2A71701D59200328A7D /* MCKConfigurationDataProvider.m */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -356,16 +356,16 @@
 		383CC29C1701D52100328A7D /* Message Center */ = {
 			isa = PBXGroup;
 			children = (
-				383CC2AA1701D5AB00328A7D /* CommunityDataProvider.h */,
-				383CC2AB1701D5AB00328A7D /* CommunityDataProvider.m */,
-				383CC2AC1701D5AB00328A7D /* DialogueDataProvider.h */,
-				383CC2AD1701D5AB00328A7D /* DialogueDataProvider.m */,
-				383CC2AE1701D5AB00328A7D /* MessageSummaryDataProvider.h */,
-				383CC2AF1701D5AB00328A7D /* MessageSummaryDataProvider.m */,
-				383CC2B01701D5AB00328A7D /* NoticationDataProvider.h */,
-				383CC2B11701D5AB00328A7D /* NoticationDataProvider.m */,
-				383CC2B21701D5AB00328A7D /* NoticeDataProvider.h */,
-				383CC2B31701D5AB00328A7D /* NoticeDataProvider.m */,
+				383CC2AA1701D5AB00328A7D /* MCKCommunityDataProvider.h */,
+				383CC2AB1701D5AB00328A7D /* MCKCommunityDataProvider.m */,
+				383CC2AC1701D5AB00328A7D /* MCKDialogueDataProvider.h */,
+				383CC2AD1701D5AB00328A7D /* MCKDialogueDataProvider.m */,
+				383CC2AE1701D5AB00328A7D /* MCKMessageSummaryDataProvider.h */,
+				383CC2AF1701D5AB00328A7D /* MCKMessageSummaryDataProvider.m */,
+				383CC2B01701D5AB00328A7D /* MCKNoticationDataProvider.h */,
+				383CC2B11701D5AB00328A7D /* MCKNoticationDataProvider.m */,
+				383CC2B21701D5AB00328A7D /* MCKNoticeDataProvider.h */,
+				383CC2B31701D5AB00328A7D /* MCKNoticeDataProvider.m */,
 			);
 			name = "Message Center";
 			sourceTree = "<group>";
@@ -373,10 +373,10 @@
 		383CC29D1701D52C00328A7D /* User */ = {
 			isa = PBXGroup;
 			children = (
-				383CC29E1701D55B00328A7D /* FriendDataProvider.h */,
-				383CC29F1701D55B00328A7D /* FriendDataProvider.m */,
-				383CC2A01701D55B00328A7D /* UserDataProvider.h */,
-				383CC2A11701D55B00328A7D /* UserDataProvider.m */,
+				383CC29E1701D55B00328A7D /* MCKFriendDataProvider.h */,
+				383CC29F1701D55B00328A7D /* MCKFriendDataProvider.m */,
+				383CC2A01701D55B00328A7D /* MCKUserDataProvider.h */,
+				383CC2A11701D55B00328A7D /* MCKUserDataProvider.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -559,21 +559,21 @@
 				383CC27A1701989600328A7D /* MCKNotification.m in Sources */,
 				383CC27B1701989600328A7D /* MCKVote.m in Sources */,
 				383CC27C1701989600328A7D /* MCKVoteOption.m in Sources */,
-				383CC28B1701A07B00328A7D /* CourseDataProvider.m in Sources */,
-				383CC28C1701A07B00328A7D /* CoursewareDataProvider.m in Sources */,
-				383CC28D1701A07B00328A7D /* ExecriseDataProvider.m in Sources */,
-				383CC28E1701A07B00328A7D /* ProgressDataProvider.m in Sources */,
+				383CC28B1701A07B00328A7D /* MCKCourseDataProvider.m in Sources */,
+				383CC28C1701A07B00328A7D /* MCKCoursewareDataProvider.m in Sources */,
+				383CC28D1701A07B00328A7D /* MCKExecriseDataProvider.m in Sources */,
+				383CC28E1701A07B00328A7D /* MCKProgressDataProvider.m in Sources */,
 				383CC2951701A12F00328A7D /* MCKBaseDataProvider.m in Sources */,
 				383CC2961701A12F00328A7D /* MCKHTTPClient.m in Sources */,
-				383CC2A21701D55B00328A7D /* FriendDataProvider.m in Sources */,
-				383CC2A31701D55B00328A7D /* UserDataProvider.m in Sources */,
-				383CC2A81701D59200328A7D /* ApnDataProvider.m in Sources */,
-				383CC2A91701D59200328A7D /* ConfigurationDataProvider.m in Sources */,
-				383CC2B41701D5AB00328A7D /* CommunityDataProvider.m in Sources */,
-				383CC2B51701D5AB00328A7D /* DialogueDataProvider.m in Sources */,
-				383CC2B61701D5AB00328A7D /* MessageSummaryDataProvider.m in Sources */,
-				383CC2B71701D5AB00328A7D /* NoticationDataProvider.m in Sources */,
-				383CC2B81701D5AB00328A7D /* NoticeDataProvider.m in Sources */,
+				383CC2A21701D55B00328A7D /* MCKFriendDataProvider.m in Sources */,
+				383CC2A31701D55B00328A7D /* MCKUserDataProvider.m in Sources */,
+				383CC2A81701D59200328A7D /* MCKApnDataProvider.m in Sources */,
+				383CC2A91701D59200328A7D /* MCKConfigurationDataProvider.m in Sources */,
+				383CC2B41701D5AB00328A7D /* MCKCommunityDataProvider.m in Sources */,
+				383CC2B51701D5AB00328A7D /* MCKDialogueDataProvider.m in Sources */,
+				383CC2B61701D5AB00328A7D /* MCKMessageSummaryDataProvider.m in Sources */,
+				383CC2B71701D5AB00328A7D /* MCKNoticationDataProvider.m in Sources */,
+				383CC2B81701D5AB00328A7D /* MCKNoticeDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

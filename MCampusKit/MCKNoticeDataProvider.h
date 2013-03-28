@@ -9,7 +9,7 @@
 
 #import "MCKBaseDataProvider.h"
 
-@interface NoticeDataProvider : MCKBaseDataProvider
+@interface MCKNoticeDataProvider : MCKBaseDataProvider
 
 - (void)getNoticesWithNoticeId:(NSString *)noticeId
     latestType:(NSString *)latestType

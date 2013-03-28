@@ -6,15 +6,14 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "DialogueDataProvider.h"
+#import "MCKDialogueDataProvider.h"
 
 #import "MCKHTTPClient.h"
 #import "MCKDataWrapper.h"
 #import "MCKDialogue.h"
 #import "MCKDialogueDetail.h"
 
-@implementation DialogueDataProvider
-
+@implementation MCKDialogueDataProvider
 
 // http://222.66.33.210:9092/rest/v1/msg/ios/dialogue/list/get?uid=39&t=F0B09E1537ACCA3A&start=0&getlatest=1
 - (void)getDialoguesWithTimestamp:(NSString *)timestamp

@@ -8,7 +8,7 @@
 
 #import "MCKBaseDataProvider.h"
 
-@interface ExecriseDataProvider : MCKBaseDataProvider
+@interface MCKExecriseDataProvider : MCKBaseDataProvider
 
 - (void)getExecriseWithCoursewareId:(NSString *)coursewareId
     success:(void (^)(MCKDataWrapper *dataWrapper))success

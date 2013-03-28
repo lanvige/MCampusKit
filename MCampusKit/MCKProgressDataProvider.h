@@ -8,7 +8,7 @@
 
 #import "MCKBaseDataProvider.h"
 
-@interface ProgressDataProvider : MCKBaseDataProvider
+@interface MCKProgressDataProvider : MCKBaseDataProvider
 
 - (void)getCourseRankingWithCourseId:(NSString *)courseId
     success:(void (^)(MCKDataWrapper *dataWrapper))success

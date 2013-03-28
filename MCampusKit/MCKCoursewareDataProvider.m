@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "CoursewareDataProvider.h"
+#import "MCKCoursewareDataProvider.h"
 
 #import "MCKCourseware.h"
 #import "MCKCoursewareSet.h"
 #import "MCKFrameInfo.h"
 
-@implementation CoursewareDataProvider
+@implementation MCKCoursewareDataProvider
 
 // http://222.66.33.210:9092/rest/v1/course/courseware/get?uid=39&course=15&from=&t=F0B09E1537ACCA3A
 - (void)getCoursewaresWithCourse:(NSString *)courseId

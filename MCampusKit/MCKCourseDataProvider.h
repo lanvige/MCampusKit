@@ -1,8 +1,8 @@
 //
-//  FriendDataProvider.h
+//  CourseDataProvider.h
 //  MobileCampus
 //
-//  Created by Lanvige Jiang on 10/12/12.
+//  Created by Lanvige Jiang on 10/13/12.
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
@@ -10,28 +10,27 @@
 
 @class MCKDataWrapper;
 
-@interface FriendDataProvider : MCKBaseDataProvider
+@interface MCKCourseDataProvider : MCKBaseDataProvider
 
-- (void)getFriendsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+- (void)getCoursesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getFriendsWithFriendId:(NSString *)friendId
+- (void)getCoursesWithUserId:(NSString *)userId
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)addFriendWithFriendId:(NSString *)friendId
+- (void)getCoursesWithTimestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)acceptFriendRequestWithFriendId:(NSString *)friendId
+// 顶课程
+- (void)supportCourseWithCourseId:(NSString *)courseId
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)ignoreFriendRequestWithFriendId:(NSString *)friendId
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
-
-- (void)relieveFriendWithFriendId:(NSString *)friendId
+// 课程评星
+- (void)ratingCourseWithCourseId:(NSString *)courseId
+    star:(NSInteger)star
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "FriendDataProvider.h"
+#import "MCKFriendDataProvider.h"
 
 #import "MCKDataWrapper.h"
 #import "MCKHTTPClient.h"
 #import "MCKFriend.h"
 
-@implementation FriendDataProvider
+@implementation MCKFriendDataProvider
 
 // http://222.66.33.210:9092/rest/v1/friend/myfriend/get?uid=39&from=0&t=F0B09E1537ACCA3A
 - (void)getFriendsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success

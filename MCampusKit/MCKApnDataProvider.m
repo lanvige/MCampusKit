@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "ApnDataProvider.h"
+#import "MCKApnDataProvider.h"
 
-@implementation ApnDataProvider
+@implementation MCKApnDataProvider
 
 // http://222.66.33.210:9092/rest/v1/user/ios/devices/save?uid=3&t=F3CD921D2CA61426&n=avd12321sadfdsaf
 - (void)sendDeviceTokenWithDeviceToken:(NSString *)deviceToken

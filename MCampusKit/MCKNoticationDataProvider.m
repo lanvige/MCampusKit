@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Lanvige Jiang. All rights reserved.
 //
 
-#import "NoticationDataProvider.h"
+#import "MCKNoticationDataProvider.h"
 #import "MCKNotification.h"
 
-@implementation NoticationDataProvider
+@implementation MCKNoticationDataProvider
 
 // http://222.66.33.210:9092/rest/v1/pn/ios/list/get?uid=39&fromid=114&getlatest=1&t=F0B09E1537ACCA3A
 - (void)getNoticationsWithNoticationId:(NSString *)noticationId
