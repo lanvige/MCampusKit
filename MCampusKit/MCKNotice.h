@@ -7,6 +7,13 @@
 //
 // 消息中心 - 通知
 
+typedef enum {
+    MCKNoticeTextType,
+    MCKNoticeMMSType,
+    MCKNoticeVoteType,
+    MCKNoticeUnknownType
+}MCKNoticeType;
+
 #import "MCKModelBaseIdentifier.h"
 #import "MCKStudyPlan.h"
 
@@ -18,7 +25,7 @@
 @property (nonatomic, strong) NSString *senderImg;
 @property (nonatomic, strong) NSString *messageTime;
 // 通知有三种类型，文字，投票和彩信
-@property (nonatomic, strong) NSString *messageType;
+@property (nonatomic, assign) MCKNoticeType noticeType;
 
 @property (nonatomic, strong) NSString *messageContent;
 @property (nonatomic, strong) NSString *mmsImageUrl;

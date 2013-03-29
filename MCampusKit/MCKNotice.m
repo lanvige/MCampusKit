@@ -17,12 +17,24 @@
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
     [super unpackDictionary:dictionary];
-    
+
     self.senderId = [dictionary safeObjectForKey:@"senderId"];
     self.senderName = [dictionary safeObjectForKey:@"senderName"];
     self.senderImg = [dictionary safeObjectForKey:@"senderImg"];
     self.messageTime = [dictionary safeObjectForKey:@"messageTime"];
-    self.messageType = [dictionary safeObjectForKey:@"messageType"];
+
+    NSString *messageType = [dictionary safeObjectForKey:@"messageType"];
+
+    if ([messageType isEqualToString:@"TextMessage"]) {
+        self.noticeType = MCKNoticeTextType;
+    } else if ([messageType isEqualToString:@"MMS"]) {
+        self.noticeType = MCKNoticeMMSType;
+    } else if ([messageType isEqualToString:@"Vote"]) {
+        self.noticeType = MCKNoticeVoteType;
+    } else {
+        self.noticeType = MCKNoticeUnknownType;
+    }
+
     self.messageContent = [dictionary safeObjectForKey:@"messageContent"];
     self.mmsImageUrl = [dictionary safeObjectForKey:@"mmsImageUrl"];
 
