@@ -122,7 +122,7 @@
 {
     MCKUser *currentUser = [MCKUser currentUser];
 
-    if (currentUser) {
+    if (!currentUser) {
         if (failure) {
             NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
             [errDict setValue:@"当前登陆失效，请重新登陆" forKey:NSLocalizedDescriptionKey];
@@ -170,7 +170,7 @@
 
     MCKUser *currentUser = [MCKUser currentUser];
 
-    if (currentUser) {
+    if (!currentUser) {
         if (failure) {
             NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
             [errDict setValue:@"当前登陆失效，请重新登陆" forKey:NSLocalizedDescriptionKey];
@@ -207,7 +207,7 @@
 {
     MCKUser *currentUser = [MCKUser currentUser];
 
-    if (currentUser) {
+    if (!currentUser) {
         if (failure) {
             NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
             [errDict setValue:@"当前登陆失效，请重新登陆" forKey:NSLocalizedDescriptionKey];
