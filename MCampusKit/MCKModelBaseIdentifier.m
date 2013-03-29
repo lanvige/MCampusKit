@@ -12,7 +12,7 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    self.mId = [dictionary safeObjectForKey:@"id"];
+    self.mId = [[dictionary safeObjectForKey:@"id"] stringValue];
 }
 
 @end
