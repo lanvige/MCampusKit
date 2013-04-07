@@ -8,10 +8,12 @@
 // 消息中心 - 通知
 
 typedef enum {
-    MCKNoticeTextType,
+    MCKNoticeTextType = 1,
     MCKNoticeMMSType,
     MCKNoticeVoteType,
-    MCKNoticeUnknownType
+    MCKNoticeTextInsertType,
+    MCKNoticeMMSInsertType,
+    MCKNoticeUnknownType,
 }MCKNoticeType;
 
 #import "MCKModelBaseIdentifier.h"
