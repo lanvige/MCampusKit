@@ -55,12 +55,12 @@
     failure:(void (^)(NSError *error))failure;
 
 
-- (void)addTopicsWithCourseId:(NSString *)courseId
-    coursewareId:(NSString *)coursewareId
-    tags:(NSString *)tags
-    content:(NSString *)content
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
+//- (void)addTopicsWithCourseId:(NSString *)courseId
+//    coursewareId:(NSString *)coursewareId
+//    tags:(NSString *)tags
+//    content:(NSString *)content
+//    success:(void (^)(MCKDataWrapper *dataWrapper))success
+//    failure:(void (^)(NSError *error))failure;
 
 - (void)addTopicsWithCourseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId

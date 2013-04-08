@@ -12,6 +12,7 @@
 #import "MCKDataWrapper.h"
 #import "MCKDialogue.h"
 #import "MCKDialogueDetail.h"
+#import "MCKUser.h"
 
 @implementation MCKDialogueDataProvider
 
@@ -104,7 +105,6 @@
 
 
 // http://222.66.33.210:9092/rest/v1/msg/dialogue/get?uid=39&fuid=1&from=&t=F0B09E1537ACCA3A
-// Service Error
 - (void)getDialogueWithUserId:(NSString *)userId
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
@@ -117,7 +117,7 @@
          if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
-             for (NSDictionary *attributes in jsonData) {
+             for (NSDictionary * attributes in jsonData) {
                  MCKDialogueDetail *dialogue = [[MCKDialogueDetail alloc] init];
                  [dialogue unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:dialogue];
@@ -136,40 +136,41 @@
      }];
 }
 
-// http://222.66.33.210:9092/rest/v1/msg/dialogue/sendtext?sid=39&rids=12&content=test&t=F0B09E1537ACCA3A
-- (void)sendDialogueWithSid:(NSString *)sid
-    rid:(NSString *)rid
-    content:(NSString *)content
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
-{
-    NSString *path = [NSString stringWithFormat:@"v1/msg/dialogue/sendtext?sid=%@&rids=%@&content=%@", sid, rid, content];
-
-    [self getObjectsWithTokenPath:path
-                        paramters:nil
-                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData) {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-
-             if (jsonData) {
-                 MCKDialogueDetail *dialog = [[MCKDialogueDetail alloc] init];
-                 [dialog unpackDictionary:jsonData];
-                 [[dataWrapper modelList] addObject:dialog];
-             }
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
-}
+//
+//// http://222.66.33.210:9092/rest/v1/msg/dialogue/sendtext?sid=39&rids=12&content=test&t=F0B09E1537ACCA3A
+//- (void)sendDialogueWithSid:(NSString *)sid
+//    rid:(NSString *)rid
+//    content:(NSString *)content
+//    success:(void (^)(MCKDataWrapper *dataWrapper))success
+//    failure:(void (^)(NSError *error))failure
+//{
+//    NSString *path = [NSString stringWithFormat:@"v1/msg/dialogue/sendtext?sid=%@&rids=%@&content=%@", sid, rid, content];
+//
+//    [self getObjectsWithTokenPath:path
+//                        paramters:nil
+//                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+//
+//         if (jsonData) {
+//             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+//
+//             if (jsonData) {
+//                 MCKDialogueDetail *dialog = [[MCKDialogueDetail alloc] init];
+//                 [dialog unpackDictionary:jsonData];
+//                 [[dataWrapper modelList] addObject:dialog];
+//             }
+//         } else {
+//             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+//         }
+//
+//         if (success) {
+//             success(dataWrapper);
+//         }
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//         if (failure) {
+//             failure(error);
+//         }
+//     }];
+//}
 
 // POST - http://222.66.33.210:9092/rest/v1/msg/dialogue/send?
 // public JsonResult<PrivateMessage> sendMessage(
@@ -188,14 +189,14 @@
 {
 
     NSString *path = @"v1/msg/dialogue/send";
+    MCKUser *currentUser = [MCKUser currentUser];
 
     NSDictionary *params = @{
-// FIXME:
-//    @"sid" :CACHE.context.mId,
+        @"sid" :currentUser.mId,
         @"rids" :rid,
         @"content" :content,
-//    @"uid" : CACHE.context.mId,
-//    @"t" : CACHE.context.token,
+        @"uid" : currentUser.mId,
+        @"t" : currentUser.accessToken,
     };
 
     [self saveObjectWithPath:path

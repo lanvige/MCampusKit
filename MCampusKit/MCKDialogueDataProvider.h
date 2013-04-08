@@ -33,11 +33,11 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)sendDialogueWithSid:(NSString *)sid
-    rid:(NSString *)rid
-    content:(NSString *)content
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
+//- (void)sendDialogueWithSid:(NSString *)sid
+//    rid:(NSString *)rid
+//    content:(NSString *)content
+//    success:(void (^)(MCKDataWrapper *dataWrapper))success
+//    failure:(void (^)(NSError *error))failure;
 
 - (void)sendDialogueWithSid:(NSString *)sid
     rid:(NSString *)rid

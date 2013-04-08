@@ -12,6 +12,7 @@
 #import "MCKDataWrapper.h"
 #import "MCKCommunity.h"
 #import "MCKConfiguration.h"
+#import "MCKUser.h"
 
 @implementation MCKCommunityDataProvider
 
@@ -208,42 +209,42 @@
          }
      }];
 }
-
-// http://222.66.33.210:9092/rest/v1/sns/topic/add?uid=39&schools=1%2C2%2C&course=0&courseware=0&tags=&content=wt&t=F0B09E1537ACCA3A
-- (void)addTopicsWithCourseId:(NSString *)courseId
-    coursewareId:(NSString *)coursewareId
-    tags:(NSString *)tags
-    content:(NSString *)content
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
-{
-    // FIXME:
-    NSString *mySchools = @"";
-    // NSString *mySchools = [(MCConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
-    NSString *path = [NSString stringWithFormat:@"v1/sns/topic/add?schools=%@&course=%@&courseware=%@&tags=%@&content=%@", mySchools, courseId, coursewareId, tags, content];
-
-    [self getObjectsWithTokenPath:path
-                        paramters:nil
-                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData) {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKCommunity *topic = [[MCKCommunity alloc] init];
-             [topic unpackDictionary:jsonData];
-             [dataWrapper.modelList addObject:topic];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
-}
+//
+//// http://222.66.33.210:9092/rest/v1/sns/topic/add?uid=39&schools=1%2C2%2C&course=0&courseware=0&tags=&content=wt&t=F0B09E1537ACCA3A
+//- (void)addTopicsWithCourseId:(NSString *)courseId
+//    coursewareId:(NSString *)coursewareId
+//    tags:(NSString *)tags
+//    content:(NSString *)content
+//    success:(void (^)(MCKDataWrapper *dataWrapper))success
+//    failure:(void (^)(NSError *error))failure
+//{
+//    // FIXME:
+//    NSString *mySchools = @"";
+//    // NSString *mySchools = [(MCConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
+//    NSString *path = [NSString stringWithFormat:@"v1/sns/topic/add?schools=%@&course=%@&courseware=%@&tags=%@&content=%@", mySchools, courseId, coursewareId, tags, content];
+//
+//    [self getObjectsWithTokenPath:path
+//                        paramters:nil
+//                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+//
+//         if (jsonData) {
+//             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+//             MCKCommunity *topic = [[MCKCommunity alloc] init];
+//             [topic unpackDictionary:jsonData];
+//             [dataWrapper.modelList addObject:topic];
+//         } else {
+//             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+//         }
+//
+//         if (success) {
+//             success(dataWrapper);
+//         }
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//         if (failure) {
+//             failure(error);
+//         }
+//     }];
+//}
 
 /*
    @FormDataParam("file") InputStream uploadedInputStream,
@@ -268,15 +269,16 @@
 
     NSString *path = @"v1/sns/topic/add/withpic";
 
+    MCKUser *currentUser = [MCKUser currentUser];
+
     NSDictionary *params = @{
         @"course" :courseId,
         @"courseware" :coursewareId,
         @"content" :content,
         @"schools" :schools,
         @"tags"    :tags,
-// FIXME:
-//        @"uid" : CACHE.context.mId,
-//        @"t" : CACHE.context.token,
+        @"uid" : currentUser.mId,
+        @"t" : currentUser.accessToken
     };
 
 
@@ -289,14 +291,11 @@
          }
      }
 
-                  completion:^(BOOL success, NSError *error, id jsonData) {
-
+    completion:^(BOOL success, NSError *error, id jsonData) {
          MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
 
-         // TODO what's the return.
          if (completionBlock) {
              completionBlock(dataWrapper, error);
-
          }
      }];
 }
