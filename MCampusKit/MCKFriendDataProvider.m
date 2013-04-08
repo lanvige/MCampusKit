@@ -24,12 +24,12 @@
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
          if (jsonData) {
-             NSArray *friendList = (NSArray *) jsonData;
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendList count]];
+             NSArray *friendsArray = (NSArray *) jsonData;
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendsArray count]];
 
-             for (NSDictionary * attributes in friendList) {
+             for (NSDictionary * friendDict in friendsArray) {
                  MCKFriend *friend = [[MCKFriend alloc] init];
-                 [friend unpackDictionary:jsonData];
+                 [friend unpackDictionary:friendDict];
                  [dataWrapper.modelList addObject:friend];
              }
          } else {
