@@ -85,10 +85,6 @@
          if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
-
-             // FIXME: CACHE
-//                                   CACHE.context = [[MCUserContext alloc] initWithAttributes:jsonData];
-//                                   [CACHE store];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
          }
@@ -118,16 +114,9 @@
          if (jsonData) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
              [dataWrapper.modelList addObject:jsonData];
-
-             // FIXME:
-//                                   CACHE.context = [[MCUserContext alloc] initWithAttributes:jsonData];
-//                                   [CACHE store];
          } else {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
          }
-
-         //                              [CACHE restore];
-         //                              DLog(@"USERCONTEXT mId=== %@  userName=%@",CACHE.context.mId,CACHE.context.name);
 
          if (success) {
              success(dataWrapper);
@@ -230,17 +219,18 @@
 - (void)getMyProfileWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    // FIXME:
-//    [self getUserProfileWithUserId:CACHE.context.mId
-//                           success:^(MCKDataWrapper *dataWrapper) {
-//         if (success) {
-//             success(dataWrapper);
-//         }
-//     } failure:^(NSError *error) {
-//         if (failure) {
-//             failure(error);
-//         }
-//     }];
+    MCKUser *currentUser = [MCKUser currentUser];
+
+    [self getUserProfileWithUserId:currentUser.mId
+                           success:^(MCKDataWrapper *dataWrapper) {
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 // http://222.66.33.210:9092/rest/v1/ios/info/update?gender=&birthdate=&cityCode=&qqNumber=&hobby=defaultPhotoId&photoIds=
@@ -254,7 +244,8 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-
+    MCKUser *currentUser = [MCKUser currentUser];
+    
     NSString *path = @"v1/user/ios/info/update";
 
     NSDictionary *params = @{
@@ -265,9 +256,8 @@
         @"hobby": hobby,
         @"dpid": defaultPhotoId,
         @"pids": photoIds,
-// FIXME:
-//        @"uid" : CACHE.context.mId,
-//        @"t" : CACHE.context.token,
+        @"uid" : currentUser.mId,
+        @"t" : currentUser.accessToken,
     };
 
     [self saveObjectWithMultiHeaderAndPath:path
@@ -298,12 +288,13 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
+    MCKUser *currentUser = [MCKUser currentUser];
+    
     NSString *path = @"v1/user/icon/save";
 
     NSDictionary *params = @{
-// FIXME:
-//        @"uid" : CACHE.context.mId,
-//        @"t" : CACHE.context.token,
+        @"uid" : currentUser.mId,
+        @"t" : currentUser.accessToken,
     };
 
     [self saveObjectWithPath:path

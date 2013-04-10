@@ -15,13 +15,11 @@
 @implementation MCKMessageSummaryDataProvider
 
 - (void)getMessageSummaryWithTimestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    // FIXME:
-//    NSString *mySchools = [(MCKConfiguration *)[CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
-    NSString *mySchools = @"";
-    NSString *path = [NSString stringWithFormat:@"v1/msg/summary?from=%@&schools=%@", timestamp, mySchools];
+    NSString *path = [NSString stringWithFormat:@"v1/msg/summary?from=%@&schools=%@", timestamp, schoolIds];
 
     [self getObjectsWithTokenPath:path
                         paramters:nil
@@ -46,10 +44,11 @@
 }
 
 // http://222.66.33.210:9092/rest/v1/msg/summary?uid=39&from=&schools=1%2C2%2C&t=F0B09E1537ACCA3A
-- (void)getMessageSummaryWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+- (void)getMessageSummaryWithSchoolIds:(NSString *)schoolIds
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    [self getMessageSummaryWithTimestamp:@"" success:^(MCKDataWrapper *dataWrapper) {
+    [self getMessageSummaryWithTimestamp:@"" schoolIds:schoolIds success:^(MCKDataWrapper *dataWrapper) {
          if (success) {
              success(dataWrapper);
          }

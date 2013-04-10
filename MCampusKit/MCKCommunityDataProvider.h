@@ -21,20 +21,24 @@
     latestType:(NSString *)latestType
     courseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
 - (void)getFreshTopicsWithTags:(NSString *)tags
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
 - (void)getUpdateTopicsWithTags:(NSString *)tags
+    schoolIds:(NSString *)schoolIds
     timestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
 - (void)getMoreTopicsWithTags:(NSString *)tags
     timestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
@@ -51,11 +55,12 @@
 - (void)getTopicsWithCourseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId
     timestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
 
-//- (void)addTopicsWithCourseId:(NSString *)courseId
+// - (void)addTopicsWithCourseId:(NSString *)courseId
 //    coursewareId:(NSString *)coursewareId
 //    tags:(NSString *)tags
 //    content:(NSString *)content

@@ -22,16 +22,11 @@
     latestType:(NSString *)latestType
     courseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    // FIXME:
-    NSString *mySchools = @"";
-
-    // NSString *mySchools = [(MCKConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
-
-    NSLog(@"%@", mySchools);
-    NSString *path = [NSString stringWithFormat:@"v1/sns/topics?schools=%@&tag=%@&getlatest=%@&start=%@&course=%@&courseware=%@", mySchools, tags, latestType, timestamp, courseId, coursewareId];
+    NSString *path = [NSString stringWithFormat:@"v1/sns/topics?schools=%@&tag=%@&getlatest=%@&start=%@&course=%@&courseware=%@", schoolIds, tags, latestType, timestamp, courseId, coursewareId];
 
     [self getObjectsWithTokenPath:path
                         paramters:nil
@@ -63,10 +58,17 @@
 }
 
 - (void)getFreshTopicsWithTags:(NSString *)tags
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    [self getTopicsWithTags:tags timestamp:@"" latestType:@"1" courseId:@"" coursewareId:@"" success:^(MCKDataWrapper *dataWrapper) {
+    [self getTopicsWithTags:tags
+                  timestamp:@""
+                 latestType:@"1"
+                   courseId:@""
+               coursewareId:@""
+                  schoolIds:schoolIds
+                    success:^(MCKDataWrapper *dataWrapper) {
          //
          if (success) {
              success(dataWrapper);
@@ -80,6 +82,7 @@
 }
 
 - (void)getUpdateTopicsWithTags:(NSString *)tags
+    schoolIds:(NSString *)schoolIds
     timestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
@@ -89,6 +92,7 @@
                  latestType:@"1"
                    courseId:@""
                coursewareId:@""
+                  schoolIds:schoolIds
                     success:^(MCKDataWrapper *dataWrapper) {
          if (success) {
              success(dataWrapper);
@@ -102,6 +106,7 @@
 
 - (void)getMoreTopicsWithTags:(NSString *)tags
     timestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
@@ -110,6 +115,7 @@
                  latestType:@"0"
                    courseId:@""
                coursewareId:@""
+                  schoolIds:schoolIds
                     success:^(MCKDataWrapper *dataWrapper) {
          if (success) {
              success(dataWrapper);
@@ -125,6 +131,7 @@
 - (void)getTopicsWithCourseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId
     timestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
@@ -133,6 +140,7 @@
                  latestType:@"0"
                    courseId:courseId
                coursewareId:coursewareId
+                  schoolIds:schoolIds
                     success:^(MCKDataWrapper *dataWrapper) {
          if (success) {
              success(dataWrapper);
@@ -211,14 +219,13 @@
 }
 //
 //// http://222.66.33.210:9092/rest/v1/sns/topic/add?uid=39&schools=1%2C2%2C&course=0&courseware=0&tags=&content=wt&t=F0B09E1537ACCA3A
-//- (void)addTopicsWithCourseId:(NSString *)courseId
+// - (void)addTopicsWithCourseId:(NSString *)courseId
 //    coursewareId:(NSString *)coursewareId
 //    tags:(NSString *)tags
 //    content:(NSString *)content
 //    success:(void (^)(MCKDataWrapper *dataWrapper))success
 //    failure:(void (^)(NSError *error))failure
-//{
-//    // FIXME:
+// {
 //    NSString *mySchools = @"";
 //    // NSString *mySchools = [(MCConfiguration *) [CACHEMANAGER restore:kConfigurationCacheKey] mySchoolIds];
 //    NSString *path = [NSString stringWithFormat:@"v1/sns/topic/add?schools=%@&course=%@&courseware=%@&tags=%@&content=%@", mySchools, courseId, coursewareId, tags, content];
@@ -244,7 +251,7 @@
 //             failure(error);
 //         }
 //     }];
-//}
+// }
 
 /*
    @FormDataParam("file") InputStream uploadedInputStream,
@@ -291,7 +298,7 @@
          }
      }
 
-    completion:^(BOOL success, NSError *error, id jsonData) {
+                  completion:^(BOOL success, NSError *error, id jsonData) {
          MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
 
          if (completionBlock) {

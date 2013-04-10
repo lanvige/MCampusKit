@@ -13,10 +13,12 @@
 @interface MCKMessageSummaryDataProvider : MCKBaseDataProvider
 
 - (void)getMessageSummaryWithTimestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getMessageSummaryWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+- (void)getMessageSummaryWithSchoolIds:(NSString *)schoolIds
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
 @end
