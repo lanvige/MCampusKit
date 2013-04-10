@@ -73,7 +73,7 @@ static MCKUser *__currentUser = nil;
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
     [super unpackDictionary:dictionary];
-    self.username = [dictionary safeObjectForKey:@"userName"];
+    self.username = [dictionary safeObjectForKey:@"name"];
     self.avatar = [dictionary safeObjectForKey:@"icon"];
     self.accessToken = [dictionary safeObjectForKey:@"token"];
 }
