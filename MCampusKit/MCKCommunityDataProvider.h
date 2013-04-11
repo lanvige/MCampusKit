@@ -16,56 +16,59 @@
 
 @interface MCKCommunityDataProvider : MCKBaseDataProvider
 
-- (void)getTopicsWithTags:(NSString *)tags
+// - (void)getTopicsWithTags:(NSString *)tags
+//    timestamp:(NSString *)timestamp
+//    latestType:(NSString *)latestType
+//    courseId:(NSString *)courseId
+//    coursewareId:(NSString *)coursewareId
+//    schoolIds:(NSString *)schoolIds
+//    success:(void (^)(MCKDataWrapper *dataWrapper))success
+//    failure:(void (^)(NSError *error))failure;
+
+#pragma mark - list
+- (void)getTopicsWithSchools:(NSString *)schools
     timestamp:(NSString *)timestamp
     latestType:(NSString *)latestType
-    courseId:(NSString *)courseId
-    coursewareId:(NSString *)coursewareId
-    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getFreshTopicsWithTags:(NSString *)tags
-    schoolIds:(NSString *)schoolIds
+- (void)getFreshTopicsWithSchools:(NSString *)schools
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getUpdateTopicsWithTags:(NSString *)tags
-    schoolIds:(NSString *)schoolIds
+- (void)getUpdateTopicsWithSchools:(NSString *)schools
     timestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getMoreTopicsWithTags:(NSString *)tags
+- (void)getMoreTopicsWithSchools:(NSString *)schools
     timestamp:(NSString *)timestamp
-    schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getTopicWithTopicId:(NSString *)topicId
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
-
+#pragma mark - list 2
 - (void)getTopicsWithUserId:(NSString *)userId
     pageNumber:(NSString *)pageNumber
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-// http://192.168.100.48:9092/rest/v1/sns/topics?schools=1,2,164,&start=0&tag=&getlatest=1&uid=154&course=&courseware=&user=&t=195476BCBAF949E7&client=1
 - (void)getTopicsWithCourseId:(NSString *)courseId
-    coursewareId:(NSString *)coursewareId
     timestamp:(NSString *)timestamp
     schoolIds:(NSString *)schoolIds
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)getTopicsWithCoursewareId:(NSString *)coursewareId
+    timestamp:(NSString *)timestamp
+    schoolIds:(NSString *)schoolIds
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
-// - (void)addTopicsWithCourseId:(NSString *)courseId
-//    coursewareId:(NSString *)coursewareId
-//    tags:(NSString *)tags
-//    content:(NSString *)content
-//    success:(void (^)(MCKDataWrapper *dataWrapper))success
-//    failure:(void (^)(NSError *error))failure;
+#pragma mark -
+
+- (void)getTopicWithTopicId:(NSString *)topicId
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)addTopicsWithCourseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId
@@ -75,6 +78,13 @@
     imageData:(NSData *)imageData
     progress:(void (^)(CGFloat progress))progressBlock
     completion:(void (^)(MCKDataWrapper *, NSError *))completionBlock;
+
+// - (void)addTopicsWithCourseId:(NSString *)courseId
+//    coursewareId:(NSString *)coursewareId
+//    tags:(NSString *)tags
+//    content:(NSString *)content
+//    success:(void (^)(MCKDataWrapper *dataWrapper))success
+//    failure:(void (^)(NSError *error))failure;
 
 - (void)replyTopicWithTopicId:(NSString *)topicId
     content:(NSString *)content
