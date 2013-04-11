@@ -16,98 +16,100 @@
 
 @implementation MCKCommunityDataProvider
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Get list in page.
 
 // http://192.168.100.48:9092/rest/v1/sns/topics/schools/1,2,164?start=0&getlatest=1&uid=154&t=195476BCBAF949E7&client=1
 - (void)getTopicsWithSchools:(NSString *)schools
-    timestamp:(NSString *)timestamp
-    latestType:(NSString *)latestType
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                   timestamp:(NSString *)timestamp
+                  latestType:(NSString *)latestType
+                     success:(void (^)(MCKDataWrapper *dataWrapper))success
+                     failure:(void (^)(NSError *error))failure
 {
-    NSString *path = [NSString stringWithFormat:@"v1/sns/topics?schools=%@&getlatest=%@&start=%@", schools, latestType, timestamp];
-
+    NSString *path = [NSString stringWithFormat:@"v1/sns/topics/schools/%@?start=%@&getlatest=%@", schools, timestamp, latestType];
+    
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         //
-         if (jsonData) {
-             NSArray *topicList = [jsonData objectForKey:@"topics"];
-
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[topicList count]];
-
-             for (NSDictionary * attributes in topicList) {
-                 MCKCommunity *topic = [[MCKCommunity alloc] init];
-                 [topic unpackDictionary:attributes];
-                 [dataWrapper.modelList addObject:topic];
-             }
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                              //
+                              if (jsonData) {
+                                  NSArray *topicList = [jsonData objectForKey:@"topics"];
+                                  
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[topicList count]];
+                                  
+                                  for (NSDictionary * attributes in topicList) {
+                                      MCKCommunity *topic = [[MCKCommunity alloc] init];
+                                      [topic unpackDictionary:attributes];
+                                      [dataWrapper.modelList addObject:topic];
+                                  }
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 
 - (void)getFreshTopicsWithSchools:(NSString *)schools
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                          success:(void (^)(MCKDataWrapper *dataWrapper))success
+                          failure:(void (^)(NSError *error))failure
 {
-    [self getFreshTopicsWithSchools:schools
-                            success:^(MCKDataWrapper *dataWrapper) {
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+    [self getTopicsWithSchools:schools
+                     timestamp:@""
+                    latestType:@"1"
+                       success:^(MCKDataWrapper *dataWrapper) {
+                           if (success) {
+                               success(dataWrapper);
+                           }
+                       } failure:^(NSError *error) {
+                           if (failure) {
+                               failure(error);
+                           }
+                       }];
 }
 
 - (void)getUpdateTopicsWithSchools:(NSString *)schools
-    timestamp:(NSString *)timestamp
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                         timestamp:(NSString *)timestamp
+                           success:(void (^)(MCKDataWrapper *dataWrapper))success
+                           failure:(void (^)(NSError *error))failure
 {
     [self getTopicsWithSchools:schools
                      timestamp:timestamp latestType:@"1"
                        success:^(MCKDataWrapper *dataWrapper) {
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                           if (success) {
+                               success(dataWrapper);
+                           }
+                       } failure:^(NSError *error) {
+                           if (failure) {
+                               failure(error);
+                           }
+                       }];
 }
 
 - (void)getMoreTopicsWithSchools:(NSString *)schools
-    timestamp:(NSString *)timestamp
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                       timestamp:(NSString *)timestamp
+                         success:(void (^)(MCKDataWrapper *dataWrapper))success
+                         failure:(void (^)(NSError *error))failure
 {
     [self getTopicsWithSchools:schools
                      timestamp:timestamp
                     latestType:@"0"
                        success:^(MCKDataWrapper *dataWrapper) {
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                           if (success) {
+                               success(dataWrapper);
+                           }
+                       } failure:^(NSError *error) {
+                           if (failure) {
+                               failure(error);
+                           }
+                       }];
 }
 
 #pragma mark -
@@ -348,32 +350,32 @@
 
 // http://222.66.33.210:9092/rest/v1/sns/topic?uid=39&topic=10&t=F0B09E1537ACCA3A
 - (void)getTopicWithTopicId:(NSString *)topicId
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                    success:(void (^)(MCKDataWrapper *dataWrapper))success
+                    failure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/sns/topic?topic=%@", topicId];
-
+    
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData) {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             MCKCommunity *topic = [[MCKCommunity alloc] init];
-             [topic unpackDictionary:jsonData];
-             [dataWrapper.modelList addObject:topic];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                              
+                              if (jsonData) {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+                                  MCKCommunity *topic = [[MCKCommunity alloc] init];
+                                  [topic unpackDictionary:jsonData];
+                                  [dataWrapper.modelList addObject:topic];
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 //
@@ -415,120 +417,120 @@
 
 #pragma mark - Add
 /*
-   @FormDataParam("file") InputStream uploadedInputStream,
-   @FormDataParam("file") FormDataContentDisposition fileDetail,
-   @FormDataParam("uid") int userId, @FormDataParam("t") String token,
-   @FormDataParam("schools") String schoolIds,
-   @FormDataParam("course") int courseId,
-   @FormDataParam("courseware") int coursewareId,
-   @FormDataParam("tags") String tags,
-   @FormDataParam("content") String content);
+ @FormDataParam("file") InputStream uploadedInputStream,
+ @FormDataParam("file") FormDataContentDisposition fileDetail,
+ @FormDataParam("uid") int userId, @FormDataParam("t") String token,
+ @FormDataParam("schools") String schoolIds,
+ @FormDataParam("course") int courseId,
+ @FormDataParam("courseware") int coursewareId,
+ @FormDataParam("tags") String tags,
+ @FormDataParam("content") String content);
  */
 
 - (void)addTopicsWithCourseId:(NSString *)courseId
-    coursewareId:(NSString *)coursewareId
-    tags:(NSString *)tags
-    content:(NSString *)content
-    schools:(NSString *)schools
-    imageData:(NSData *)imageData
-    progress:(void (^)(CGFloat progress))progressBlock
-    completion:(void (^)(MCKDataWrapper *, NSError *error))completionBlock
+                 coursewareId:(NSString *)coursewareId
+                         tags:(NSString *)tags
+                      content:(NSString *)content
+                      schools:(NSString *)schools
+                    imageData:(NSData *)imageData
+                     progress:(void (^)(CGFloat progress))progressBlock
+                   completion:(void (^)(MCKDataWrapper *, NSError *error))completionBlock
 {
-
+    
     NSString *path = @"v1/sns/topic/add/withpic";
-
+    
     MCKUser *currentUser = [MCKUser currentUser];
-
+    
     NSDictionary *params = @{
-        @"course" :courseId,
-        @"courseware" :coursewareId,
-        @"content" :content,
-        @"schools" :schools,
-        @"tags"    :tags,
-        @"uid" : currentUser.mId,
-        @"t" : currentUser.accessToken
-    };
-
-
+                             @"course" :courseId,
+                             @"courseware" :coursewareId,
+                             @"content" :content,
+                             @"schools" :schools,
+                             @"tags"    :tags,
+                             @"uid" : currentUser.mId,
+                             @"t" : currentUser.accessToken
+                             };
+    
+    
     [self saveObjectWithPath:path
                   parameters:params
                    imageData:imageData
                     progress:^(CGFloat progress) {
-         if (progressBlock) {
-             progressBlock(progress);
-         }
-     }
-
+                        if (progressBlock) {
+                            progressBlock(progress);
+                        }
+                    }
+     
                   completion:^(BOOL success, NSError *error, id jsonData) {
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
-
-         if (completionBlock) {
-             completionBlock(dataWrapper, error);
-         }
-     }];
+                      MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+                      
+                      if (completionBlock) {
+                          completionBlock(dataWrapper, error);
+                      }
+                  }];
 }
 
 #pragma mark - reply
 
 // http://222.66.33.210:9092/rest/v1/sns/topic/reply?uid=39&topic=1&content=test&t=F0B09E1537ACCA3A
 - (void)replyTopicWithTopicId:(NSString *)topicId
-    content:(NSString *)content
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                      content:(NSString *)content
+                      success:(void (^)(MCKDataWrapper *dataWrapper))success
+                      failure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/sns/topic/reply?topic=%@&content=%@", topicId, content];
-
+    
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData) {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             [dataWrapper.modelList addObject:jsonData];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                              
+                              if (jsonData) {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+                                  [dataWrapper.modelList addObject:jsonData];
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 #pragma mark - report
 
 // http://222.66.33.210:9092/rest/v1/sns/topic/feedback?uid={0}&topic={1}&type={2}&content={3}
 - (void)reportTopicWithTopicId:(NSString *)topicId
-    type:(NSString *)type
-    content:(NSString *)content
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
+                          type:(NSString *)type
+                       content:(NSString *)content
+                       success:(void (^)(MCKDataWrapper *dataWrapper))success
+                       failure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/sns/topic/feedback?topic=%@&type=%@&content=%@", topicId, type, content];
-
+    
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData) {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             [dataWrapper.modelList addObject:jsonData];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                              
+                              if (jsonData) {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+                                  [dataWrapper.modelList addObject:jsonData];
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 #pragma mark - delete
@@ -536,30 +538,30 @@
 // 删除单条社区话题或回复
 // http://192.168.100.193:8080/rest/v1/sns/topic/delete?&topic=1&uid=12&start=&tag=&t=F0B09E1537ACCA3A
 - (void)deleteTopicWithTopicId:(NSString *)topicId
-    success:(void (^)(MCKDataWrapper *))success
-    failure:(void (^)(NSError *))failure
+                       success:(void (^)(MCKDataWrapper *))success
+                       failure:(void (^)(NSError *))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/sns/topic/delete?topic=%@", topicId];
-
+    
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-
-         if (jsonData) {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-             [dataWrapper.modelList addObject:jsonData];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
+                              
+                              if (jsonData) {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+                                  [dataWrapper.modelList addObject:jsonData];
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 @end
