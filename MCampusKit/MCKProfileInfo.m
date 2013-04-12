@@ -15,13 +15,10 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy/MM/dd"];
-
     self.gender = [[dictionary safeObjectForKey:@"gender"] intValue];
     self.cityCode = [dictionary safeObjectForKey:@"cityCode"];
     self.cityName = [dictionary safeObjectForKey:@"cityName"];
-    self.birthdate = [formatter dateFromString:[dictionary safeObjectForKey:@"birthdate"]];
+    self.birthdate = [dictionary safeObjectForKey:@"birthdate"];
     self.className = [dictionary safeObjectForKey:@"className"];
     self.phoneNumber = [dictionary safeObjectForKey:@"phoneNumber"];
     self.hobby = [dictionary safeObjectForKey:@"hobby"];

@@ -15,10 +15,7 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-
-    self.planDate = [formatter dateFromString:[dictionary safeObjectForKey:@"date"]];
+    self.planDate = [dictionary safeObjectForKey:@"date"];
     self.alarmMinutes = [[dictionary safeObjectForKey:@"alarmMinutes"] intValue];
     self.place = [dictionary safeObjectForKey:@"place"];
     self.title = [dictionary safeObjectForKey:@"title"];

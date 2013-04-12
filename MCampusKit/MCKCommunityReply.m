@@ -15,9 +15,6 @@
 
 - (void)unpackDictionary:(NSDictionary *)dictionary
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM/dd HH:mm"];
-
     [super unpackDictionary:dictionary];
     
     self.userId = [[dictionary safeObjectForKey:@"userId"] stringValue];
@@ -25,7 +22,7 @@
     self.userName = [dictionary safeObjectForKey:@"userName"];
     self.userType = [dictionary safeObjectForKey:@"userType"];
     self.content = [dictionary safeObjectForKey:@"content"];
-    self.createtime = [formatter dateFromString:[dictionary safeObjectForKey:@"createtime"]];
+    self.createtime = [dictionary safeObjectForKey:@"createtime"];
 }
 
 @end
