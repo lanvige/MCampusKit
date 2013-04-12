@@ -18,7 +18,7 @@
 {
     [super unpackDictionary:dictionary];
     
-    self.userId = [[dictionary safeObjectForKey:@"userId"] intValue];
+    self.userId = [[dictionary safeObjectForKey:@"userId"] stringValue];
     self.userName = [dictionary safeObjectForKey:@"userName"];
     self.userIcon = [dictionary safeObjectForKey:@"userIcon"];
     self.userType = [dictionary safeObjectForKey:@"userType"];
