@@ -309,10 +309,9 @@
                                                            path:path
                                                      parameters:params
                                       constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
-                                     [formData appendPartWithFileData:imageData
-                                                                 name:@"file"
-                                                             fileName:@"uploadImage.jpg"
-                                                             mimeType:@"image/jpeg"];
+                                     if (imageData) {
+                                         [formData appendPartWithFileData:imageData name:@"upload" fileName:@"imagefile" mimeType:@"image/jpeg"];
+                                     }
                                  }];
 
     AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
