@@ -154,12 +154,12 @@
 }
 
 // http://222.66.33.210:9092/rest/v1/user/login?nameorphone=13681667933&pwd=e10adc3949ba59abbe56e057f20f883e&t=
-- (void)loginWithPhone:(NSString *)nameOrPhone
+- (void)loginWithPhone:(NSString *)phone
     password:(NSString *)password
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    NSString *path = [NSString stringWithFormat:@"v1/user/login?nameorphone=%@&pwd=%@&client=2", nameOrPhone, password];
+    NSString *path = [NSString stringWithFormat:@"v1/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
 
     [self getObjectsWithPath:path
                    paramters:nil
@@ -181,6 +181,33 @@
      }];
 }
 
+// http://192.168.100.48:9092/rest/v1/t/user/login?nameorphone=13611735816&pwd=e10adc3949ba59abbe56e057f20f883e&t=
+- (void)teacherLoginWithNameOrPhone:(NSString *)phone
+              password:(NSString *)password
+               success:(void (^)(MCKDataWrapper *dataWrapper))success
+               failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
+    
+    [self getObjectsWithPath:path
+                   paramters:nil
+                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+                         if (jsonData) {
+                             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
+                             [MCKUser setCurrentUser:user];
+                         } else {
+                             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                         }
+                         
+                         if (success) {
+                             success(dataWrapper);
+                         }
+                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                         if (failure) {
+                             failure(error);
+                         }
+                     }];
+}
 
 #pragma mark -
 #pragma mark User & friend profile

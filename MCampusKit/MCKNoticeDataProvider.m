@@ -11,6 +11,8 @@
 #import "MCKMms.h"
 #import "MCKNotice.h"
 #import "MCKVote.h"
+#import "MCKOutboxNotice.h"
+#import "MCKNoticeReply.h"
 
 @implementation MCKNoticeDataProvider
 
@@ -29,7 +31,7 @@
          if ([jsonData isKindOfClass:[NSArray class]]) {
              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
 
-             for (NSDictionary *attributes in jsonData) {
+             for (NSDictionary * attributes in jsonData) {
                  MCKNotice *notice = [[MCKNotice alloc] init];
                  [notice unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:notice];
@@ -290,5 +292,104 @@
          }
      }];
 }
+
+#pragma mark -
+#pragma mark 教师版接口
+
+// http://192.168.100.48:9092/rest/v1/t/msg/outbox/list?uid=39&t=&getlatest=0&from=2068
+- (void)getTeacherOutboxMessages:(NSString *)latestType
+    from:(NSString *)from
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/msg/outbox/list?getlatest=%@&from=%@", latestType, from];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+
+         if ([jsonData isKindOfClass:[NSArray class]]) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
+
+             for (NSDictionary * attributes in jsonData) {
+                 MCKOutboxNotice *notice = [[MCKOutboxNotice alloc] init];
+                 [notice unpackDictionary:attributes];
+                 [dataWrapper.modelList addObject:notice];
+             }
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+// http://192.168.100.48:9092/rest/v1/t/msg/outbox/delete/2047?uid=12&t=
+- (void)deleteOutboxNoticeWithNoticeId:(NSString *)noticeId
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/msg/outbox/delete/%@?", noticeId];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+
+         if (jsonData) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+             [dataWrapper.modelList addObject:jsonData];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+// http://192.168.100.48:9092/rest/v1/t/msg/outbox/message/748/reply/p1?uid=39&t=
+- (void)getTeacherReplyUsers:(NSString *)noticeId
+                     success:(void (^)(MCKDataWrapper *dataWrapper))success
+                     failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/msg/outbox/message/%@/reply/p1?", noticeId];
+    
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+                              
+                              if ([jsonData isKindOfClass:[NSArray class]]) {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
+                                  
+                                  for (NSDictionary * attributes in jsonData) {
+                                      MCKNoticeReply *notice = [[MCKNoticeReply alloc] init];
+                                      [notice unpackDictionary:attributes];
+                                      [dataWrapper.modelList addObject:notice];
+                                  }
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
+}
+
 
 @end

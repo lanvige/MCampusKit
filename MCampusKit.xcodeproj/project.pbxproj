@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38188AE61720EB8B00AF6CAD /* MCKOutboxNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 38188AE51720EB8B00AF6CAD /* MCKOutboxNotice.m */; };
+		38188AE91720F89C00AF6CAD /* MCKNoticeReply.m in Sources */ = {isa = PBXBuildFile; fileRef = 38188AE81720F89C00AF6CAD /* MCKNoticeReply.m */; };
 		383CC20F1701960700328A7D /* MCKDataWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC2081701960700328A7D /* MCKDataWrapper.m */; };
 		383CC2101701960700328A7D /* MCKError.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC20A1701960700328A7D /* MCKError.m */; };
 		383CC2111701960700328A7D /* MCKModelBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 383CC20C1701960700328A7D /* MCKModelBase.m */; };
@@ -79,6 +81,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38188AE41720EB8B00AF6CAD /* MCKOutboxNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKOutboxNotice.h; sourceTree = "<group>"; };
+		38188AE51720EB8B00AF6CAD /* MCKOutboxNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKOutboxNotice.m; sourceTree = "<group>"; };
+		38188AE71720F89C00AF6CAD /* MCKNoticeReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKNoticeReply.h; sourceTree = "<group>"; };
+		38188AE81720F89C00AF6CAD /* MCKNoticeReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKNoticeReply.m; sourceTree = "<group>"; };
 		383CC2061701960700328A7D /* MCKCustomError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCustomError.h; sourceTree = "<group>"; };
 		383CC2071701960700328A7D /* MCKDataWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKDataWrapper.h; sourceTree = "<group>"; };
 		383CC2081701960700328A7D /* MCKDataWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDataWrapper.m; sourceTree = "<group>"; };
@@ -304,10 +310,14 @@
 				383CC26C1701989600328A7D /* MCKNotice.m */,
 				383CC26D1701989600328A7D /* MCKNotification.h */,
 				383CC26E1701989600328A7D /* MCKNotification.m */,
+				38188AE41720EB8B00AF6CAD /* MCKOutboxNotice.h */,
+				38188AE51720EB8B00AF6CAD /* MCKOutboxNotice.m */,
 				383CC26F1701989600328A7D /* MCKVote.h */,
 				383CC2701701989600328A7D /* MCKVote.m */,
 				383CC2711701989600328A7D /* MCKVoteOption.h */,
 				383CC2721701989600328A7D /* MCKVoteOption.m */,
+				38188AE71720F89C00AF6CAD /* MCKNoticeReply.h */,
+				38188AE81720F89C00AF6CAD /* MCKNoticeReply.m */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -588,6 +598,8 @@
 				383CC2B61701D5AB00328A7D /* MCKMessageSummaryDataProvider.m in Sources */,
 				383CC2B71701D5AB00328A7D /* MCKNoticationDataProvider.m in Sources */,
 				383CC2B81701D5AB00328A7D /* MCKNoticeDataProvider.m in Sources */,
+				38188AE61720EB8B00AF6CAD /* MCKOutboxNotice.m in Sources */,
+				38188AE91720F89C00AF6CAD /* MCKNoticeReply.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

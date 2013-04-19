@@ -43,7 +43,12 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)loginWithPhone:(NSString *)nameOrPhone
+- (void)loginWithPhone:(NSString *)phone
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
+
+- (void)teacherLoginWithNameOrPhone:(NSString *)nameOrPhone
     password:(NSString *)password
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
