@@ -297,7 +297,7 @@
 #pragma mark 教师版接口
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/list?uid=39&t=&getlatest=0&from=2068
-- (void)getTeacherOutboxMessages:(NSString *)latestType
+- (void)getTeacherOutboxMessagesWithType:(NSString *)latestType
     from:(NSString *)from
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
@@ -328,6 +328,44 @@
              failure(error);
          }
      }];
+}
+
+- (void)getFreshTeacherOutboxMessagesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+                                         failure:(void (^)(NSError *error))failure
+{
+    [self getTeacherOutboxMessagesWithType:@"1" from:@"" success:^(MCKDataWrapper *dataWrapper) {
+        if (success) {
+            success(dataWrapper);
+        }
+    } failure:^(NSError *error) {
+        failure (error);
+    }];
+}
+
+- (void)getUpdateTeacherOutboxMessageFrom:(NSString *)fromId
+                                success:(void (^)(MCKDataWrapper *dataWrapper))success
+                                failure:(void (^)(NSError *error))failure
+{
+    [self getTeacherOutboxMessagesWithType:@"1" from:fromId success:^(MCKDataWrapper *dataWrapper) {
+        if (success) {
+            success(dataWrapper);
+        }
+    } failure:^(NSError *error) {
+        failure (error);
+    }];
+}
+
+- (void)getMoreTeacherOutboxMessageFrom:(NSString *)fromId
+                                success:(void (^)(MCKDataWrapper *dataWrapper))success
+                                failure:(void (^)(NSError *error))failure
+{
+    [self getTeacherOutboxMessagesWithType:@"0" from:fromId success:^(MCKDataWrapper *dataWrapper) {
+        if (success) {
+            success(dataWrapper);
+        }
+    } failure:^(NSError *error) {
+        failure (error);
+    }];
 }
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/delete/2047?uid=12&t=
