@@ -455,13 +455,13 @@
      }];
 }
 
-
+// Post request to add new notice.
 - (void)addNoticeWithClassId:(NSString *)classId
     content:(NSString *)content
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    NSString *path = @"v1/sns/topic/add/withpic";
+    NSString *path = @"v1/t/msg/send";
 
     MCKUser *currentUser = [MCKUser currentUser];
 
