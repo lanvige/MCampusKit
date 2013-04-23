@@ -430,4 +430,26 @@
 }
 
 
+- (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *))success
+                                  failure:(void (^)(NSError *))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/msg/schoolsandclasses?"];
+    
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+                              
+                              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+                              [dataWrapper.modelList addObject:jsonData];
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
+}
+
 @end

@@ -15,6 +15,7 @@
 @interface MCKUserDataProvider : MCKBaseDataProvider
 {
 }
+
 - (void)sendCodeWithPhone:(NSString *)phone
     type:(NSString *)type
     success:(void (^)(MCKDataWrapper *dataWrapper))success

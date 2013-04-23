@@ -85,4 +85,7 @@
                      success:(void (^)(MCKDataWrapper *dataWrapper))success
                      failure:(void (^)(NSError *error))failure;
 
+- (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+                                   failure:(void (^)(NSError *error))failure;
+
 @end
