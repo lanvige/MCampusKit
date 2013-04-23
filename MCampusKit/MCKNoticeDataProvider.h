@@ -81,12 +81,14 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getTeacherReplyUsers:(NSString *)noticeId
+- (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
+
+- (void)getNoticeRepliesWithNoticeId:(NSString *)noticeId
+                          pageNumber:(NSInteger)pageNumber
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
 
 - (void)addNoticeWithClassId:(NSString *)classId
     content:(NSString *)content

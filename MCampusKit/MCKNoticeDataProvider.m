@@ -398,11 +398,12 @@
 }
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/message/748/reply/p1?uid=39&t=
-- (void)getTeacherReplyUsers:(NSString *)noticeId
+- (void)getNoticeRepliesWithNoticeId:(NSString *)noticeId
+                          pageNumber:(NSInteger)pageNumber
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    NSString *path = [NSString stringWithFormat:@"v1/t/msg/outbox/message/%@/reply/p1?", noticeId];
+    NSString *path = [NSString stringWithFormat:@"v1/t/msg/outbox/message/%@/reply/p%d?", noticeId, pageNumber];
 
     [self getObjectsWithTokenPath:path
                         paramters:nil
