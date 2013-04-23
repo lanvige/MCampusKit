@@ -311,7 +311,7 @@
                                       constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
                                      if (imageData) {
                                          [formData appendPartWithFileData:imageData name:@"file"
-                                                                 fileName:@"imagefile"
+                                                                 fileName:@"file.jpg"
                                                                  mimeType:@"image/jpeg"];
                                      }
                                  }];
