@@ -310,7 +310,9 @@
                                                      parameters:params
                                       constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
                                      if (imageData) {
-                                         [formData appendPartWithFileData:imageData name:@"upload" fileName:@"imagefile" mimeType:@"image/jpeg"];
+                                         [formData appendPartWithFileData:imageData name:@"file"
+                                                                 fileName:@"imagefile"
+                                                                 mimeType:@"image/jpeg"];
                                      }
                                  }];
 
