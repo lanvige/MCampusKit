@@ -430,6 +430,7 @@
 }
 
 
+// http://192.168.100.48:9092/rest/v1/t/msg/schoolsandclasses?uid=12&t=
 - (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *))success
                                   failure:(void (^)(NSError *))failure
 {
