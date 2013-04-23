@@ -13,6 +13,7 @@
 #import "MCKVote.h"
 #import "MCKOutboxNotice.h"
 #import "MCKNoticeReply.h"
+#import "MCKUser.h"
 
 @implementation MCKNoticeDataProvider
 
@@ -331,41 +332,41 @@
 }
 
 - (void)getFreshTeacherOutboxMessagesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                                         failure:(void (^)(NSError *error))failure
+    failure:(void (^)(NSError *error))failure
 {
     [self getTeacherOutboxMessagesWithType:@"1" from:@"" success:^(MCKDataWrapper *dataWrapper) {
-        if (success) {
-            success(dataWrapper);
-        }
-    } failure:^(NSError *error) {
-        failure (error);
-    }];
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(NSError *error) {
+         failure(error);
+     }];
 }
 
 - (void)getUpdateTeacherOutboxMessageFrom:(NSString *)fromId
-                                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                failure:(void (^)(NSError *error))failure
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
 {
     [self getTeacherOutboxMessagesWithType:@"1" from:fromId success:^(MCKDataWrapper *dataWrapper) {
-        if (success) {
-            success(dataWrapper);
-        }
-    } failure:^(NSError *error) {
-        failure (error);
-    }];
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(NSError *error) {
+         failure(error);
+     }];
 }
 
 - (void)getMoreTeacherOutboxMessageFrom:(NSString *)fromId
-                                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                failure:(void (^)(NSError *error))failure
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
 {
     [self getTeacherOutboxMessagesWithType:@"0" from:fromId success:^(MCKDataWrapper *dataWrapper) {
-        if (success) {
-            success(dataWrapper);
-        }
-    } failure:^(NSError *error) {
-        failure (error);
-    }];
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(NSError *error) {
+         failure(error);
+     }];
 }
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/delete/2047?uid=12&t=
@@ -398,59 +399,92 @@
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/message/748/reply/p1?uid=39&t=
 - (void)getTeacherReplyUsers:(NSString *)noticeId
-                     success:(void (^)(MCKDataWrapper *dataWrapper))success
-                     failure:(void (^)(NSError *error))failure
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/t/msg/outbox/message/%@/reply/p1?", noticeId];
-    
+
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-                              
-                              if ([jsonData isKindOfClass:[NSArray class]]) {
-                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
-                                  
-                                  for (NSDictionary * attributes in jsonData) {
-                                      MCKNoticeReply *notice = [[MCKNoticeReply alloc] init];
-                                      [notice unpackDictionary:attributes];
-                                      [dataWrapper.modelList addObject:notice];
-                                  }
-                              } else {
-                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-                              }
-                              
-                              if (success) {
-                                  success(dataWrapper);
-                              }
-                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                              if (failure) {
-                                  failure(error);
-                              }
-                          }];
+
+         if ([jsonData isKindOfClass:[NSArray class]]) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
+
+             for (NSDictionary * attributes in jsonData) {
+                 MCKNoticeReply *notice = [[MCKNoticeReply alloc] init];
+                 [notice unpackDictionary:attributes];
+                 [dataWrapper.modelList addObject:notice];
+             }
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 
 // http://192.168.100.48:9092/rest/v1/t/msg/schoolsandclasses?uid=12&t=
 - (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *))success
-                                  failure:(void (^)(NSError *))failure
+    failure:(void (^)(NSError *))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/t/msg/schoolsandclasses?"];
-    
+
     [self getObjectsWithTokenPath:path
                         paramters:nil
                           success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-                              
-                              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
-                              [dataWrapper.modelList addObject:jsonData];
-                              
-                              if (success) {
-                                  success(dataWrapper);
-                              }
-                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                              if (failure) {
-                                  failure(error);
-                              }
-                          }];
+
+         dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+         [dataWrapper.modelList addObject:jsonData];
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+
+- (void)addNoticeWithClassId:(NSString *)classId
+    content:(NSString *)content
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
+{
+    NSString *path = @"v1/sns/topic/add/withpic";
+
+    MCKUser *currentUser = [MCKUser currentUser];
+
+    NSDictionary *params = @{
+        @"class" :classId,
+        @"content" :content,
+        @"uid" : currentUser.mId,
+        @"t" : currentUser.accessToken
+    };
+
+    [self saveObjectWithPath:path
+                  parameters:params
+                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject) {
+         dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+         [dataWrapper.modelList addObject:responseObject];
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 @end

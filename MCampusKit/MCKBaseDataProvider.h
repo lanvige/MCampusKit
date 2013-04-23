@@ -39,7 +39,8 @@
 
 - (void)saveObjectWithPath:(NSString *)path
                 parameters:(NSDictionary *)params
-                completion:(void (^)(id jsonData))block;
+                   success:(MCKHTTPClientWrapperSuccess)success
+                   failure:(MCKHTTPClientFailure)failure;
 
 - (void)saveObjectWithMultiHeaderAndPath:(NSString *)path
                               parameters:(NSDictionary *)params

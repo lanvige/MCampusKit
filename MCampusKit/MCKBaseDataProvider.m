@@ -48,7 +48,7 @@
     NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET"
                                                                               path:path
                                                                         parameters:parameters];
-    [request setTimeoutInterval:20];
+    [request setTimeoutInterval:10];
 
     AFHTTPRequestOperation *operation = [[MCKHTTPClient sharedClient]
                                          HTTPRequestOperationWithRequest:request
@@ -237,19 +237,42 @@
 
 - (void)saveObjectWithPath:(NSString *)path
     parameters:(NSDictionary *)params
-    completion:(void (^)(id jsonData))block
+    success:(MCKHTTPClientWrapperSuccess)success
+    failure:(MCKHTTPClientFailure)failure
 {
 
     [[MCKHTTPClient sharedClient] postPath:path
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id response) {
-         NSLog(@"SAVE SUCCESS - %s ", __PRETTY_FUNCTION__);
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+         [dataWrapper unpackDictionary:response];
 
-         if (block) {
-             block(response);
+         id jsonData = [response safeObjectForKey:@"data"];
+
+         if (dataWrapper.isSuccess) {
+             if ([jsonData isEqual:@"0"]) {
+                 NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+                 [errDict setValue:@"Unkonw server issue" forKey:NSLocalizedDescriptionKey];
+                 NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+
+                 if (failure) {
+                     failure((AFJSONRequestOperation *) operation, error);
+                 }
+             } else if (success) {
+                 success(operation, dataWrapper, jsonData);
+             }
+         } else {
+             if (failure) {
+                 NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+                 [errDict setValue:dataWrapper.error.message forKey:NSLocalizedDescriptionKey];
+                 NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+
+                 failure((AFJSONRequestOperation *) operation, error);
+             }
          }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          NSLog(@"SAVE ERROR - %@", error);
+         failure((AFJSONRequestOperation *) operation, error);
      }];
 }
 

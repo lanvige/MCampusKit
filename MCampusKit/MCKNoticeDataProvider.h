@@ -62,30 +62,35 @@
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/list?uid=39&t=&getlatest=0&from=2068
 - (void)getTeacherOutboxMessagesWithType:(NSString *)latestType
-                            from:(NSString *)from
-                         success:(void (^)(MCKDataWrapper *dataWrapper))success
-                         failure:(void (^)(NSError *error))failure;
+    from:(NSString *)from
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getFreshTeacherOutboxMessagesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                                         failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getUpdateTeacherOutboxMessageFrom:(NSString *)fromId
-                                  success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                  failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMoreTeacherOutboxMessageFrom:(NSString *)fromId
-                                success:(void (^)(MCKDataWrapper *dataWrapper))success
-                                failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)deleteOutboxNoticeWithNoticeId:(NSString *)noticeId
-                               success:(void (^)(MCKDataWrapper *dataWrapper))success
-                               failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getTeacherReplyUsers:(NSString *)noticeId
-                     success:(void (^)(MCKDataWrapper *dataWrapper))success
-                     failure:(void (^)(NSError *error))failure;
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 - (void)getMySchoolsAndClassesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
-                                   failure:(void (^)(NSError *error))failure;
+    failure:(void (^)(NSError *error))failure;
+
+- (void)addNoticeWithClassId:(NSString *)classId
+    content:(NSString *)content
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
 
 @end
