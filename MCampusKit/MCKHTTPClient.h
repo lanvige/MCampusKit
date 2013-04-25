@@ -17,7 +17,8 @@ typedef void (^MCKHTTPClientFailure)(AFJSONRequestOperation *operation, NSError 
 
 @interface MCKHTTPClient : AFHTTPClient
 
-+ (MCKHTTPClient *)sharedClient;;
++ (MCKHTTPClient *)sharedClient;
++ (id)initWithPrefixURL:(NSString *)url;
 
 @end
 

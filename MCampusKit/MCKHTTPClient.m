@@ -14,14 +14,29 @@
     dispatch_queue_t _callbackQueue;
 }
 
+// Not sure problem
+static MCKHTTPClient *sharedClient = nil;
+
 + (MCKHTTPClient *)sharedClient
 {
-    static MCKHTTPClient *sharedClient = nil;
-    static dispatch_once_t onceToken;
+    ////    static MCKHTTPClient *sharedClient = nil;
+    //    static dispatch_once_t onceToken;
+    //
+    //    dispatch_once(&onceToken, ^{
+    //                      sharedClient = [[self alloc] init];
+    //                  });
+    return sharedClient;
+}
 
++ (id)initWithPrefixURL:(NSString *)url
+{
+    NSURL *base = [NSURL URLWithString:url];
+    
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-                      sharedClient = [[self alloc] init];
-                  });
+        sharedClient = [[self alloc] initWithUrl:base];
+    });
+    
     return sharedClient;
 }
 
@@ -29,17 +44,15 @@
 #pragma mark -
 #pragma mark NSObject
 
-- (id)init
+- (id)initWithUrl:(NSURL *)url
 {
-    NSURL *base = [NSURL URLWithString:kMCKAPIHost];
-
-    if ((self = [super initWithBaseURL:base])) {
+    if ((self = [super initWithBaseURL:url])) {
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         // Accept HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
         [self setDefaultHeader:@"Accept" value:@"application/json"];
         _callbackQueue = dispatch_queue_create("com.lantop.mcampus.network-callback-queue", 0);
     }
-
+    
     return self;
 }
 

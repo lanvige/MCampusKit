@@ -17,4 +17,4 @@
 
 extern NSString *const kMCKKeychainServiceName;
 
-extern NSString *const kMCKAPIHost;
+
