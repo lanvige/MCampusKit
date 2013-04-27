@@ -399,7 +399,7 @@
 
 // http://192.168.100.48:9092/rest/v1/t/msg/outbox/message/748/reply/p1?uid=39&t=
 - (void)getNoticeRepliesWithNoticeId:(NSString *)noticeId
-                          pageNumber:(NSInteger)pageNumber
+    pageNumber:(NSInteger)pageNumber
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
@@ -472,16 +472,17 @@
         @"t" : currentUser.accessToken
     };
 
-    [self saveObjectWithPath:path
-                  parameters:params
-                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject) {
+    [self saveObjectWithMultiHeaderAndPath:path
+                                parameters:params
+                                   success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject) {
+
          dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
          [dataWrapper.modelList addObject:responseObject];
 
          if (success) {
              success(dataWrapper);
          }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     } failure:^(AFJSONRequestOperation *operation, NSError *error) {
          if (failure) {
              failure(error);
          }

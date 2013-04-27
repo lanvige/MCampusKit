@@ -31,20 +31,6 @@
     // encode url fix chinese issue.
     path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-//    if (![[NetworkReachabilityManager sharedInstance] isNetworkReachability]) {
-//
-//        // Check network:
-//        if (failure) {
-//            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
-//            [errDict setValue:@"网络不可用..." forKey:NSLocalizedDescriptionKey];
-//            NSError *err = [NSError errorWithDomain:MCCustomErrorDomain code:MCSystemError userInfo:errDict];
-//
-//            failure(nil, err);
-//
-//            return;
-//        }
-//    }
-
     NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET"
                                                                               path:path
                                                                         parameters:parameters];
@@ -154,20 +140,6 @@
     success:(void (^)(NSArray *operations))success
     failure:(void (^)(NSError *error))failure
 {
-    // Network check
-//    if (![[NetworkReachabilityManager sharedInstance] isNetworkReachability]) {
-//
-//        // Check network:
-//        if (failure) {
-//            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
-//            [errDict setValue:@"网络不可用..." forKey:NSLocalizedDescriptionKey];
-//            NSError *err = [NSError errorWithDomain:MCCustomErrorDomain code:MCSystemError userInfo:errDict];
-//            failure(err);
-//
-//            return;
-//        }
-//    }
-
     MCKUser *currentUser = [MCKUser currentUser];
 
     if (!currentUser) {
@@ -240,7 +212,6 @@
     success:(MCKHTTPClientWrapperSuccess)success
     failure:(MCKHTTPClientFailure)failure
 {
-
     [[MCKHTTPClient sharedClient] postPath:path
                                 parameters:params
                                    success:^(AFHTTPRequestOperation *operation, id response) {
@@ -278,29 +249,47 @@
 
 - (void)saveObjectWithMultiHeaderAndPath:(NSString *)path
     parameters:(NSDictionary *)params
-    completion:(void (^)(id jsonData))completionBlock
+    success:(MCKHTTPClientWrapperSuccess)success
+    failure:(MCKHTTPClientFailure)failure
 {
     NSMutableURLRequest *postRequest = [[MCKHTTPClient sharedClient]
                                         multipartFormRequestWithMethod:@"POST"
                                                                   path:path
                                                             parameters:params
-                                             constructingBodyWithBlock: ^(id formData) {
-//                   NSMutableDictionary *headers = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                                   @"application/x-www-form-urlencoded; charset=UTF-8",@"Content-Type",
-//                                                   [NSString stringWithFormat:@"form-data; name=\"%@\"", @"usr_info"],@"Content-Disposition"
-//                                                   , nil];
-//                   [formData appendPartWithHeaders:headers body:];
-                                        }];
+                                             constructingBodyWithBlock: ^(id formData) {}];
 
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
 
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-         if (completionBlock) {
-             completionBlock(responseObject);
+         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
+         [dataWrapper unpackDictionary:responseObject];
+
+         id jsonData = [responseObject safeObjectForKey:@"data"];
+
+         if (dataWrapper.isSuccess) {
+             if ([jsonData isEqual:@"0"]) {
+                 NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+                 [errDict setValue:@"Unkonw server issue" forKey:NSLocalizedDescriptionKey];
+                 NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+
+                 if (failure) {
+                     failure((AFJSONRequestOperation *) operation, error);
+                 }
+             } else if (success) {
+                 success(operation, dataWrapper, jsonData);
+             }
+         } else {
+             if (failure) {
+                 NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
+                 [errDict setValue:dataWrapper.error.message forKey:NSLocalizedDescriptionKey];
+                 NSError *error = [NSError errorWithDomain:MCKCustomErrorDomain code:MCKSystemError userInfo:errDict];
+
+                 failure((AFJSONRequestOperation *) operation, error);
+             }
          }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         // failure :(
-         // completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
+         NSLog(@"SAVE ERROR - %@", error);
+         failure((AFJSONRequestOperation *) operation, error);
      }];
 
     [operation start];
@@ -313,20 +302,6 @@
     progress:(void (^)(CGFloat progress))progressBlock
     completion:(void (^)(BOOL success, NSError *error, id jsonData))completionBlock
 {
-
-    // Network check
-//    if (![[NetworkReachabilityManager sharedInstance] isNetworkReachability]) {
-//        // Check network:
-//        if (completionBlock) {
-//            NSMutableDictionary *errDict = [NSMutableDictionary dictionary];
-//            [errDict setValue:@"网络不可用..." forKey:NSLocalizedDescriptionKey];
-//            NSError *err = [NSError errorWithDomain:MCCustomErrorDomain code:MCSystemError userInfo:errDict];
-//            completionBlock(FALSE, err, nil);
-//
-//            return;
-//        }
-//    }
-
     NSURLRequest *postRequest = [[MCKHTTPClient sharedClient]
                                  multipartFormRequestWithMethod:@"POST"
                                                            path:path

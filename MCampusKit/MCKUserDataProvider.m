@@ -183,30 +183,30 @@
 
 // http://192.168.100.48:9092/rest/v1/t/user/login?nameorphone=13611735816&pwd=e10adc3949ba59abbe56e057f20f883e&t=
 - (void)teacherLoginWithNameOrPhone:(NSString *)phone
-              password:(NSString *)password
-               success:(void (^)(MCKDataWrapper *dataWrapper))success
-               failure:(void (^)(NSError *error))failure
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"v1/t/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
-    
+
     [self getObjectsWithPath:path
                    paramters:nil
                      success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-                         if (jsonData) {
-                             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
-                             [MCKUser setCurrentUser:user];
-                         } else {
-                             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-                         }
-                         
-                         if (success) {
-                             success(dataWrapper);
-                         }
-                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                         if (failure) {
-                             failure(error);
-                         }
-                     }];
+         if (jsonData) {
+             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
+             [MCKUser setCurrentUser:user];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 #pragma mark -
@@ -272,7 +272,7 @@
     failure:(void (^)(NSError *error))failure
 {
     MCKUser *currentUser = [MCKUser currentUser];
-    
+
     NSString *path = @"v1/user/ios/info/update";
 
     NSDictionary *params = @{
@@ -288,15 +288,13 @@
     };
 
     [self saveObjectWithMultiHeaderAndPath:path
-                                parameters:params
-                                completion:^(id jsonData) {
-         MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
-         [dataWrapper unpackDictionary:jsonData];
-
-         [dataWrapper.modelList addObject:nil];
-
+                                parameters:params success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id responseObject) {
          if (success) {
              success(dataWrapper);
+         }
+     } failure:^(AFJSONRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
          }
      }];
 }
@@ -316,7 +314,7 @@
     failure:(void (^)(NSError *error))failure
 {
     MCKUser *currentUser = [MCKUser currentUser];
-    
+
     NSString *path = @"v1/user/icon/save";
 
     NSDictionary *params = @{
