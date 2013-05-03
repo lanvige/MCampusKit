@@ -292,7 +292,7 @@
          failure((AFJSONRequestOperation *) operation, error);
      }];
 
-    [operation start];
+    [[MCKHTTPClient sharedClient] enqueueHTTPRequestOperation:operation];
 }
 
 
@@ -308,7 +308,8 @@
                                                      parameters:params
                                       constructingBodyWithBlock:^(id < AFMultipartFormData > formData) {
                                      if (imageData) {
-                                         [formData appendPartWithFileData:imageData name:@"file"
+                                         [formData appendPartWithFileData:imageData
+                                                                     name:@"file"
                                                                  fileName:@"file.jpg"
                                                                  mimeType:@"image/jpeg"];
                                      }
