@@ -73,7 +73,7 @@
 
              for (NSDictionary * attributes in jsonData) {
                  MCKCourse *course = [[MCKCourse alloc] init];
-                 [course unpackDictionary:jsonData];
+                 [course unpackDictionary:attributes];
                  [dataWrapper.modelList addObject:course];
              }
          } else {
