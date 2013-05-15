@@ -128,6 +128,30 @@
      }];
 }
 
+
+// 单个课件的帧信息列表(4.3) 参数：课件ID
+// http://192.168.100.48:9092/rest/v2/course/courseware/527/frames?uid=12&t=C6EA77605626FC74
+- (void)getCoursewareFrameInfoContentWithCoursewareId:(NSString *)coursewareId
+    success:(void (^)(id responseObject))success
+    failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v2/course/courseware/%@/frames?", coursewareId];
+
+    [self getContentWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         id jsonData = [responseObject safeObjectForKey:@"data"];
+
+         if (success) {
+             success(jsonData);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
 // Get the #Content# not object.
 // http://222.66.33.210:9092/rest/v1/course/courseware/5?course=92&from=&client=2&uid=3&t=F3CD921D2CA61426
 // http://222.66.33.210:9092/rest/v1/course/courseware/5?uid=39&course=2&from=&t=F0B09E1537ACCA3A

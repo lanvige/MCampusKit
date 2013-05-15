@@ -32,6 +32,10 @@
     success:(void (^)(MCKDataWrapper *))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)getCoursewareFrameInfoContentWithCoursewareId:(NSString *)coursewareId
+    success:(void (^)(id responseObject))success
+    failure:(void (^)(NSError *error))failure;
+
 - (void)getCoursewareCommentsContentWithCoursewareId:(NSString *)coursewareId
     success:(void (^)(id jsonData))success
     failure:(void (^)(NSError *error))failure;
