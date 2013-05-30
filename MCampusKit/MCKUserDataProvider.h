@@ -58,6 +58,10 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)getTeacherUserProfileWithUserId:(NSString *)userId
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
+
 - (void)getMyProfileWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 

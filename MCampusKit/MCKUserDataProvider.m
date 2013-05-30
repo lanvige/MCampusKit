@@ -243,6 +243,35 @@
      }];
 }
 
+// http://192.168.100.48:9092/rest/v1/t/user/39/info?uid=39&t=F0B09E1537ACCA3A
+- (void)getTeacherUserProfileWithUserId:(NSString *)userId
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/user/%@/info?", userId];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+             MCKProfile *profile = [[MCKProfile alloc] init];
+             [profile unpackDictionary:jsonData];
+             [dataWrapper.modelList addObject:profile];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
 - (void)getMyProfileWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
