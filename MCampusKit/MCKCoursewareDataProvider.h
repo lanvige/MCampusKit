@@ -23,6 +23,10 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)getCoursewaresWithCourseIdVt:(NSString *)courseId
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure;
+
 - (void)getCoursewareContentWithCourseId:(NSString *)courseId
     coursewareId:(NSString *)coursewareId
     success:(void (^)(id jsonData))success

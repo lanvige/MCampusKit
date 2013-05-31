@@ -49,7 +49,7 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)teacherLoginWithNameOrPhone:(NSString *)nameOrPhone
+- (void)loginWithNameOrPhoneVt:(NSString *)phone
     password:(NSString *)password
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;

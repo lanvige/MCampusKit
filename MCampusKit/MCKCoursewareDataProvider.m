@@ -63,7 +63,6 @@
      }];
 }
 
-
 // http://192.168.100.48:9092/rest/v2/course/156/coursewares?uid=12&t=C6EA77605626FC74
 - (void)getCoursewaresWithCourseIdV2:(NSString *)courseId
     success:(void (^)(MCKDataWrapper *))success
@@ -92,8 +91,38 @@
              failure(error);
          }
      }];
-
 }
+
+// http://192.168.100.48:9092/rest/v1/t/course/169/coursewares?uid=12&t=C6EA77605626FC74
+- (void)getCoursewaresWithCourseIdVt:(NSString *)courseId
+     success:(void (^)(MCKDataWrapper *))success
+     failure:(void (^)(NSError *))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/course/%@/coursewares?", courseId];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData) {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+
+             MCKCoursewareSet *coursewareSet = [[MCKCoursewareSet alloc] init];
+             [coursewareSet unpackDictionary:jsonData];
+             [dataWrapper.modelList addObject:coursewareSet];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
 
 // 单个课件的帧信息列表(4.3) 参数：课件ID
 // http://192.168.100.48:9092/rest/v2/course/courseware/527/frames?uid=12&t=C6EA77605626FC74

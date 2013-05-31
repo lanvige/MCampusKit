@@ -182,7 +182,7 @@
 }
 
 // http://192.168.100.48:9092/rest/v1/t/user/login?nameorphone=13611735816&pwd=e10adc3949ba59abbe56e057f20f883e&t=
-- (void)teacherLoginWithNameOrPhone:(NSString *)phone
+- (void)loginWithNameOrPhoneVt:(NSString *)phone
     password:(NSString *)password
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure

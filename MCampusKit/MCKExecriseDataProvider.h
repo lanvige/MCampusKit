@@ -23,6 +23,14 @@
     success:(void (^)(MCKDataWrapper *))success
     failure:(void (^)(NSError *))failure;
 
+- (void)getStudentsDidTheExecriseWithCoursewareIdVt:(NSString *)coursewareId
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure;
+
+- (void)getTeachersDidTheExecriseWithCoursewareIdVt:(NSString *)coursewareId
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure;
+
 - (void)getHighestScoreWithCoursewareId:(NSString *)coursewareId
     success:(void (^)(MCKDataWrapper *))success
     failure:(void (^)(NSError *))failure;

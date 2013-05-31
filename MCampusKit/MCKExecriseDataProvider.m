@@ -105,6 +105,72 @@
      }];
 }
 
+// http://192.168.100.48:9092/rest/v1/t/course/exercise/students?uid=12&t=C6EA77605626FC74&courseware=1
+- (void)getStudentsDidTheExecriseWithCoursewareIdVt:(NSString *)coursewareId
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/course/exercise/students?courseware=%@", coursewareId];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData) {
+             NSArray *friendList = (NSArray *) jsonData;
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendList count]];
+
+             for (NSDictionary * attributes in friendList) {
+                 MCKFriend *friend = [[MCKFriend alloc] init];
+                 [friend unpackDictionary:attributes];
+                 [dataWrapper.modelList addObject:friend];
+             }
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+// http://192.168.100.48:9092/rest/v1/t/course/exercise/teachers?uid=12&t=C6EA77605626FC74&courseware=1
+- (void)getTeachersDidTheExecriseWithCoursewareIdVt:(NSString *)coursewareId
+    success:(void (^)(MCKDataWrapper *))success
+    failure:(void (^)(NSError *))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/course/exercise/teachers?courseware=%@", coursewareId];
+
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData) {
+             NSArray *friendList = (NSArray *) jsonData;
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendList count]];
+
+             for (NSDictionary * attributes in friendList) {
+                 MCKFriend *friend = [[MCKFriend alloc] init];
+                 [friend unpackDictionary:attributes];
+                 [dataWrapper.modelList addObject:friend];
+             }
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
 // http://192.168.100.48:9092/rest/v1/course/courseware/5/exercise/score?uid=10&t=49832AA1628239C5
 - (void)getHighestScoreWithCoursewareId:(NSString *)coursewareId
     success:(void (^)(MCKDataWrapper *))success
