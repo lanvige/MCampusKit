@@ -18,6 +18,8 @@
 #pragma mark -
 #pragma mark Register, Login
 
+#pragma mark - Active Code
+
 // http://222.66.33.210:9092/rest/v1/user/activate/sendcode?phone=13681667933&type=1
 // Error null, Data 0, 1?
 - (void)sendCodeWithPhone:(NSString *)phone
@@ -69,6 +71,67 @@
          }
      }];
 }
+
+
+#pragma mark - login
+
+// http://222.66.33.210:9092/rest/v1/user/login?nameorphone=13681667933&pwd=e10adc3949ba59abbe56e057f20f883e&t=
+- (void)loginWithPhone:(NSString *)phone
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
+
+    [self getObjectsWithPath:path
+                   paramters:nil
+                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData) {
+             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
+             [MCKUser setCurrentUser:user];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+// http://192.168.100.48:9092/rest/v1/t/user/login?nameorphone=13611735816&pwd=e10adc3949ba59abbe56e057f20f883e&t=
+- (void)loginVtWithNameOrPhone:(NSString *)phone
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
+
+    [self getObjectsWithPath:path
+                   paramters:nil
+                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (jsonData) {
+             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
+             [MCKUser setCurrentUser:user];
+         } else {
+             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+         }
+
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
+}
+
+#pragma mark - password
 
 // http://222.66.33.210:9092/rest/v1/user/activiate?nameorphone=13681667933&acode=098762&password=123456&ctype=1
 - (void)setPasswordWithPhone:(NSString *)phone
@@ -153,60 +216,13 @@
      }];
 }
 
-// http://222.66.33.210:9092/rest/v1/user/login?nameorphone=13681667933&pwd=e10adc3949ba59abbe56e057f20f883e&t=
-- (void)loginWithPhone:(NSString *)phone
-    password:(NSString *)password
+
+- (void)changePasswordWithOldPassword:(NSString *)oldPassword
+    newPassword:(NSString *)newPassword
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
-    NSString *path = [NSString stringWithFormat:@"v1/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
 
-    [self getObjectsWithPath:path
-                   paramters:nil
-                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData) {
-             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
-             [MCKUser setCurrentUser:user];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
-}
-
-// http://192.168.100.48:9092/rest/v1/t/user/login?nameorphone=13611735816&pwd=e10adc3949ba59abbe56e057f20f883e&t=
-- (void)loginVtWithNameOrPhone:(NSString *)phone
-    password:(NSString *)password
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure
-{
-    NSString *path = [NSString stringWithFormat:@"v1/t/user/login?nameorphone=%@&pwd=%@&client=2", phone, password];
-
-    [self getObjectsWithPath:path
-                   paramters:nil
-                     success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
-         if (jsonData) {
-             MCKUser *user = [MCKUser objectWithDictionary:jsonData];
-             [MCKUser setCurrentUser:user];
-         } else {
-             dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
-         }
-
-         if (success) {
-             success(dataWrapper);
-         }
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         if (failure) {
-             failure(error);
-         }
-     }];
 }
 
 #pragma mark -

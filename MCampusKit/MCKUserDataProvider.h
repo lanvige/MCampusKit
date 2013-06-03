@@ -26,6 +26,19 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
+// 学生版登陆
+- (void)loginWithPhone:(NSString *)phone
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
+
+// 老师版登陆
+- (void)loginVtWithNameOrPhone:(NSString *)phone
+    password:(NSString *)password
+    success:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
+
+
 - (void)setPasswordWithPhone:(NSString *)phone
     password:(NSString *)password
     activeCode:(NSString *)activeCode
@@ -44,13 +57,8 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)loginWithPhone:(NSString *)phone
-    password:(NSString *)password
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
-
-- (void)loginVtWithNameOrPhone:(NSString *)phone
-    password:(NSString *)password
+- (void)changePasswordWithOldPassword:(NSString *)oldPassword
+    newPassword:(NSString *)newPassword
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
