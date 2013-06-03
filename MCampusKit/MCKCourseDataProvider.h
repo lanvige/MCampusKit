@@ -22,10 +22,6 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getCoursesWithTimestamp:(NSString *)timestamp
-    success:(void (^)(MCKDataWrapper *dataWrapper))success
-    failure:(void (^)(NSError *error))failure;
-
 // 顶课程
 - (void)supportCourseWithCourseId:(NSString *)courseId
     success:(void (^)(MCKDataWrapper *dataWrapper))success
