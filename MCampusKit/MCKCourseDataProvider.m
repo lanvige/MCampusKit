@@ -24,6 +24,35 @@
      }];
 }
 
+// http://192.168.100.48:9092/rest/v1/t/course/list?uid=12&from=&t=C6EA77605626FC74
+- (void)getCourseVtWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+                       failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/course/list?"];
+    
+    [self getObjectsWithTokenPath:path paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+                              
+                              if (jsonData) {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[jsonData count]];
+                                  
+                                  for (NSDictionary * attributes in jsonData) {
+                                      MCKCourse *course = [[MCKCourse alloc] init];
+                                      [course unpackDictionary:attributes];
+                                      [dataWrapper.modelList addObject:course];
+                                  }
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              failure(error);
+                          }];
+}
+
 // http://222.66.33.210:9092/rest/v1/course/list/get?uid=39&from=0&t=F0B09E1537ACCA3A
 - (void)getCoursesWithTimestamp:(NSString *)timestamp
     success:(void (^)(MCKDataWrapper *dataWrapper))success

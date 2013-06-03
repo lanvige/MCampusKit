@@ -21,6 +21,7 @@
 @property (nonatomic, assign) NSInteger commentCount;
 @property (nonatomic, assign) NSInteger commentStar;
 @property (nonatomic, strong) NSString *desc;
+@property (nonatomic, assign) NSInteger role; // role:0我的课程；1编辑课程;2授权课程
 @property (nonatomic, strong) NSMutableArray *teacherNameList;
 
 - (void)unpackDictionary:(NSDictionary *)dictionary;

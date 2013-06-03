@@ -15,6 +15,9 @@
 - (void)getCoursesWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)getCourseVtWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+    failure:(void (^)(NSError *error))failure;
+
 - (void)getCoursesWithUserId:(NSString *)userId
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;

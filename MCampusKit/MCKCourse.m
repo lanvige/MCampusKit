@@ -25,6 +25,7 @@
     self.commentCount = [[dictionary safeObjectForKey:@"commentCount"] intValue];
     self.commentStar = [[dictionary safeObjectForKey:@"commentStar"] intValue];
     self.desc = [dictionary safeObjectForKey:@"desc"];
+    self.role = [[dictionary safeObjectForKey:@"role"] intValue];
 
     // Build teacher name list.
     NSMutableArray *teachernameList = [dictionary safeObjectForKey:@"teacherNameList"];
