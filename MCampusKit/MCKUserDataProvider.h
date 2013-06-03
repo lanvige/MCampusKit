@@ -49,7 +49,7 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)loginWithNameOrPhoneVt:(NSString *)phone
+- (void)loginVtWithNameOrPhone:(NSString *)phone
     password:(NSString *)password
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
