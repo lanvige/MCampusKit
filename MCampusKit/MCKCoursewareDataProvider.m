@@ -94,7 +94,7 @@
 }
 
 // http://192.168.100.48:9092/rest/v1/t/course/169/coursewares?uid=12&t=C6EA77605626FC74
-- (void)getCoursewaresWithCourseIdVt:(NSString *)courseId
+- (void)getCoursewaresVtWithCourseId:(NSString *)courseId
      success:(void (^)(MCKDataWrapper *))success
      failure:(void (^)(NSError *))failure
 {

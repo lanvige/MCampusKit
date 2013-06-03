@@ -23,7 +23,7 @@
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
-- (void)getCoursewaresWithCourseIdVt:(NSString *)courseId
+- (void)getCoursewaresVtWithCourseId:(NSString *)courseId
     success:(void (^)(MCKDataWrapper *))success
     failure:(void (^)(NSError *))failure;
 
