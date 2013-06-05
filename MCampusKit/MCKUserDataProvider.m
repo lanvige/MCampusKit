@@ -216,13 +216,25 @@
      }];
 }
 
-
+// http://192.168.100.48:9092/rest/v1/user/changepwd?uid=154&t=195476BCBAF949E7&password=e03ff0111&newpassword=131221123&client=2
 - (void)changePasswordWithOldPassword:(NSString *)oldPassword
     newPassword:(NSString *)newPassword
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure
 {
+    NSString *path = [NSString stringWithFormat:@"v1/user/changepwd?password=%@&newpassword=%@", oldPassword, newPassword];
 
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+         if (success) {
+             success(dataWrapper);
+         }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failure) {
+             failure(error);
+         }
+     }];
 }
 
 #pragma mark -
