@@ -40,7 +40,7 @@ static MCKUser *__currentUser = nil;
     return __currentUser;
 }
 
-+(void)setCurrentUser:(MCKUser *)user
++ (void)setCurrentUser:(MCKUser *)user
 {
     if (__currentUser) {
         [SSKeychain deletePasswordForService:kMCKKeychainServiceName account:__currentUser.mId];
@@ -60,6 +60,20 @@ static MCKUser *__currentUser = nil;
 
     [userDefaults synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:kMCKCurrentUserChangedNotification object:user];
+}
+
++ (void)updateToken:(NSString *)token
+{
+    MCKUser *user = [[self class] currentUser];
+    user.accessToken = token;
+    [[self class] setCurrentUser:user];
+}
+
++ (void)updateAvatar:(NSString *)avatar
+{
+    MCKUser *user = [[self class] currentUser];
+    user.avatar = avatar;
+    [[self class] setCurrentUser:user];
 }
 
 #pragma mark -

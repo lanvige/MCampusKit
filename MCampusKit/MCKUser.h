@@ -18,5 +18,7 @@ extern NSString *const kMCKCurrentUserChangedNotification;
 
 + (MCKUser *)currentUser;
 + (void)setCurrentUser:(MCKUser *)user;
++ (void)updateToken:(NSString *)token;
++ (void)updateAvatar:(NSString *)avatar;
 
 @end
