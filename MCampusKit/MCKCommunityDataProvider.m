@@ -153,7 +153,7 @@
                           }];
 }
 
-// FIXME: 向下取更多？？？
+// 如果Timestamp不传就是刷新取，传的话就是向下取更多？？？
 // http://192.168.100.48:9092/rest/v1/sns/topics/courseware/1?start=0&getlatest=1&uid=154&t=195476BCBAF949E7&client=1
 - (void)getTopicsWithCourseId:(NSString *)courseId
                     timestamp:(NSString *)timestamp
