@@ -13,6 +13,7 @@
 #import "MCKCustomError.h"
 #import "MCKError.h"
 #import "MCKUser.h"
+#import "MCKDefines.h"
 
 // Set AFN timeout
 // http://stackoverflow.com/questions/8304560/how-to-set-a-timeout-with-afnetworking
@@ -34,7 +35,7 @@
     NSMutableURLRequest *request = [[MCKHTTPClient sharedClient] requestWithMethod:@"GET"
                                                                               path:path
                                                                         parameters:parameters];
-    [request setTimeoutInterval:10];
+    [request setTimeoutInterval:kMCKRequestTimeoutName];
 
     AFHTTPRequestOperation *operation = [[MCKHTTPClient sharedClient]
                                          HTTPRequestOperationWithRequest:request
@@ -258,6 +259,8 @@
                                                             parameters:params
                                              constructingBodyWithBlock: ^(id formData) {}];
 
+    [postRequest setTimeoutInterval:kMCKRequestTimeoutName];
+
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
 
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -302,7 +305,7 @@
     progress:(void (^)(CGFloat progress))progressBlock
     completion:(void (^)(BOOL success, NSError *error, id jsonData))completionBlock
 {
-    NSURLRequest *postRequest = [[MCKHTTPClient sharedClient]
+    NSMutableURLRequest *postRequest = [[MCKHTTPClient sharedClient]
                                  multipartFormRequestWithMethod:@"POST"
                                                            path:path
                                                      parameters:params
@@ -314,7 +317,9 @@
                                                                  mimeType:@"image/jpeg"];
                                      }
                                  }];
-
+    
+    [postRequest setTimeoutInterval:kMCKRequestTimeoutName];
+    
     AFHTTPRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:postRequest];
 
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {

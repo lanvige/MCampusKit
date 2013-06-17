@@ -9,3 +9,4 @@
 #import "MCKDefines.h"
 
 NSString *const kMCKKeychainServiceName = @"MCampus";
+NSInteger kMCKRequestTimeoutName = 10;

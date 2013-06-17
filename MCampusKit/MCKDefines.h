@@ -17,4 +17,6 @@
 
 extern NSString *const kMCKKeychainServiceName;
 
+extern NSInteger kMCKRequestTimeoutName;
+
 
