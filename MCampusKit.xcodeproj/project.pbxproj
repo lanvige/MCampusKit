@@ -124,7 +124,7 @@
 		383CC2421701986000328A7D /* MCKCourseware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCourseware.m; sourceTree = "<group>"; };
 		383CC2451701986000328A7D /* MCKCoursewareSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCoursewareSet.h; sourceTree = "<group>"; };
 		383CC2461701986000328A7D /* MCKCoursewareSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKCoursewareSet.m; sourceTree = "<group>"; };
-		383CC2471701986000328A7D /* MCKCoursewareStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCoursewareStatus.h; sourceTree = "<group>"; };
+		383CC2471701986000328A7D /* MCKCoursewareType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKCoursewareType.h; sourceTree = "<group>"; };
 		383CC2481701986000328A7D /* MCKExerciseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKExerciseItem.h; sourceTree = "<group>"; };
 		383CC2491701986000328A7D /* MCKExerciseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKExerciseItem.m; sourceTree = "<group>"; };
 		383CC24A1701986000328A7D /* MCKExerciseItemOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKExerciseItemOption.h; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 				383CC2421701986000328A7D /* MCKCourseware.m */,
 				383CC2451701986000328A7D /* MCKCoursewareSet.h */,
 				383CC2461701986000328A7D /* MCKCoursewareSet.m */,
-				383CC2471701986000328A7D /* MCKCoursewareStatus.h */,
+				383CC2471701986000328A7D /* MCKCoursewareType.h */,
 				383CC2481701986000328A7D /* MCKExerciseItem.h */,
 				383CC2491701986000328A7D /* MCKExerciseItem.m */,
 				383CC24A1701986000328A7D /* MCKExerciseItemOption.h */,

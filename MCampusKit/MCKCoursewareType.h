@@ -11,4 +11,4 @@ typedef enum {
     MCExerciseOnly = 2,
     MCMixed = 3,
     MCOther = 0
-}MCKCoursewareStatus;
+}MCKCoursewareType;
