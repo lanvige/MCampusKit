@@ -389,7 +389,11 @@
      } completion:^(BOOL success2, NSError *error, id jsonData) {
          MCKDataWrapper *dataWrapper = [[MCKDataWrapper alloc] init];
          [dataWrapper unpackDictionary:jsonData];
-         NSString *str = [jsonData objectForKey:@"data"];
+         NSString *str = [jsonData safeObjectForKey:@"data"];
+         if (str == nil) {
+             str = @"";
+         }
+         
          dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
          [dataWrapper.modelList addObject:str];
 
