@@ -32,4 +32,25 @@
      }];
 }
 
+- (void)sendDeviceTokenVtWithDeviceToken:(NSString *)deviceToken
+                               success:(void (^)(MCKDataWrapper *configObject))success
+                               failure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/user/ios/devices/save?n=%@&type=1", deviceToken];
+    
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+                              dataWrapper.modelList = [NSMutableArray arrayWithCapacity:1];
+                              NSString *result = jsonData;
+                              [dataWrapper.modelList addObject:result];
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              failure(error);
+                          }];
+}
+
 @end

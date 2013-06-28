@@ -64,6 +64,7 @@
 		38774E0517017EAC0081D5D2 /* MCampusKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38774E0417017EAC0081D5D2 /* MCampusKit.h */; };
 		38774E0F17017F1C0081D5D2 /* MCKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E0E17017F1C0081D5D2 /* MCKDefines.m */; };
 		38774E1317018B8A0081D5D2 /* NSDictionary+MCampusKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */; };
+		38D81BC5177D5E0E00EBD137 /* MCKFriendVt.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D81BC4177D5E0D00EBD137 /* MCKFriendVt.m */; };
 		A546AA3C56F04E688FDCBE6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A6C20261442B298FCA731 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -195,6 +196,8 @@
 		38774E0E17017F1C0081D5D2 /* MCKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKDefines.m; sourceTree = "<group>"; };
 		38774E1117018B8A0081D5D2 /* NSDictionary+MCampusKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MCampusKit.h"; sourceTree = "<group>"; };
 		38774E1217018B8A0081D5D2 /* NSDictionary+MCampusKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MCampusKit.m"; sourceTree = "<group>"; };
+		38D81BC3177D5E0D00EBD137 /* MCKFriendVt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCKFriendVt.h; sourceTree = "<group>"; };
+		38D81BC4177D5E0D00EBD137 /* MCKFriendVt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCKFriendVt.m; sourceTree = "<group>"; };
 		752AEE64653C440E830F3F34 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB0A6C20261442B298FCA731 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -247,6 +250,8 @@
 		383CC2251701981F00328A7D /* User */ = {
 			isa = PBXGroup;
 			children = (
+				38D81BC3177D5E0D00EBD137 /* MCKFriendVt.h */,
+				38D81BC4177D5E0D00EBD137 /* MCKFriendVt.m */,
 				383CC2261701982C00328A7D /* MCKFriend.h */,
 				383CC2271701982C00328A7D /* MCKFriend.m */,
 				383CC2281701982C00328A7D /* MCKProfile.h */,
@@ -600,6 +605,7 @@
 				383CC2B81701D5AB00328A7D /* MCKNoticeDataProvider.m in Sources */,
 				38188AE61720EB8B00AF6CAD /* MCKOutboxNotice.m in Sources */,
 				38188AE91720F89C00AF6CAD /* MCKNoticeReply.m in Sources */,
+				38D81BC5177D5E0E00EBD137 /* MCKFriendVt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

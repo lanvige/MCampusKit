@@ -11,6 +11,7 @@
 #import "MCKDataWrapper.h"
 #import "MCKHTTPClient.h"
 #import "MCKFriend.h"
+#import "MCKFriendVt.h"
 
 @implementation MCKFriendDataProvider
 
@@ -44,6 +45,37 @@
              failure(error);
          }
      }];
+}
+
+// http://192.168.100.48:9092/rest/v1/t/friend/list?uid=5&from=&t=89D8FA86DDE18B59&client=3
+- (void)getFriendsVtWithSuccess:(void (^)(MCKDataWrapper *))success failure:(void (^)(NSError *))failure
+{
+    NSString *path = [NSString stringWithFormat:@"v1/t/friend/list?from="];
+    
+    [self getObjectsWithTokenPath:path
+                        paramters:nil
+                          success:^(AFHTTPRequestOperation *operation, MCKDataWrapper *dataWrapper, id jsonData) {
+                              if (jsonData) {
+                                  NSArray *friendsArray = (NSArray *) jsonData;
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:[friendsArray count]];
+                                  
+                                  for (NSDictionary * friendDict in friendsArray) {
+                                      MCKFriendVt *friend = [[MCKFriendVt alloc] init];
+                                      [friend unpackDictionary:friendDict];
+                                      [dataWrapper.modelList addObject:friend];
+                                  }
+                              } else {
+                                  dataWrapper.modelList = [NSMutableArray arrayWithCapacity:0];
+                              }
+                              
+                              if (success) {
+                                  success(dataWrapper);
+                              }
+                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                              if (failure) {
+                                  failure(error);
+                              }
+                          }];
 }
 
 // http://192.168.100.48:9092/rest/v1/friend/myfriend/12/get?uid=39&from=0&t=F0B09E1537ACCA3A

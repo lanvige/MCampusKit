@@ -14,4 +14,7 @@
     success:(void (^)(MCKDataWrapper *configObject))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)sendDeviceTokenVtWithDeviceToken:(NSString *)deviceToken
+                                 success:(void (^)(MCKDataWrapper *configObject))success
+                                 failure:(void (^)(NSError *error))failure;
 @end

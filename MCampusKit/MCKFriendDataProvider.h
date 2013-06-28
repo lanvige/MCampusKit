@@ -15,6 +15,9 @@
 - (void)getFriendsWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
 
+- (void)getFriendsVtWithSuccess:(void (^)(MCKDataWrapper *dataWrapper))success
+                      failure:(void (^)(NSError *error))failure;
+
 - (void)getFriendsWithFriendId:(NSString *)friendId
     success:(void (^)(MCKDataWrapper *dataWrapper))success
     failure:(void (^)(NSError *error))failure;
